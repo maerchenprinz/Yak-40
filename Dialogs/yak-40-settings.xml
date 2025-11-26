@@ -1,0 +1,99 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+  <name>equip</name>
+  <layout>vbox</layout>
+  <draggable>true</draggable>
+  <resizable>true</resizable>
+
+  <group>
+    <layout>hbox</layout>
+    <text>
+      <label>General Settings</label>
+    </text>
+
+	<empty>
+	 <stretch>true</stretch>
+	</empty>
+
+    <button>
+      <legend/>
+      <key>Esc</key>
+      <pref-width>16</pref-width>
+      <pref-height>16</pref-height>
+      <border>2</border>
+      <binding>
+        <command>dialog-close</command>
+      </binding>
+    </button>
+  </group>
+
+  <hrule>
+    <pref-height>4</pref-height>
+  </hrule>
+
+
+  <group>
+   <layout>vbox</layout>
+    <text>
+    <halign>left</halign>
+      <label>Cockpit Colour</label>
+    </text>
+  </group>
+
+<hrule/>
+
+  <group>
+   <layout>vbox</layout>
+   <radio>
+    <halign>left</halign>
+    <label>Blue</label>
+    <property>sim/gui/yak-40/cockpit-colour-blue</property>
+    <live>true</live>
+    <binding>
+     <command>dialog-apply</command>
+    </binding>
+     <binding>
+      <command>nasal</command>
+       <script>
+	setprop("yak-40/cockpit-colour", "Blue" );
+	setprop("sim/gui/yak-40/cockpit-colour-blue", 1 );
+	setprop("sim/gui/yak-40/cockpit-colour-brown", 0 );
+       </script>
+     </binding>
+     <binding>
+      <command>dialog-update</command>
+     </binding>
+   </radio>
+
+   <radio>
+    <halign>left</halign>
+    <label>Sandy</label>
+    <property>sim/gui/yak-40/cockpit-colour-brown</property>
+    <live>true</live>
+    <binding>
+     <command>dialog-apply</command>
+    </binding>
+     <binding>
+      <command>nasal</command>
+       <script>
+	setprop("yak-40/cockpit-colour", "Brown" );
+	setprop("sim/gui/yak-40/cockpit-colour-blue", 0 );
+	setprop("sim/gui/yak-40/cockpit-colour-brown", 1 );
+       </script>
+     </binding>
+     <binding>
+      <command>dialog-update</command>
+     </binding>
+   </radio>
+  </group>
+
+  <empty>
+   <stretch>true</stretch>
+  </empty>
+
+  <hrule>
+    <pref-height>4</pref-height>
+  </hrule>
+
+</PropertyList>

@@ -1,0 +1,14 @@
+Rename the folder "yak40-code" to "Yak-40"
+
+Flying:
+- Flaps full, T/O thrust full
+- Rotate at around 190km/h, keep a (really!) low pitch until you reach above 200km/h, raise flaps and let go 
+
+- Autopilot AP-40:
+  - Put up both switches on AP-remote (middle console); left one is "Power ON", right one is "Pitch Channel"
+  - Press middle button or Shift+y to engage AP (Shift+y toggles engage/disengage)
+    - At first init, AP will level wings and hold current pitch
+  - Press right button to engage Altitude Hold
+  - As long as "y" is depressed, "Combined Control" is engaged -> AP servos will be disconnected and plane can be manually controlled
+    - When "y" is released, AP will level wings and hold current pitch
+  - Ctrl-c lets you see the clickspots of the autopilot-"joystick" with which you can control pitch and roll

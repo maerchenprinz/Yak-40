@@ -1,0 +1,30 @@
+The interiour model is made according to the book
+"САМОЛЕТ ЯК-40, ИНСТРУКЦИЯ ПО ЭКСПЛУАТАЦИИ, КНИГА 6"
+aka "Yak_40_IYE_kn_6.pdf" on the net
+
+Example of numbering and naming in this model:
+orp129wl_po-1500_fail.xml
+with:
+- orp = "outer right panel"
+- 129 = number according to book (see above)
+- wl = "warning light"
+- po-1500_fail = short description
+
+From left to right in the cockpit:
+lc = left console
+olp = outer left panel
+lp = left panel
+
+mp = middle panel
+mc = middle console
+oh = overhead
+
+rp = right panel
+orp = outer right panel
+rc = right console
+
+sl = signal light
+wl = warning light
+sw = switch
+btn = button
+kn = knob
