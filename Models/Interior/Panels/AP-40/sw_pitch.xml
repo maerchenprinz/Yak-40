@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+
+<!-- Pitch channel ON -->
+
+<PropertyList>
+ <path>../../shared/switches/vng-15.ac</path>
+
+ <animation>
+  <type>pick</type>
+  <object-name>clickspot_up</object-name>
+  <visible>false</visible>
+  <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <binding>
+      <command>nasal</command>
+      <script>
+	if (getprop("yak-40/AP-40/ap_on") == 1 and getprop("yak-40/AP-40/sw_pitch_channel") == 0.0 ) {
+	setprop("yak-40/AP-40/pitch_channel", 1 );
+	setprop("autopilot/internal/target-pitch-deg", getprop("instrumentation/AGB-3K[0]/indicated-pitch-deg") );
+	setprop("autopilot/locks/altitude", 'pitch-hold' );
+	}
+	interpolate("yak-40/AP-40/sw_pitch_channel", 1.0, 0.1 );
+      </script>
+    </binding>
+  </action>
+   <hovered>
+    <binding>
+      <command>set-tooltip</command>
+      <tooltip-id>APpitchon</tooltip-id>
+      <label>AP Pitch ON</label>
+    </binding>
+   </hovered>
+ </animation>
+
+ <animation>
+  <type>pick</type>
+  <object-name>clickspot_down</object-name>
+  <visible>false</visible>
+  <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <binding>
+      <command>nasal</command>
+      <script>
+	setprop("/autopilot/locks/altitude", '' );
+	setprop("yak-40/AP-40/pitch_channel", 0 );
+	setprop("yak-40/AP-40/kv", 0 );
+	interpolate("yak-40/AP-40/sw_pitch_channel", 0.0, 0.1 );
+      </script>
+    </binding>
+  </action>
+   <hovered>
+    <binding>
+      <command>set-tooltip</command>
+      <tooltip-id>APpitchoff</tooltip-id>
+      <label>AP Pitch OFF</label>
+    </binding>
+   </hovered>
+</animation>
+
+ <animation>
+   <type>rotate</type>
+   <object-name>lever</object-name>
+   <property>yak-40/AP-40/sw_pitch_channel</property>
+  <interpolation>
+    <entry><ind>0.0</ind>	<dep>-25.0</dep></entry>
+    <entry><ind>1.0</ind>	<dep>25.0</dep></entry>
+  </interpolation>
+  <axis>
+    <x>0.0</x>
+    <y>-1.0</y>
+    <z>0.0</z>
+  </axis>
+ </animation>
+</PropertyList>

@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+
+<!-- SLM-61 red, Air Conditioning System Modes -->
+
+<PropertyList>
+ <path>../../shared/lamps/slm-61.ac</path>
+
+<animation>
+ <type>material</type>
+ <object-name>filteron</object-name>
+ <object-name>filteroff</object-name>
+ <object-name>ring</object-name>
+ <texture>../../shared/lamps/slm-61_red.png</texture>
+</animation>
+
+<animation>
+ <type>select</type>
+ <condition>
+   <equals>
+    <property>yak-40/Conditioning/system-mode</property>
+    <value>-1</value>
+   </equals>
+ </condition>
+ <object-name>filteron</object-name>
+</animation>
+
+<animation>
+ <type>select</type>
+ <condition>
+   <not-equals>
+    <property>yak-40/Conditioning/system-mode</property>
+    <value>-1</value>
+   </not-equals>
+ </condition>
+ <object-name>filteroff</object-name>
+</animation>
+
+</PropertyList>

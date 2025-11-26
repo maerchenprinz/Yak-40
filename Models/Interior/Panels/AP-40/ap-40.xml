@@ -1,0 +1,343 @@
+<?xml version="1.0"?>
+<!--
+    #############################################################################
+  Автопилот))
+    #############################################################################	  
+    -->
+<PropertyList>
+ <path>ap-40.ac</path>
+
+ <model>
+  <path>sw_power.xml</path>
+  <offsets>
+    <x-m>-0.002</x-m>
+    <y-m>-0.0445</y-m>
+    <z-m>0.0028</z-m>
+  </offsets>
+ </model>
+
+ <model>
+  <path>sw_pitch.xml</path>
+  <offsets>
+    <x-m>-0.002</x-m>
+    <y-m>0.0445</y-m>
+    <z-m>0.0028</z-m>
+  </offsets>
+ </model>
+
+<!--******LAMP/BUTTONS******-->
+<!--"Ready" lamp-->
+ <animation>
+   <type>material</type>
+   <object-name>ready_lamp</object-name>
+   <visible>true</visible>
+    <condition>
+     <equals>
+     <property>yak-40/AP-40/serviceable</property>
+     <value>1.0</value>
+     </equals>
+    </condition>
+   <emission>
+     <red>0.3</red>
+     <green>1.0</green>
+     <blue>0.3</blue>
+   </emission>
+ </animation>
+
+<!--"ON" button-->
+<animation>
+  <type>pick</type>
+  <object-name>on_lamp</object-name>
+  <action>
+   <button>0</button>
+   <repeatable>false</repeatable>
+    <binding>
+     <command>nasal</command>
+     <script>
+	interpolate("yak-40/AP-40/btn_ap_on", 1.0, 0.1 );
+	if ( getprop("yak-40/AP-40/serviceable") == 1 ) {
+	setprop("yak-40/AP-40/ap_on", 1 );
+		if ( getprop("yak-40/AP-40/sw_pitch_channel") == 1 ) {
+		setprop("yak-40/AP-40/pitch_channel", 1 );
+		}
+		if ( getprop("yak-40/AP-40/first-init") == 1 ) {
+		setprop("autopilot/locks/heading", 'wing-leveler' );
+			if ( getprop("yak-40/AP-40/pitch_channel") == 1 ) {
+			setprop("autopilot/internal/target-pitch-deg", getprop("instrumentation/AGB-3K[0]/indicated-pitch-deg") );
+			setprop("autopilot/locks/altitude", 'pitch-hold' );
+			}
+		setprop("yak-40/AP-40/first-init", 0 );
+		}
+	}
+     </script>
+   </binding>
+  <mod-up>
+   <binding>
+     <command>nasal</command>
+     <script>
+	interpolate("yak-40/AP-40/btn_ap_on", 0.0, 0.1 );
+     </script>
+   </binding>
+  </mod-up>
+  </action>
+   <hovered>
+    <binding>
+      <command>set-tooltip</command>
+      <tooltip-id>APconnect</tooltip-id>
+      <label>AP CONNECT</label>
+    </binding>
+   </hovered>
+ </animation>
+
+ <animation>
+  <type>translate</type>
+  <object-name>on_holder</object-name>
+  <object-name>on_lamp</object-name>
+  <property>yak-40/AP-40/btn_ap_on</property>
+  <factor>0.002</factor>
+  <axis>
+   <x>-1</x>
+   <y>0</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+ <animation>
+   <type>material</type>
+   <object-name>on_lamp</object-name>
+    <condition>
+     <equals>
+     <property>yak-40/AP-40/ap_on</property>
+     <value>1.0</value>
+     </equals>
+    </condition>
+   <emission>
+     <red>1.0</red>
+     <green>1.0</green>
+     <blue>1.0</blue>
+   </emission>
+ </animation>
+  
+<!--"КV-11" (Alt Hold) button-->
+ <animation>
+  <type>pick</type>
+  <object-name>kv_lamp</object-name>
+  <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <binding>
+     <command>nasal</command>
+     <script>
+	interpolate("yak-40/AP-40/btn_kv", 1.0, 0.1 );
+	if ( getprop("yak-40/AP-40/pitch_channel") == 1 and getprop("yak-40/AP-40/first-init") == 0 ) {
+	setprop("yak-40/AP-40/kv", 1 );
+	setprop("autopilot/locks/altitude", 'altitude-hold' );
+	setprop("autopilot/settings/target-altitude-ft", getprop("instrumentation/altimeter/pressure-alt-ft") );
+	}
+     </script>
+    </binding>
+  <mod-up>
+   <binding>
+     <command>nasal</command>
+     <script>
+	interpolate("yak-40/AP-40/btn_kv", 0.0, 0.1 );
+     </script>
+   </binding>
+  </mod-up>
+  </action>
+   <hovered>
+    <binding>
+      <command>set-tooltip</command>
+      <tooltip-id>APalt</tooltip-id>
+      <label>AP ALT Hold ON</label>
+    </binding>
+   </hovered>
+ </animation>
+
+ <animation>
+  <type>translate</type>
+  <object-name>kv_holder</object-name>
+  <object-name>kv_lamp</object-name>
+  <property>yak-40/AP-40/btn_kv</property>
+  <factor>0.002</factor>
+  <axis>
+   <x>-1</x>
+   <y>0</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>material</type>
+  <object-name>kv_lamp</object-name>
+   <condition>
+    <equals>
+     <property>autopilot/locks/altitude</property>
+     <value>altitude-hold</value>
+    </equals>
+   </condition>
+   <emission>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </emission>
+ </animation>
+
+<!--******JOYSTICK******-->
+<!--Roll LEFT-->
+ <animation>
+  <type>pick</type> 
+  <object-name>js_left</object-name> 
+  <visible>false</visible>
+  <action>
+    <button>0</button>
+    <repeatable>true</repeatable>
+    <interval-sec>0.2</interval-sec>
+    <binding>
+      <command>nasal</command>
+      <script>
+	setprop("yak-40/AP-40/js_roll", getprop("yak-40/AP-40/js_roll") - 3.0 );
+	if ( getprop("yak-40/AP-40/ap_on") == 1 and getprop("yak-40/AP-40/first-init") == 0 and getprop("autopilot/locks/heading") != 'BLOCKED' ) {
+	setprop("autopilot/internal/target-roll-deg", getprop("yak-40/AP-40/js_roll") );
+	setprop("autopilot/locks/heading", 'roll' );
+	}
+      </script>
+    </binding>
+    </action>
+ </animation>
+
+<!--Roll RIGHT-->
+ <animation>
+  <type>pick</type> 
+  <object-name>js_right</object-name> 
+  <visible>false</visible>
+  <action>
+    <button>0</button>
+    <repeatable>true</repeatable>
+    <interval-sec>0.2</interval-sec>
+    <binding>
+      <command>nasal</command>
+      <script>
+	setprop("yak-40/AP-40/js_roll", getprop("yak-40/AP-40/js_roll") + 3.0 );
+	if ( getprop("yak-40/AP-40/ap_on") == 1 and getprop("yak-40/AP-40/first-init") == 0 and getprop("autopilot/locks/heading") != 'BLOCKED' ) {
+	setprop("autopilot/internal/target-roll-deg", getprop("yak-40/AP-40/js_roll") );
+	setprop("autopilot/locks/heading", 'roll' );
+	}
+      </script>
+    </binding>
+    </action>
+ </animation>
+
+<!--Roll CENTER-->
+ <animation>
+  <type>pick</type> 
+  <object-name>js_center</object-name> 
+  <visible>false</visible>
+  <action>
+   <button>0</button>
+   <repeatable>true</repeatable>
+   <binding>
+    <command>nasal</command>
+     <script>
+	setprop("autopilot/internal/target-roll-deg",0 );
+	setprop("yak-40/AP-40/js_roll",0 );
+     </script>
+   </binding>
+  </action>
+ </animation>
+
+<!--Pitch DOWN-->
+ <animation>
+  <type>pick</type> 
+  <object-name>js_down</object-name> 
+  <visible>false</visible>
+  <action>
+   <button>0</button>
+   <repeatable>true</repeatable>
+   <binding>
+    <command>nasal</command>
+     <script>
+	if ( getprop("yak-40/AP-40/pitch_channel") == 1 and getprop("yak-40/AP-40/first-init") == 0 and getprop("autopilot/locks/altitude") != 'BLOCKED' ) {
+	setprop("autopilot/locks/altitude", 'pitch-hold' );
+	setprop("autopilot/internal/target-pitch-deg", getprop("autopilot/internal/target-pitch-deg") - 0.5);
+	setprop("yak-40/AP-40/kv", 0 );
+	}
+	interpolate("yak-40/AP-40/js_pitch", 1.0, 0.1);
+     </script>
+   </binding>
+  <mod-up>
+   <binding>
+     <command>nasal</command>
+     <script>
+	interpolate("yak-40/AP-40/js_pitch", 0.0, 0.1);
+     </script>
+   </binding>
+  </mod-up>
+  </action>
+ </animation>
+
+<!--Pitch UP-->
+ <animation>
+  <type>pick</type> 
+  <object-name>js_up</object-name> 
+  <visible>false</visible>
+  <action>
+   <button>0</button>
+   <repeatable>true</repeatable>
+   <binding>
+    <command>nasal</command>
+     <script>
+	if ( getprop("yak-40/AP-40/pitch_channel") == 1 and getprop("yak-40/AP-40/first-init") == 0 and getprop("autopilot/locks/altitude") != 'BLOCKED' ) {
+	setprop("autopilot/locks/altitude", 'pitch-hold' );
+	setprop("autopilot/internal/target-pitch-deg", getprop("autopilot/internal/target-pitch-deg") + 0.5);
+	setprop("yak-40/AP-40/kv", 0 );
+	}
+	interpolate("yak-40/AP-40/js_pitch", -1.0, 0.1);
+     </script>
+   </binding>
+  <mod-up>
+   <binding>
+     <command>nasal</command>
+     <script>
+	interpolate("yak-40/AP-40/js_pitch", 0.0, 0.1);
+     </script>
+   </binding>
+  </mod-up>
+  </action>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>ap-joystick</object-name>
+   <property>yak-40/AP-40/js_pitch</property>
+   <factor>8.0</factor>
+   <axis>
+    <x>0.0</x>
+    <y>-1.0</y>
+    <z>0.0</z>
+   </axis>
+   <center>
+    <x-m>-0.02</x-m>
+    <y-m>0.0</y-m>
+    <z-m>-0.009</z-m>
+   </center>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>ap-joystick</object-name>
+   <property>yak-40/AP-40/js_roll</property>
+   <factor>3.0</factor>
+   <axis>
+    <x>-1.0</x>
+    <y>0.0</y>
+    <z>0.0</z>
+   </axis>
+   <center>
+    <x-m>0.0</x-m>
+    <y-m>0.0</y-m>
+    <z-m>-0.009</z-m>
+   </center>
+ </animation>
+
+</PropertyList>

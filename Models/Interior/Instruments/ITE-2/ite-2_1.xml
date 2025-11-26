@@ -1,0 +1,121 @@
+<?xml version="1.0"?>
+
+<!-- ITE-2 -->
+<PropertyList>
+ <path>ite-2.ac</path>
+
+ <!--animation>
+   <type>material</type>
+   <object-name>housing</object-name>
+   <object-name>needle_1</object-name>
+   <object-name>needle_2</object-name>
+   <emission>
+     <red>1.0</red>
+     <green>0.3</green>
+     <blue>0.3</blue>
+     <factor-prop>controls/lighting/panel-m_red</factor-prop>
+   </emission>
+ </animation-->
+
+<animation>
+  <type>rotate</type>
+  <object-name>needle_1</object-name>
+  <property>engines/engine/n1</property>
+  <interpolation>
+    <entry><ind>  0.0</ind>	<dep>  47</dep></entry>
+    <entry><ind> 10.0</ind>	<dep>  80</dep></entry>
+    <entry><ind> 20.0</ind>	<dep> 110</dep></entry>
+    <entry><ind> 30.0</ind>	<dep> 142</dep></entry>
+    <entry><ind> 40.0</ind>	<dep> 173</dep></entry>
+    <entry><ind> 50.0</ind>	<dep> 204</dep></entry>
+    <entry><ind> 60.0</ind>	<dep> 235</dep></entry>
+    <entry><ind> 65.0</ind>	<dep> 250</dep></entry>
+    <entry><ind> 70.0</ind>	<dep> 266</dep></entry>
+    <entry><ind> 75.0</ind>	<dep> 282</dep></entry>
+    <entry><ind> 80.0</ind>	<dep> 298</dep></entry>
+    <entry><ind> 84.0</ind>	<dep> 310</dep></entry>
+    <entry><ind> 90.0</ind>	<dep> 328</dep></entry>
+    <entry><ind> 94.0</ind>	<dep> 341</dep></entry>
+    <entry><ind> 97.0</ind>	<dep> 350</dep></entry>
+    <entry><ind>100.0</ind>	<dep> 360.0</dep></entry>
+    <entry><ind>110.0</ind>	<dep> 391.5</dep></entry>
+  </interpolation>
+  <axis>
+    <x>-1.0</x>
+    <y>0.0</y>
+    <z>0.0</z>
+  </axis>
+</animation>
+
+<animation>
+  <type>rotate</type>
+  <object-name>needle_2</object-name>
+  <property>engines/engine/n2</property>
+  <interpolation>
+    <entry><ind>  0.0</ind>	<dep>  47</dep></entry>
+    <entry><ind> 10.0</ind>	<dep>  80</dep></entry>
+    <entry><ind> 20.0</ind>	<dep> 110</dep></entry>
+    <entry><ind> 30.0</ind>	<dep> 142</dep></entry>
+    <entry><ind> 40.0</ind>	<dep> 173</dep></entry>
+    <entry><ind> 50.0</ind>	<dep> 204</dep></entry>
+    <entry><ind> 60.0</ind>	<dep> 235</dep></entry>
+    <entry><ind> 65.0</ind>	<dep> 250</dep></entry>
+    <entry><ind> 70.0</ind>	<dep> 266</dep></entry>
+    <entry><ind> 75.0</ind>	<dep> 282</dep></entry>
+    <entry><ind> 80.0</ind>	<dep> 298</dep></entry>
+    <entry><ind> 84.0</ind>	<dep> 310</dep></entry>
+    <entry><ind> 90.0</ind>	<dep> 328</dep></entry>
+    <entry><ind> 94.0</ind>	<dep> 341</dep></entry>
+    <entry><ind> 97.0</ind>	<dep> 350</dep></entry>
+    <entry><ind>100.0</ind>	<dep> 360.0</dep></entry>
+    <entry><ind>110.0</ind>	<dep> 391.5</dep></entry>
+  </interpolation>
+  <axis>
+    <x>-1.0</x>
+    <y>0.0</y>
+    <z>0.0</z>
+  </axis>
+</animation>
+
+<!-- TEXT OSG -->
+  <animation>
+    <type>select</type>
+    <object-name>textite1</object-name>
+    <condition>
+      <property>sim/panel-hotspots</property>
+    </condition>
+  </animation>
+
+  <text>
+    <name>textite1</name>
+    <type type="string">literal</type>
+    <text type="string">ITE-2 Engine RPM</text>
+    <draw-text type="bool">true</draw-text>
+    <font>Helvetica.txf</font>
+    <character-size type="double">0.014</character-size>
+    <character-aspect-ratio type="double">1.0</character-aspect-ratio>
+    <axis-alignment>yz-plane</axis-alignment>
+    <max-height>0.06</max-height>
+    <max-width>0.05</max-width>
+    <font-resolution>
+      <width type="int">64</width>
+      <height type="int">64</height>
+    </font-resolution>
+    <alignment>center-center</alignment>
+    <offsets>
+      <x-m>0.005</x-m>
+      <y-m>0.0</y-m>
+      <z-m>0.0</z-m>
+    </offsets>
+  </text>
+  <animation>
+    <type>material</type>
+    <object-name>textite1</object-name>
+    <emission>
+      <red>1.0</red>
+      <green>1.0</green>
+      <blue>1.0</blue>
+    </emission>
+  </animation>
+
+</PropertyList>

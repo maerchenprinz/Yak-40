@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+
+<!-- Fuel Pump left lamp SLM-61 -->
+<PropertyList>
+ <path>../../shared/lamps/slm-61.ac</path>
+
+<animation>
+ <type>material</type>
+ <object-name>filteron</object-name>
+ <object-name>filteroff</object-name>
+ <object-name>ring</object-name>
+ <texture>../../shared/lamps/slm-61_green.png</texture>
+</animation>
+
+<animation>
+ <type>select</type>
+ <condition>
+   <greater-than>
+    <property>yak-40/FuelSystem/pumpsL</property>
+    <value>0.1</value>
+   </greater-than>
+ </condition>
+ <object-name>filteron</object-name>
+</animation>
+
+<animation>
+ <type>select</type>
+ <condition>
+   <less-than>
+    <property>yak-40/FuelSystem/pumpsL</property>
+    <value>0.1</value>
+   </less-than>
+ </condition>
+ <object-name>filteroff</object-name>
+</animation>
+
+</PropertyList>

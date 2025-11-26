@@ -1,0 +1,85 @@
+<?xml version="1.0"?>
+
+<!-- VG-15k, Emergency Booster Pumps (right)-->
+
+<PropertyList>
+ <path>../../shared/switches/vg-15k.ac</path>
+
+ <animation>
+  <type>pick</type>
+  <object-name>clickspot_up</object-name>
+  <visible>false</visible>
+  <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <binding>
+      <command>nasal</command>
+      <script>
+	interpolate("yak-40/FuelSystem/emerg-pumpsR", 1.0, 0.4 );
+      </script>
+    </binding>
+<!-- animation, begin with sw -->
+    <binding>
+      <command>nasal</command>
+      <script>
+	interpolate("yak-40/FuelSystem/sw_emerg-pumpsR", 1.0, 0.1 );
+      </script>
+    </binding>
+  </action>
+   <hovered>
+    <binding>
+      <command>set-tooltip</command>
+      <tooltip-id>emergpumpsron</tooltip-id>
+      <label>Emergency Boost Pumps
+   right ON</label>
+    </binding>
+   </hovered>
+ </animation>
+
+ <animation>
+  <type>pick</type>
+  <object-name>clickspot_down</object-name>
+  <visible>false</visible>
+  <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <binding>
+      <command>nasal</command>
+      <script>
+	interpolate("yak-40/FuelSystem/emerg-pumpsR", 0.0, 0.4 );
+      </script>
+    </binding>
+<!-- animation, begin with sw -->
+    <binding>
+      <command>nasal</command>
+      <script>
+	interpolate("yak-40/FuelSystem/sw_emerg-pumpsR", -1.0, 0.1 );
+      </script>
+    </binding>
+  </action>
+   <hovered>
+    <binding>
+      <command>set-tooltip</command>
+      <tooltip-id>emergpumpsroff</tooltip-id>
+      <label>Emergency Boost Pumps
+   right OFF</label>
+    </binding>
+   </hovered>
+ </animation>
+
+ <animation>
+   <type>rotate</type>
+   <object-name>lever</object-name>
+   <property>yak-40/FuelSystem/sw_emerg-pumpsR</property>
+  <interpolation>
+    <entry><ind>1.0</ind>	<dep>30.0</dep></entry>
+    <entry><ind>-1.0</ind>	<dep>-30.0</dep></entry>
+  </interpolation>
+  <axis>
+    <x>0.0</x>
+    <y>-1.0</y>
+    <z>0.0</z>
+  </axis>
+ </animation>
+
+</PropertyList>

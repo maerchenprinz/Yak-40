@@ -1,0 +1,406 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+ <path>azs_right.ac</path>
+
+<!-- 1st row -->
+ <model>
+  <name>ukv_2</name>
+  <path>0101.xml</path>
+   <offsets>
+    <x-m>0.0</x-m>
+    <y-m>0.0925</y-m>
+    <z-m>0.1087</z-m>
+    <heading-deg>180.0</heading-deg>
+   </offsets>
+ </model>
+
+ <model>
+  <name>adp</name>
+  <path>0102.xml</path>
+   <offsets>
+    <x-m>0.0</x-m>
+    <y-m>0.068</y-m>
+    <z-m>0.1087</z-m>
+    <heading-deg>180.0</heading-deg>
+   </offsets>
+ </model>
+
+ <model>
+  <name>agd-1_right</name>
+  <path>0103.xml</path>
+   <offsets>
+    <x-m>0.0</x-m>
+    <y-m>0.0436</y-m>
+    <z-m>0.1087</z-m>
+    <heading-deg>180.0</heading-deg>
+   </offsets>
+ </model>
+
+ <model>
+  <name>gmk</name>
+  <path>0104.xml</path>
+   <offsets>
+    <x-m>0.0</x-m>
+    <y-m>0.019</y-m>
+    <z-m>0.1087</z-m>
+    <heading-deg>180.0</heading-deg>
+   </offsets>
+ </model>
+
+ <model>
+  <name>hydraulics</name>
+  <path>0105.xml</path>
+   <offsets>
+    <x-m>0.0</x-m>
+    <y-m>-0.005</y-m>
+    <z-m>0.1087</z-m>
+    <heading-deg>180.0</heading-deg>
+   </offsets>
+ </model>
+
+ <model>
+  <name>autopilot</name>
+  <path>0106.xml</path>
+   <offsets>
+    <x-m>0.0</x-m>
+    <y-m>-0.03</y-m>
+    <z-m>0.1087</z-m>
+    <heading-deg>180.0</heading-deg>
+   </offsets>
+ </model>
+
+ <model>
+  <name>gear_signal</name>
+  <path>0107.xml</path>
+   <offsets>
+    <x-m>0.0</x-m>
+    <y-m>-0.0543</y-m>
+    <z-m>0.1087</z-m>
+    <heading-deg>180.0</heading-deg>
+   </offsets>
+ </model>
+
+ <model>
+  <name>rockets</name>
+  <path>0108.xml</path>
+   <offsets>
+    <x-m>0.0</x-m>
+    <y-m>-0.079</y-m>
+    <z-m>0.1087</z-m>
+    <heading-deg>180.0</heading-deg>
+   </offsets>
+ </model>
+
+ <model>
+  <name>sp-50</name>
+  <path>0109.xml</path>
+   <offsets>
+    <x-m>0.0</x-m>
+    <y-m>-0.103</y-m>
+    <z-m>0.1087</z-m>
+    <heading-deg>180.0</heading-deg>
+   </offsets>
+ </model>
+
+<!-- 2nd row -->
+ <model>
+  <name>ark_2</name>
+  <path>0201.xml</path>
+   <offsets>
+    <x-m>0.0</x-m>
+    <y-m>0.0925</y-m>
+    <z-m>0.0374</z-m>
+    <heading-deg>180.0</heading-deg>
+   </offsets>
+ </model>
+
+ <model>
+  <name>emerg_115v</name>
+  <path>0202.xml</path>
+   <offsets>
+    <x-m>0.0</x-m>
+    <y-m>0.068</y-m>
+    <z-m>0.0374</z-m>
+    <heading-deg>180.0</heading-deg>
+   </offsets>
+ </model>
+
+ <model>
+  <name>emerg_control</name>
+  <path>0203.xml</path>
+   <offsets>
+    <x-m>0.0</x-m>
+    <y-m>0.0436</y-m>
+    <z-m>0.0374</z-m>
+    <heading-deg>180.0</heading-deg>
+   </offsets>
+ </model>
+
+ <model>
+  <name>emerg_rel_flaps</name>
+  <path>0204.xml</path>
+   <offsets>
+    <x-m>0.0</x-m>
+    <y-m>0.019</y-m>
+    <z-m>0.0374</z-m>
+    <heading-deg>180.0</heading-deg>
+   </offsets>
+ </model>
+
+ <model>
+  <name>emerg_rel_gear</name>
+  <path>0205.xml</path>
+   <offsets>
+    <x-m>0.0</x-m>
+    <y-m>-0.005</y-m>
+    <z-m>0.0374</z-m>
+    <heading-deg>180.0</heading-deg>
+   </offsets>
+ </model>
+
+ <model>
+  <name>anti-ice</name>
+  <path>0206.xml</path>
+   <offsets>
+    <x-m>0.0</x-m>
+    <y-m>-0.03</y-m>
+    <z-m>0.0374</z-m>
+    <heading-deg>180.0</heading-deg>
+   </offsets>
+ </model>
+
+ <model>
+  <name>brake_control</name>
+  <path>0207.xml</path>
+   <offsets>
+    <x-m>0.0</x-m>
+    <y-m>-0.0543</y-m>
+    <z-m>0.0374</z-m>
+    <heading-deg>180.0</heading-deg>
+   </offsets>
+ </model>
+
+ <model>
+  <name>conditioning</name>
+  <path>0208.xml</path>
+   <offsets>
+    <x-m>0.0</x-m>
+    <y-m>-0.079</y-m>
+    <z-m>0.0374</z-m>
+    <heading-deg>180.0</heading-deg>
+   </offsets>
+ </model>
+
+ <model>
+  <name>toilet_pump</name>
+  <path>0209.xml</path>
+   <offsets>
+    <x-m>0.0</x-m>
+    <y-m>-0.103</y-m>
+    <z-m>0.0374</z-m>
+    <heading-deg>180.0</heading-deg>
+   </offsets>
+ </model>
+
+<!-- 3rd row -->
+ <model>
+  <name>turbocooler</name>
+  <path>0301.xml</path>
+   <offsets>
+    <x-m>0.0</x-m>
+    <y-m>0.0925</y-m>
+    <z-m>-0.037</z-m>
+    <heading-deg>180.0</heading-deg>
+   </offsets>
+ </model>
+
+ <model>
+  <name>something</name>
+  <path>0302.xml</path>
+   <offsets>
+    <x-m>0.0</x-m>
+    <y-m>0.068</y-m>
+    <z-m>-0.037</z-m>
+    <heading-deg>180.0</heading-deg>
+   </offsets>
+ </model>
+
+ <model>
+  <name>fuel_pumps</name>
+  <path>0303.xml</path>
+   <offsets>
+    <x-m>0.0</x-m>
+    <y-m>0.0436</y-m>
+    <z-m>-0.037</z-m>
+    <heading-deg>180.0</heading-deg>
+   </offsets>
+ </model>
+
+ <model>
+  <name>eng_heat_left</name>
+  <path>0304.xml</path>
+   <offsets>
+    <x-m>0.0</x-m>
+    <y-m>0.019</y-m>
+    <z-m>-0.037</z-m>
+    <heading-deg>180.0</heading-deg>
+   </offsets>
+ </model>
+
+ <model>
+  <name>eng_heat_middle</name>
+  <path>0305.xml</path>
+   <offsets>
+    <x-m>0.0</x-m>
+    <y-m>-0.005</y-m>
+    <z-m>-0.037</z-m>
+    <heading-deg>180.0</heading-deg>
+   </offsets>
+ </model>
+
+ <model>
+  <name>eng_heat_right</name>
+  <path>0306.xml</path>
+   <offsets>
+    <x-m>0.0</x-m>
+    <y-m>-0.03</y-m>
+    <z-m>-0.037</z-m>
+    <heading-deg>180.0</heading-deg>
+   </offsets>
+ </model>
+
+ <model>
+  <name>brake_control</name>
+  <path>0307.xml</path>
+   <offsets>
+    <x-m>0.0</x-m>
+    <y-m>-0.0543</y-m>
+    <z-m>-0.037</z-m>
+    <heading-deg>180.0</heading-deg>
+   </offsets>
+ </model>
+
+ <model>
+  <name>heating_cabin</name>
+  <path>0308.xml</path>
+   <offsets>
+    <x-m>0.0</x-m>
+    <y-m>-0.079</y-m>
+    <z-m>-0.037</z-m>
+    <heading-deg>180.0</heading-deg>
+   </offsets>
+ </model>
+
+ <model>
+  <name>heating_lounge</name>
+  <path>0309.xml</path>
+   <offsets>
+    <x-m>0.0</x-m>
+    <y-m>-0.103</y-m>
+    <z-m>-0.037</z-m>
+    <heading-deg>180.0</heading-deg>
+   </offsets>
+ </model>
+
+<!-- 4th row -->
+ <model>
+  <name>taxilight_left</name>
+  <path>0401.xml</path>
+   <offsets>
+    <x-m>0.0</x-m>
+    <y-m>0.0925</y-m>
+    <z-m>-0.121</z-m>
+    <heading-deg>180.0</heading-deg>
+   </offsets>
+ </model>
+
+ <model>
+  <name>landinglight_left</name>
+  <path>0402.xml</path>
+   <offsets>
+    <x-m>0.0</x-m>
+    <y-m>0.068</y-m>
+    <z-m>-0.121</z-m>
+    <heading-deg>180.0</heading-deg>
+   </offsets>
+ </model>
+
+ <model>
+  <name>taxilight_right</name>
+  <path>0403.xml</path>
+   <offsets>
+    <x-m>0.0</x-m>
+    <y-m>0.0436</y-m>
+    <z-m>-0.121</z-m>
+    <heading-deg>180.0</heading-deg>
+   </offsets>
+ </model>
+
+ <model>
+  <name>landinglight_right</name>
+  <path>0404.xml</path>
+   <offsets>
+    <x-m>0.0</x-m>
+    <y-m>0.019</y-m>
+    <z-m>-0.121</z-m>
+    <heading-deg>180.0</heading-deg>
+   </offsets>
+ </model>
+
+ <model>
+  <name>aileron_trim</name>
+  <path>0405.xml</path>
+   <offsets>
+    <x-m>0.0</x-m>
+    <y-m>-0.005</y-m>
+    <z-m>-0.121</z-m>
+    <heading-deg>180.0</heading-deg>
+   </offsets>
+ </model>
+
+ <model>
+  <name>rudder_trim</name>
+  <path>0406.xml</path>
+   <offsets>
+    <x-m>0.0</x-m>
+    <y-m>-0.03</y-m>
+    <z-m>-0.121</z-m>
+    <heading-deg>180.0</heading-deg>
+   </offsets>
+ </model>
+
+ <model>
+  <name>stab_main</name>
+  <path>0407.xml</path>
+   <offsets>
+    <x-m>0.0</x-m>
+    <y-m>-0.0543</y-m>
+    <z-m>-0.121</z-m>
+    <heading-deg>180.0</heading-deg>
+   </offsets>
+ </model>
+
+ <model>
+  <name>flaps_main</name>
+  <path>0408.xml</path>
+   <offsets>
+    <x-m>0.0</x-m>
+    <y-m>-0.079</y-m>
+    <z-m>-0.121</z-m>
+    <heading-deg>180.0</heading-deg>
+   </offsets>
+ </model>
+
+ <model>
+  <name>gear_main</name>
+  <path>0409.xml</path>
+   <offsets>
+    <x-m>0.0</x-m>
+    <y-m>-0.103</y-m>
+    <z-m>-0.121</z-m>
+    <heading-deg>180.0</heading-deg>
+   </offsets>
+ </model>
+
+</PropertyList>

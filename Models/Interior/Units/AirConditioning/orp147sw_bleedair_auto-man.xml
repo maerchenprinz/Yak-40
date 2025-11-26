@@ -1,0 +1,168 @@
+<?xml version="1.0"?>
+
+<!-- P2NPG-15K, Bleed Air Valve; up: Auto, left: Open, right: Close -->
+
+<PropertyList>
+ <path>../../shared/switches/p2npn-15.ac</path>
+
+<animation>
+  <type>pick</type>
+  <object-name>clickspot_up</object-name>
+  <visible>false</visible>
+  <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <binding>
+      <command>nasal</command>
+      <script>
+        setprop("yak-40/Conditioning/bleedair_auto", 1.0 );
+      </script>
+    </binding>
+    <binding>
+      <command>nasal</command>
+      <script>
+        interpolate("yak-40/Conditioning/sw_bleedair", 1.0, 0.1 );
+      </script>
+    </binding>
+  </action>
+  <hovered>
+    <binding>
+     <command>set-tooltip</command>
+     <tooltip-id>bleedairauto</tooltip-id>
+      <label>Bleed Air Valve
+     AUTO</label>
+    </binding>
+  </hovered>
+</animation>
+
+<animation>
+  <type>pick</type>
+  <object-name>clickspot_middle</object-name>
+  <visible>false</visible>
+</animation>
+
+<animation>
+  <type>pick</type>
+  <object-name>clickspot_downL</object-name>
+  <visible>false</visible>
+  <action>
+    <button>0</button>
+    <repeatable>true</repeatable>
+    <binding>
+      <command>nasal</command>
+      <script>
+        setprop("yak-40/Conditioning/bleedair-auto", 0.0 );
+	if (1.0 >= getprop("yak-40/Conditioning/bleedair") ) {
+	controls.slewProp("yak-40/Conditioning/bleedair", 0.5);
+	}
+      </script>
+    </binding>
+    <binding>
+      <command>nasal</command>
+      <script>
+        interpolate("yak-40/Conditioning/sw_bleedair", -1.0, 0.1 );
+        interpolate("yak-40/Conditioning/sw_bleedair_l-r", -1.0, 0.1 );
+      </script>
+    </binding>
+    <mod-up>
+      <binding>
+      <command>nasal</command>
+      <script>
+        interpolate("yak-40/Conditioning/sw_bleedair", 0.0, 0.1 );
+        interpolate("yak-40/Conditioning/sw_bleedair_l-r", 0.0, 0.1 );
+      </script>
+    </binding>
+    </mod-up>
+  </action>
+  <hovered>
+    <binding>
+     <command>set-tooltip</command>
+     <tooltip-id>bleedairopen</tooltip-id>
+      <label>Bleed Air Valve
+    OPEN</label>
+    </binding>
+  </hovered>
+</animation>
+
+<animation>
+  <type>pick</type>
+  <object-name>clickspot_downR</object-name>
+  <visible>false</visible>
+  <action>
+    <button>0</button>
+    <repeatable>true</repeatable>
+    <binding>
+      <command>nasal</command>
+      <script>
+        setprop("yak-40/Conditioning/bleedair-auto", 0.0 );
+	if (getprop("yak-40/Conditioning/bleedair") > -1.0) {
+	controls.slewProp("yak-40/Conditioning/airtemp-for-turbocooler", -0.5);
+	}
+      </script>
+    </binding>
+    <binding>
+      <command>nasal</command>
+      <script>
+        interpolate("yak-40/Conditioning/sw_bleedair", -1.0, 0.1 );
+        interpolate("yak-40/Conditioning/sw_bleedair_l-r", 1.0, 0.1 );
+      </script>
+    </binding>
+    <mod-up>
+      <binding>
+      <command>nasal</command>
+      <script>
+        interpolate("yak-40/Conditioning/sw_bleedair", 0.0, 0.1 );
+        interpolate("yak-40/Conditioning/sw_bleedair_l-r", 0.0, 0.1 );
+      </script>
+    </binding>
+    </mod-up>
+  </action>
+  <hovered>
+    <binding>
+     <command>set-tooltip</command>
+     <tooltip-id>bleedairclose</tooltip-id>
+      <label>Bleed Air Valve
+     CLOSE</label>
+    </binding>
+  </hovered>
+</animation>
+
+ <animation>
+   <type>rotate</type>
+   <object-name>lever</object-name>
+   <property>yak-40/Conditioning/sw_bleedair</property>
+  <interpolation>
+    <entry><ind>1.0</ind>	<dep>30.0</dep></entry>
+    <entry><ind>0.0</ind>	<dep>0.0</dep></entry>
+    <entry><ind>-1.0</ind>	<dep>-20.0</dep></entry>
+  </interpolation>
+  <axis>
+    <x>0.0</x>
+    <y>-1.0</y>
+    <z>0.0</z>
+  </axis>
+ </animation>
+
+ <animation>
+   <type>rotate</type>
+   <object-name>lever</object-name>
+   <property>yak-40/Conditioning/sw_bleedair_l-r</property>
+  <interpolation>
+    <entry><ind>1.0</ind>	<dep>15.0</dep></entry>
+    <entry><ind>0.0</ind>	<dep>0.0</dep></entry>
+    <entry><ind>-1.0</ind>	<dep>-15.0</dep></entry>
+  </interpolation>
+  <axis>
+    <x>0.0</x>
+    <y>0.0</y>
+    <z>1.0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <object-name>screws</object-name>
+  <type>pick</type>
+  <visible>false</visible>
+ </animation>
+
+</PropertyList>

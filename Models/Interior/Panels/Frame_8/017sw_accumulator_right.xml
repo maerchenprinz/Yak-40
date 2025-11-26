@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+
+<!-- Right accumulator -->
+<PropertyList>
+ <path>../../shared/switches/vg-15k.ac</path>
+
+ <animation>
+  <type>pick</type>
+  <object-name>clickspot_up</object-name>
+  <visible>false</visible>
+  <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <binding>
+      <command>nasal</command>
+      <script>
+	interpolate("yak-40/Electrical/sw_accuR", 1.0, 0.1 );
+      </script>
+    </binding>
+  </action>
+   <hovered>
+    <binding>
+      <command>set-tooltip</command>
+      <tooltip-id>fr8accuron</tooltip-id>
+      <label>     Right
+Accumulator
+       ON</label>
+    </binding>
+   </hovered>
+ </animation>
+
+ <animation>
+  <type>pick</type>
+  <object-name>clickspot_down</object-name>
+  <visible>false</visible>
+  <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <binding>
+      <command>nasal</command>
+      <script>
+	interpolate("yak-40/Electrical/sw_accuR", 0.0, 0.1 );
+      </script>
+    </binding>
+  </action>
+   <hovered>
+    <binding>
+      <command>set-tooltip</command>
+      <tooltip-id>fr8accuroff</tooltip-id>
+      <label>     Right
+Accumulator
+      OFF</label>
+    </binding>
+   </hovered>
+ </animation>
+
+ <animation>
+   <type>rotate</type>
+   <object-name>lever</object-name>
+   <property>yak-40/Electrical/sw_accuR</property>
+  <interpolation>
+    <entry><ind>1.0</ind>	<dep>18.0</dep></entry>
+    <entry><ind>0.0</ind>	<dep>-18.0</dep></entry>
+  </interpolation>
+  <axis>
+    <x>0.0</x>
+    <y>-1.0</y>
+    <z>0.0</z>
+  </axis>
+ </animation>
+</PropertyList>

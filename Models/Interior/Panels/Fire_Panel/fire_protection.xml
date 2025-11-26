@@ -1,0 +1,356 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+ <path>fire_protection.ac</path>
+
+<!--*************** LAMPS ***************-->
+<!-- Middle, 1st row -->
+ <model>
+  <name>fireincompartment1</name>
+  <path>sl0101_compartment_1.xml</path>
+   <offsets>
+    <x-m>0.0182</x-m>
+    <y-m>-0.05097</y-m>
+    <z-m>0.015</z-m>
+    <pitch-deg>90.0</pitch-deg>
+   </offsets>
+ </model>
+
+ <model>
+  <name>fireincompartment2</name>
+  <path>sl0102_compartment_2.xml</path>
+   <offsets>
+    <x-m>0.0182</x-m>
+    <y-m>-0.02784</y-m>
+    <z-m>0.015</z-m>
+    <pitch-deg>90.0</pitch-deg>
+   </offsets>
+ </model>
+
+ <model>
+  <name>fireincompartment3</name>
+  <path>sl0103_compartment_3.xml</path>
+   <offsets>
+    <x-m>0.0182</x-m>
+    <y-m>-0.00594</y-m>
+    <z-m>0.015</z-m>
+    <pitch-deg>90.0</pitch-deg>
+   </offsets>
+ </model>
+
+ <model>
+  <name>fireinengine1</name>
+  <path>sl0104_engine_1.xml</path>
+   <offsets>
+    <x-m>0.0182</x-m>
+    <y-m>0.03847</y-m>
+    <z-m>0.015</z-m>
+    <pitch-deg>90.0</pitch-deg>
+   </offsets>
+ </model>
+
+ <model>
+  <name>fireinengine2</name>
+  <path>sl0105_engine_2.xml</path>
+   <offsets>
+    <x-m>0.0182</x-m>
+    <y-m>0.06037</y-m>
+    <z-m>0.015</z-m>
+    <pitch-deg>90.0</pitch-deg>
+   </offsets>
+ </model>
+
+ <model>
+  <name>fireinengine3</name>
+  <path>sl0106_engine_3.xml</path>
+   <offsets>
+    <x-m>0.0182</x-m>
+    <y-m>0.0835</y-m>
+    <z-m>0.015</z-m>
+    <pitch-deg>90.0</pitch-deg>
+   </offsets>
+ </model>
+
+<!-- Middle, 2nd row -->
+ <model>
+  <name>firevalveopencomp1</name>
+  <path>sl0201_valveopencomp_1.xml</path>
+   <offsets>
+    <x-m>-0.0071</x-m>
+    <y-m>-0.05097</y-m>
+    <z-m>0.015</z-m>
+    <pitch-deg>90.0</pitch-deg>
+   </offsets>
+ </model>
+
+ <model>
+  <name>firevalveopencomp2</name>
+  <path>sl0202_valveopencomp_2.xml</path>
+   <offsets>
+    <x-m>-0.0071</x-m>
+    <y-m>-0.02784</y-m>
+    <z-m>0.015</z-m>
+    <pitch-deg>90.0</pitch-deg>
+   </offsets>
+ </model>
+
+ <model>
+  <name>firevalveopencomp3</name>
+  <path>sl0203_valveopencomp_3.xml</path>
+   <offsets>
+    <x-m>-0.0071</x-m>
+    <y-m>-0.00594</y-m>
+    <z-m>0.015</z-m>
+    <pitch-deg>90.0</pitch-deg>
+   </offsets>
+ </model>
+
+ <model>
+  <name>firevalveopeneng1</name>
+  <path>sl0204_valveopeneng_1.xml</path>
+   <offsets>
+    <x-m>-0.0071</x-m>
+    <y-m>0.03847</y-m>
+    <z-m>0.015</z-m>
+    <pitch-deg>90.0</pitch-deg>
+   </offsets>
+ </model>
+
+ <model>
+  <name>firevalveopeneng2</name>
+  <path>sl0205_valveopeneng_2.xml</path>
+   <offsets>
+    <x-m>-0.0071</x-m>
+    <y-m>0.06037</y-m>
+    <z-m>0.015</z-m>
+    <pitch-deg>90.0</pitch-deg>
+   </offsets>
+ </model>
+
+ <model>
+  <name>firevalveopeneng3</name>
+  <path>sl0206_valveopeneng_3.xml</path>
+   <offsets>
+    <x-m>-0.0071</x-m>
+    <y-m>0.0835</y-m>
+    <z-m>0.015</z-m>
+    <pitch-deg>90.0</pitch-deg>
+   </offsets>
+ </model>
+
+<!-- Right side, 1st row -->
+ <model>
+  <name>pyrocartridge1_serviceable</name>
+  <path>sl0101_pyrocartridge1_serviceable.xml</path>
+   <offsets>
+    <x-m>0.00676</x-m>
+    <y-m>0.15034</y-m>
+    <z-m>0.012</z-m>
+    <pitch-deg>90.0</pitch-deg>
+   </offsets>
+ </model>
+
+ <model>
+  <name>pyrocartridge2_serviceable</name>
+  <path>sl0102_pyrocartridge2_serviceable.xml</path>
+   <offsets>
+    <x-m>0.00676</x-m>
+    <y-m>0.174</y-m>
+    <z-m>0.012</z-m>
+    <pitch-deg>90.0</pitch-deg>
+   </offsets>
+ </model>
+
+ <model>
+  <name>pyrocartridge3_serviceable</name>
+  <path>sl0103_pyrocartridge3_serviceable.xml</path>
+   <offsets>
+    <x-m>0.00676</x-m>
+    <y-m>0.1987</y-m>
+    <z-m>0.012</z-m>
+    <pitch-deg>90.0</pitch-deg>
+   </offsets>
+ </model>
+
+ <model>
+  <name>pyrocartridge4_serviceable</name>
+  <path>sl0201_pyrocartridge4_serviceable.xml</path>
+   <offsets>
+    <x-m>-0.01678</x-m>
+    <y-m>0.15034</y-m>
+    <z-m>0.012</z-m>
+    <pitch-deg>90.0</pitch-deg>
+   </offsets>
+ </model>
+
+<!--*************** BUTTONS ***************-->
+<!-- Left side, 1st row -->
+ <model>
+  <name>fireextcomp2</name>
+  <path>btn0101_fireextcomp_2.xml</path>
+   <offsets>
+    <x-m>0.00676</x-m>
+    <y-m>-0.19915</y-m>
+    <z-m>0.0</z-m>
+    <pitch-deg>90.0</pitch-deg>
+   </offsets>
+ </model>
+
+ <model>
+  <name>fireextcomp3</name>
+  <path>btn0102_fireextcomp_3.xml</path>
+   <offsets>
+    <x-m>0.00676</x-m>
+    <y-m>-0.17444</y-m>
+    <z-m>0.0</z-m>
+    <pitch-deg>90.0</pitch-deg>
+   </offsets>
+ </model>
+
+ <model>
+  <name>fireextcomp4</name>
+  <path>btn0103_fireextcomp_4.xml</path>
+   <offsets>
+    <x-m>0.00676</x-m>
+    <y-m>-0.13815</y-m>
+    <z-m>0.0</z-m>
+    <pitch-deg>90.0</pitch-deg>
+   </offsets>
+ </model>
+
+ <model>
+  <name>fireextctrl</name>
+  <path>btn0104_fireext_ctrl.xml</path>
+   <offsets>
+    <x-m>0.00676</x-m>
+    <y-m>-0.11345</y-m>
+    <z-m>0.0</z-m>
+    <pitch-deg>90.0</pitch-deg>
+   </offsets>
+ </model>
+
+<!-- Left side, 2nd row -->
+ <model>
+  <name>fireexteng1</name>
+  <path>btn0201_fireexteng_1.xml</path>
+   <offsets>
+    <x-m>-0.03123</x-m>
+    <y-m>-0.19915</y-m>
+    <z-m>0.0</z-m>
+    <pitch-deg>90.0</pitch-deg>
+   </offsets>
+ </model>
+
+ <model>
+  <name>fireexteng2</name>
+  <path>btn0202_fireexteng_2.xml</path>
+   <offsets>
+    <x-m>-0.03123</x-m>
+    <y-m>-0.17444</y-m>
+    <z-m>0.0</z-m>
+    <pitch-deg>90.0</pitch-deg>
+   </offsets>
+ </model>
+
+ <model>
+  <name>fireexteng3</name>
+  <path>btn0203_fireexteng_3.xml</path>
+   <offsets>
+    <x-m>-0.03123</x-m>
+    <y-m>-0.13815</y-m>
+    <z-m>0.0</z-m>
+    <pitch-deg>90.0</pitch-deg>
+   </offsets>
+ </model>
+
+ <model>
+  <name>fireexteng4</name>
+  <path>btn0204_fireexteng_4.xml</path>
+   <offsets>
+    <x-m>-0.03123</x-m>
+    <y-m>-0.11345</y-m>
+    <z-m>0.0</z-m>
+    <pitch-deg>90.0</pitch-deg>
+   </offsets>
+ </model>
+
+<!-- Middle -->
+ <model>
+  <name>firevalvecomp1</name>
+  <path>btn01_firevalvecomp_1.xml</path>
+   <offsets>
+    <x-m>-0.03123</x-m>
+    <y-m>-0.049</y-m>
+    <z-m>0.005</z-m>
+    <pitch-deg>90.0</pitch-deg>
+   </offsets>
+ </model>
+
+ <model>
+  <name>firevalvecomp2</name>
+  <path>btn02_firevalvecomp_2.xml</path>
+   <offsets>
+    <x-m>-0.03123</x-m>
+    <y-m>-0.02487</y-m>
+    <z-m>0.005</z-m>
+    <pitch-deg>90.0</pitch-deg>
+   </offsets>
+ </model>
+
+ <model>
+  <name>firevalvecomp3</name>
+  <path>btn03_firevalvecomp_3.xml</path>
+   <offsets>
+    <x-m>-0.03123</x-m>
+    <y-m>0.0</y-m>
+    <z-m>0.005</z-m>
+    <pitch-deg>90.0</pitch-deg>
+   </offsets>
+ </model>
+
+ <model>
+  <name>firevalveeng1</name>
+  <path>btn04_firevalveeng_1.xml</path>
+   <offsets>
+    <x-m>-0.03123</x-m>
+    <y-m>0.0335</y-m>
+    <z-m>0.005</z-m>
+    <pitch-deg>90.0</pitch-deg>
+   </offsets>
+ </model>
+
+ <model>
+  <name>firevalveeng2</name>
+  <path>btn05_firevalveeng_2.xml</path>
+   <offsets>
+    <x-m>-0.03123</x-m>
+    <y-m>0.05741</y-m>
+    <z-m>0.005</z-m>
+    <pitch-deg>90.0</pitch-deg>
+   </offsets>
+ </model>
+
+ <model>
+  <name>firevalveeng3</name>
+  <path>btn06_firevalveeng_3.xml</path>
+   <offsets>
+    <x-m>-0.03123</x-m>
+    <y-m>0.081</y-m>
+    <z-m>0.005</z-m>
+    <pitch-deg>90.0</pitch-deg>
+   </offsets>
+ </model>
+
+<!-- Right side -->
+ <model>
+  <name>pyrocartridgesctrl</name>
+  <path>btn07_ctrl_pyrocartridges.xml</path>
+   <offsets>
+    <x-m>-0.0245</x-m>
+    <y-m>0.19884</y-m>
+    <z-m>0.0</z-m>
+    <pitch-deg>90.0</pitch-deg>
+   </offsets>
+ </model>
+
+</PropertyList>

@@ -1,0 +1,241 @@
+<?xml version="1.0"?>
+
+<system name="FuelSystem">
+
+ <channel name="Pumps 463" execrate="30">
+
+ <summer>
+  <input>/consumables/fuel/tank[0]/level-kg</input>
+  <input>-/consumables/fuel/tank[3]/level-kg</input>
+  <output>/yak-40/FuelSystem/level_diff_l-r-kg</output>
+ </summer>
+
+  <switch name="/yak-40/FuelSystem/level-switch">
+   <default value="0"/>
+   <test value="-2">
+	/yak-40/FuelSystem/level_diff_l-r-kg LT -80.0
+   </test>
+   <test value="-1">
+	/yak-40/FuelSystem/level_diff_l-r-kg LT -40.0
+   </test>
+   <test value="2">
+	/yak-40/FuelSystem/level_diff_l-r-kg GT 80.0
+   </test>
+   <test value="1">
+	/yak-40/FuelSystem/level_diff_l-r-kg GT 40.0
+   </test>
+  </switch>
+
+  <switch name="/yak-40/FuelSystem/Pump463L">
+   <default value="0"/>
+   <test value="1">
+	/yak-40/FuelSystem/sw_pump463L EQ 1.0
+   </test>
+  </switch>
+
+  <!--This logic can put BOTH pumps at the same time into weakened mode, needs to be evaluated-->
+  <switch name="/yak-40/FuelSystem/Pump463L_mode">
+   <default value="0.25"/>
+
+   <test logic="OR" value="0.25">
+	/yak-40/FuelSystem/sw_weakened-mode EQ 1.0
+	<test logic="AND">
+	   /yak-40/FuelSystem/sw_auto-fuel-centering EQ 1.0
+	   /yak-40/FuelSystem/level_diff_l-r-kg LT -80.0
+	</test>
+   </test>
+
+   <test logic="OR" value="1.0">
+	/yak-40/FuelSystem/sw_weakened-mode NE 1.0
+	<test logic="AND">
+	   /yak-40/FuelSystem/sw_auto-fuel-centering EQ 1.0
+	   /yak-40/FuelSystem/level_diff_l-r-kg GT -40.0
+	</test>
+   </test>
+
+  </switch>
+
+  <switch name="/yak-40/FuelSystem/Pump463R">
+   <default value="0"/>
+   <test value="1">
+	/yak-40/FuelSystem/sw_pump463R EQ 1.0
+   </test>
+  </switch>
+
+  <!--This logic can put BOTH pumps at the same time into weakened mode, needs to be evaluated-->
+  <switch name="/yak-40/FuelSystem/Pump463R_mode">
+   <default value="0.0"/>
+   <test logic="OR" value="0.25">
+	/yak-40/FuelSystem/sw_weakened-mode EQ -1.0
+	<test logic="AND">
+	   /yak-40/FuelSystem/sw_auto-fuel-centering EQ 1.0
+	   /yak-40/FuelSystem/level_diff_l-r-kg GT 200.0
+	</test>
+   </test>
+   <test logic="OR" value="1.0">
+	/yak-40/FuelSystem/sw_weakened-mode NE -1.0
+	/yak-40/FuelSystem/sw_auto-fuel-centering EQ 0.0
+   </test>
+  </switch>
+
+ </channel>
+
+ <channel name="FuelTransfer" execrate="30">
+
+ <fcs_function name="propulsion/tank[1]/fuel-to-engines-pps">
+  <function>
+
+  <ifthen>
+   <gt>
+    <property>propulsion/tank[2]/contents-lbs</property>
+    <value>0.1</value>
+   </gt>
+
+   <sum>
+    <property>propulsion/engine[0]/fuel-flow-rate-pps</property>
+    <quotient>
+     <property>propulsion/engine[1]/fuel-flow-rate-pps</property>
+     <value>2</value>
+    </quotient>
+   </sum>
+
+   <sum>
+    <property>propulsion/engine[0]/fuel-flow-rate-pps</property>
+    <property>propulsion/engine[1]/fuel-flow-rate-pps</property>
+   </sum>
+
+  </ifthen>
+
+  </function>
+ </fcs_function>
+
+ <fcs_function name="propulsion/tank[2]/fuel-to-engines-pps">
+  <function>
+
+  <ifthen>
+   <gt>
+    <property>propulsion/tank[1]/contents-lbs</property>
+    <value>0.1</value>
+   </gt>
+
+   <sum>
+    <property>propulsion/engine[2]/fuel-flow-rate-pps</property>
+    <quotient>
+     <property>propulsion/engine[1]/fuel-flow-rate-pps</property>
+     <value>2</value>
+    </quotient>
+   </sum>
+
+   <sum>
+    <property>propulsion/engine[2]/fuel-flow-rate-pps</property>
+    <property>propulsion/engine[1]/fuel-flow-rate-pps</property>
+   </sum>
+
+  </ifthen>
+
+  </function>
+ </fcs_function>
+
+<!--**************-->
+ <fcs_function name="propulsion/tank[0]/fuel-to-accu1-pps">
+  <function>
+
+  <product>
+   <property>/yak-40/FuelSystem/Pump463L_mode</property>
+   <property>propulsion/tank[1]/fuel-to-engines-pps</property>
+  </product>
+
+  </function>
+ </fcs_function>
+
+ <fcs_function name="propulsion/tank[0]/fuel-to-accu2-pps">
+  <function>
+
+   <product>
+    <property>/yak-40/FuelSystem/cross-valve</property>
+    <property>/yak-40/FuelSystem/Pump463L_mode</property>
+    <ifthen>
+     <eq>
+      <property>/yak-40/FuelSystem/Pump463R_mode</property>
+      <value>1.0</value>
+     </eq>
+
+     <quotient>
+      <property>propulsion/tank[2]/fuel-to-engines-pps</property>
+      <value>2</value>
+     </quotient>
+
+     <property>propulsion/tank[2]/fuel-to-engines-pps</property>
+    </ifthen>
+
+   </product>
+
+  </function>
+ </fcs_function>
+
+ <fcs_function name="propulsion/tank[3]/fuel-to-accu2-pps">
+  <function>
+
+  <product>
+   <property>/yak-40/FuelSystem/Pump463R_mode</property>
+   <property>propulsion/tank[2]/fuel-to-engines-pps</property>
+  </product>
+
+  </function>
+ </fcs_function>
+
+ <fcs_function name="propulsion/tank[3]/fuel-to-accu1-pps">
+  <function>
+
+   <product>
+    <property>/yak-40/FuelSystem/cross-valve</property>
+    <property>/yak-40/FuelSystem/Pump463R_mode</property>
+    <ifthen>
+     <eq>
+      <property>/yak-40/FuelSystem/Pump463L_mode</property>
+      <value>1.0</value>
+     </eq>
+
+     <quotient>
+      <property>propulsion/tank[1]/fuel-to-engines-pps</property>
+      <value>2</value>
+     </quotient>
+
+     <property>propulsion/tank[1]/fuel-to-engines-pps</property>
+    </ifthen>
+
+   </product>
+
+  </function>
+ </fcs_function>
+
+<!--**************-->
+ <summer>
+  <input>-propulsion/tank[0]/fuel-to-accu1-pps</input>
+  <input>-propulsion/tank[0]/fuel-to-accu2-pps</input>
+  <input>propulsion/tank[3]/fuel-to-accu1-pps</input>
+  <output>propulsion/tank[0]/external-flow-rate-pps</output>
+ </summer>
+
+ <summer>
+  <input>-propulsion/tank[3]/fuel-to-accu1-pps</input>
+  <input>-propulsion/tank[3]/fuel-to-accu2-pps</input>
+  <input>propulsion/tank[0]/fuel-to-accu2-pps</input>
+  <output>propulsion/tank[3]/external-flow-rate-pps</output>
+ </summer>
+
+ <summer>
+  <input>propulsion/tank[0]/fuel-to-accu1-pps</input>
+  <input>propulsion/tank[3]/fuel-to-accu1-pps</input>
+  <output>propulsion/tank[1]/external-flow-rate-pps</output>
+ </summer>
+
+ <summer>
+  <input>propulsion/tank[0]/fuel-to-accu2-pps</input>
+  <input>propulsion/tank[3]/fuel-to-accu2-pps</input>
+  <output>propulsion/tank[2]/external-flow-rate-pps</output>
+ </summer>
+
+ </channel>
+
+</system>

@@ -1,0 +1,103 @@
+<?xml version="1.0"?>
+
+<!-- PNG-15K, Air to Crew Cabin -->
+
+<PropertyList>
+ <path>../../shared/switches/png-15k.ac</path>
+
+<animation>
+  <type>pick</type>
+  <object-name>clickspot_up</object-name>
+  <visible>false</visible>
+  <action>
+    <button>0</button>
+    <repeatable>true</repeatable>
+    <binding>
+      <command>nasal</command>
+      <script>
+	if ( (1.0 >= getprop("yak-40/Conditioning/air_to_crew-cab") ) {
+	controls.slewProp("yak-40/Conditioning/air_to_crew-cab", 0.5);
+	}
+      </script>
+    </binding>
+    <binding>
+      <command>nasal</command>
+      <script>
+        interpolate("yak-40/Conditioning/sw_air_to_crew-cab", 1.0, 0.2 );
+      </script>
+    </binding>
+    <mod-up>
+      <binding>
+      <command>nasal</command>
+      <script>
+        interpolate("yak-40/Conditioning/sw_air_to_crew-cab", 0.0, 0.1 );
+      </script>
+    </binding>
+    </mod-up>
+  </action>
+   <hovered>
+    <binding>
+      <command>set-tooltip</command>
+      <tooltip-id>airtocrewcabmore</tooltip-id>
+      <label>INCREASE Air to
+  Crew Cabin</label>
+    </binding>
+   </hovered>
+</animation>
+
+<animation>
+  <type>pick</type>
+  <object-name>clickspot_down</object-name>
+  <visible>false</visible>
+  <action>
+    <button>0</button>
+    <repeatable>true</repeatable>
+    <binding>
+      <command>nasal</command>
+      <script>
+	if ( (getprop("yak-40/Conditioning/air_to_crew-cab") > 0.0) ) {
+	controls.slewProp("yak-40/Conditioning/air_to_crew-cab", -0.5);
+	}
+      </script>
+    </binding>
+    <binding>
+      <command>nasal</command>
+      <script>
+        interpolate("yak-40/Conditioning/sw_air_to_crew-cab", -1.0, 0.2 );
+      </script>
+    </binding>
+    <mod-up>
+      <binding>
+      <command>nasal</command>
+      <script>
+        interpolate("yak-40/Conditioning/sw_air_to_crew-cab", 0.0, 0.1 );
+      </script>
+    </binding>
+    </mod-up>
+  </action>
+   <hovered>
+    <binding>
+      <command>set-tooltip</command>
+      <tooltip-id>airtocrewcabless</tooltip-id>
+      <label>DECREASE Air to
+  Crew Cabin</label>
+    </binding>
+   </hovered>
+</animation>
+
+ <animation>
+   <type>rotate</type>
+   <object-name>lever</object-name>
+   <property>yak-40/Conditioning/sw_air_to_crew-cab</property>
+  <interpolation>
+    <entry><ind>1.0</ind>	<dep>25.0</dep></entry>
+    <entry><ind>-1.0</ind>	<dep>-25.0</dep></entry>
+  </interpolation>
+  <axis>
+    <x>0.0</x>
+    <y>-1.0</y>
+    <z>0.0</z>
+  </axis>
+ </animation>
+
+</PropertyList>

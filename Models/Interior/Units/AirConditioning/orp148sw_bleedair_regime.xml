@@ -1,0 +1,85 @@
+<?xml version="1.0"?>
+
+<!-- VG-15K, Second pressure regulator -->
+
+<PropertyList>
+ <path>../../shared/switches/vng-15.ac</path>
+
+ <animation>
+  <type>pick</type>
+  <object-name>clickspot_up</object-name>
+  <visible>false</visible>
+  <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <binding>
+      <command>nasal</command>
+      <script>
+        setprop("yak-40/Conditioning/bleedair-regime", 1 );
+      </script>
+    </binding>
+<!-- animation, begin with sw -->
+    <binding>
+      <command>nasal</command>
+      <script>
+	interpolate("yak-40/Conditioning/sw_bleedair-regime", 1.0, 0.1 );
+      </script>
+    </binding>
+  </action>
+   <hovered>
+    <binding>
+      <command>set-tooltip</command>
+      <tooltip-id>bleedairreg1</tooltip-id>
+      <label>Bleed Air
+REGIME 1</label>
+    </binding>
+   </hovered>
+ </animation>
+
+ <animation>
+  <type>pick</type>
+  <object-name>clickspot_down</object-name>
+  <visible>false</visible>
+  <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <binding>
+      <command>nasal</command>
+      <script>
+        setprop("yak-40/Conditioning/bleedair-regime", 2 );
+      </script>
+    </binding>
+<!-- animation, begin with sw -->
+    <binding>
+      <command>nasal</command>
+      <script>
+	interpolate("yak-40/Conditioning/sw_bleedair-regime", 0.0, 0.1 );
+      </script>
+    </binding>
+  </action>
+   <hovered>
+    <binding>
+      <command>set-tooltip</command>
+      <tooltip-id>bleedairreg2</tooltip-id>
+      <label>Bleed Air
+REGIME 2</label>
+    </binding>
+   </hovered>
+ </animation>
+
+ <animation>
+   <type>rotate</type>
+   <object-name>lever</object-name>
+   <property>yak-40/Conditioning/sw_bleedair-regime</property>
+  <interpolation>
+    <entry><ind>1.0</ind>	<dep>30.0</dep></entry>
+    <entry><ind>0.0</ind>	<dep>-30.0</dep></entry>
+  </interpolation>
+  <axis>
+    <x>0.0</x>
+    <y>-1.0</y>
+    <z>0.0</z>
+  </axis>
+ </animation>
+
+</PropertyList>

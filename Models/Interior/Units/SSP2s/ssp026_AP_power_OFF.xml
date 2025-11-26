@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+
+<!-- Signal lamp SSP2 -->
+<PropertyList>
+ <path>../../shared/lamps/ssp.ac</path>
+
+ <animation>
+  <type>material</type>
+  <object-name>sspsign</object-name>
+  <texture>../../shared/lamps/ssp-red.png</texture>
+ </animation>
+
+</PropertyList>

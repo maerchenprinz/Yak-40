@@ -1,0 +1,85 @@
+<?xml version="1.0"?>
+
+<!-- AZRGK-5, Gangway Power -->
+
+<PropertyList>
+ <path>../../shared/switches/azs.ac</path>
+
+ <animation>
+  <type>pick</type>
+  <object-name>clickspot_up</object-name>
+  <visible>false</visible>
+  <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <binding>
+      <command>nasal</command>
+      <script>
+        interpolate("yak-40/PAXCabin/gangway-power", 1.0, 0.4 );
+      </script>
+    </binding>
+<!-- animation, begin with sw -->
+    <binding>
+      <command>nasal</command>
+      <script>
+	interpolate("yak-40/PAXCabin/sw_gangway-power", 1.0, 0.1 );
+      </script>
+    </binding>
+  </action>
+   <hovered>
+    <binding>
+      <command>set-tooltip</command>
+      <tooltip-id>gangwaypwron</tooltip-id>
+      <label>Gangway Power
+   ON</label>
+    </binding>
+   </hovered>
+ </animation>
+
+ <animation>
+  <type>pick</type>
+  <object-name>clickspot_down</object-name>
+  <visible>false</visible>
+  <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <binding>
+      <command>nasal</command>
+      <script>
+        interpolate("yak-40/PAXCabin/gangway-power", -1.0, 0.4 );
+      </script>
+    </binding>
+<!-- animation, begin with sw -->
+    <binding>
+      <command>nasal</command>
+      <script>
+	interpolate("yak-40/PAXCabin/sw_gangway-power", -1.0, 0.1 );
+      </script>
+    </binding>
+  </action>
+   <hovered>
+    <binding>
+      <command>set-tooltip</command>
+      <tooltip-id>gangwaypwroff</tooltip-id>
+      <label>Gangway Power
+   OFF</label>
+    </binding>
+   </hovered>
+ </animation>
+
+ <animation>
+   <type>rotate</type>
+   <object-name>lever</object-name>
+   <property>yak-40/PAXCabin/sw_gangway-power</property>
+  <interpolation>
+    <entry><ind>1.0</ind>	<dep>30.0</dep></entry>
+    <entry><ind>-1.0</ind>	<dep>-30.0</dep></entry>
+  </interpolation>
+  <axis>
+    <x>0.0</x>
+    <y>-1.0</y>
+    <z>0.0</z>
+  </axis>
+ </animation>
+
+</PropertyList>

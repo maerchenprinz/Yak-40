@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+
+<!-- Anti-Ice System Check lamp SLM-61 -->
+<PropertyList>
+ <path>../../shared/lamps/slm-61.ac</path>
+
+<animation>
+ <type>material</type>
+ <object-name>filteron</object-name>
+ <object-name>filteroff</object-name>
+ <object-name>ring</object-name>
+ <texture>../../shared/lamps/slm-61_green.png</texture>
+</animation>
+
+<animation>
+ <type>select</type>
+ <condition>
+   <equals>
+    <property>yak-40/IcingProtection/anti-ice-system</property>
+    <value>0.0</value>
+   </equals>
+ </condition>
+ <object-name>filteroff</object-name>
+</animation>
+
+<animation>
+ <type>select</type>
+ <condition>
+   <not-equals>
+    <property>yak-40/IcingProtection/anti-ice-system</property>
+    <value>0.0</value>
+   </not-equals>
+ </condition>
+ <object-name>filteron</object-name>
+</animation>
+
+</PropertyList>

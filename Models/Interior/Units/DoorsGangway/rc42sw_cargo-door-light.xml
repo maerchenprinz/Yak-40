@@ -1,0 +1,85 @@
+<?xml version="1.0"?>
+
+<!-- 2PPG-15K, Light in Cargo Hatch -->
+
+<PropertyList>
+ <path>../../shared/switches/azs.ac</path>
+
+ <animation>
+  <type>pick</type>
+  <object-name>clickspot_up</object-name>
+  <visible>false</visible>
+  <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <binding>
+      <command>nasal</command>
+      <script>
+        interpolate("yak-40/PAXCabin/cargo-hatch-light", 1.0, 0.4 );
+      </script>
+    </binding>
+<!-- animation, begin with sw -->
+    <binding>
+      <command>nasal</command>
+      <script>
+	interpolate("yak-40/PAXCabin/sw_cargo-hatch-light", 1.0, 0.1 );
+      </script>
+    </binding>
+  </action>
+   <hovered>
+    <binding>
+      <command>set-tooltip</command>
+      <tooltip-id>cargohatchlighton</tooltip-id>
+      <label>Cargo Hatch
+Light ON</label>
+    </binding>
+   </hovered>
+ </animation>
+
+ <animation>
+  <type>pick</type>
+  <object-name>clickspot_down</object-name>
+  <visible>false</visible>
+  <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <binding>
+      <command>nasal</command>
+      <script>
+        interpolate("yak-40/PAXCabin/cargo-hatch-light", 0.0, 0.4 );
+      </script>
+    </binding>
+<!-- animation, begin with sw -->
+    <binding>
+      <command>nasal</command>
+      <script>
+	interpolate("yak-40/PAXCabin/sw_cargo-hatch-light", 0.0, 0.1 );
+      </script>
+    </binding>
+  </action>
+   <hovered>
+    <binding>
+      <command>set-tooltip</command>
+      <tooltip-id>cargohatchlightoff</tooltip-id>
+      <label>Cargo Hatch
+Light OFF</label>
+    </binding>
+   </hovered>
+ </animation>
+
+ <animation>
+   <type>rotate</type>
+   <object-name>lever</object-name>
+   <property>yak-40/PAXCabin/sw_cargo-hatch-light</property>
+  <interpolation>
+    <entry><ind>1.0</ind>	<dep>30.0</dep></entry>
+    <entry><ind>0.0</ind>	<dep>-30.0</dep></entry>
+  </interpolation>
+  <axis>
+    <x>0.0</x>
+    <y>-1.0</y>
+    <z>0.0</z>
+  </axis>
+ </animation>
+
+</PropertyList>

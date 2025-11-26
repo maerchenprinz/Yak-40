@@ -1,0 +1,153 @@
+<?xml version="1.0"?>
+<!--
+    #############################################################################
+    #    (C) 2007 by Yurik V. Nikiforoff			 	  	#
+    #    	yurik@megasignal.com					   	#
+    #    	Jul 2007						   	#
+    #############################################################################	  
+    -->
+
+<PropertyList>
+ <path>pptiz.ac</path>
+
+<!--Needles-->
+ <animation>
+    <type>rotate</type>
+    <object-name>needle</object-name>
+    <property>yak-40/FuelSystem/indicated-fuel-kg</property>
+    <interpolation>
+      <entry><ind>0.0</ind><dep>-148.5</dep></entry>
+      <entry><ind>1000.0</ind><dep>-81.0</dep></entry>
+      <entry><ind>2000.0</ind><dep>-13.4</dep></entry>
+      <entry><ind>3000.0</ind><dep>53.7</dep></entry>
+      <entry><ind>4000.0</ind><dep>120.5</dep></entry>
+      <entry><ind>4400.0</ind><dep>147.8</dep></entry>
+    </interpolation>
+    <axis>
+      <x>-1.0</x>
+      <y>0.0</y>
+      <z>0.0</z>
+    </axis>
+ </animation>
+
+<!--Buttons-->
+ <animation>
+    <type>translate</type>
+    <object-name>H_btn</object-name>
+    <property>yak-40/FuelSystem/btn_h</property>
+    <interpolation>
+      <entry><ind>0.0</ind><dep>0.0</dep></entry>
+      <entry><ind>1.0</ind><dep>-0.0014</dep></entry>
+    </interpolation>
+    <axis>
+      <x>1.0</x>
+      <y>0.0</y>
+      <z>0.0</z>
+    </axis>
+ </animation>
+
+ <animation>
+    <type>translate</type>
+    <object-name>P_btn</object-name>
+    <property>yak-40/FuelSystem/btn_p</property>
+    <interpolation>
+      <entry><ind>0.0</ind><dep>0.0</dep></entry>
+      <entry><ind>1.0</ind><dep>-0.0014</dep></entry>
+    </interpolation>
+    <axis>
+      <x>1.0</x>
+      <y>0.0</y>
+      <z>0.0</z>
+    </axis>
+ </animation>
+
+ <animation>
+  <type>pick</type>
+  <object-name>H_btn</object-name>
+  <visible>true</visible>
+  <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <binding>
+      <command>nasal</command>
+      <script>
+        interpolate("yak-40/FuelSystem/btn_h", 1, 0.1);
+      </script>
+    </binding>
+    <mod-up>
+      <binding>
+	<command>nasal</command>
+	<script>
+          interpolate("yak-40/FuelSystem/btn_h", 0, 0.1);
+        </script>
+      </binding>
+    </mod-up>  
+  </action>
+ </animation>
+
+ <animation>
+  <type>pick</type>
+  <object-name>P_btn</object-name>
+  <visible>true</visible>
+  <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <binding>
+      <command>nasal</command>
+      <script>
+        interpolate("yak-40/FuelSystem/btn_p", 1, 0.1);
+      </script>
+    </binding>
+    <mod-up>
+      <binding>
+	<command>nasal</command>
+      <script>
+        interpolate("yak-40/FuelSystem/btn_p", 0, 0.1);
+      </script>
+      </binding>
+    </mod-up>
+  </action>
+ </animation>
+
+<!-- Text OSG -->
+  <animation>
+    <type>select</type>
+    <object-name>textpptiz</object-name>
+    <condition>
+      <property>sim/panel-hotspots</property>
+    </condition>
+  </animation>
+
+  <text>
+    <name>textpptiz</name>
+    <type type="string">literal</type>
+    <text type="string">PPTIZ Fuel Level Indicator</text>
+    <draw-text type="bool">true</draw-text>
+    <font>Helvetica.txf</font>
+    <character-size type="double">0.014</character-size>
+    <character-aspect-ratio type="double">1.0</character-aspect-ratio>
+    <axis-alignment>yz-plane</axis-alignment>
+    <max-height>0.06</max-height>
+    <max-width>0.05</max-width>
+    <font-resolution>
+      <width type="int">64</width>
+      <height type="int">64</height>
+    </font-resolution>
+    <alignment>center-center</alignment>
+    <offsets>
+      <x-m>0.005</x-m>
+      <y-m>0.0</y-m>
+      <z-m>0.0</z-m>
+    </offsets>
+  </text>
+  <animation>
+    <type>material</type>
+    <object-name>textpptiz</object-name>
+    <emission>
+      <red>1.0</red>
+      <green>1.0</green>
+      <blue>1.0</blue>
+    </emission>
+  </animation>
+
+</PropertyList>

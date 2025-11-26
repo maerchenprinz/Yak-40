@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+<!--########################################
+## KPPMS
+#########################################-->
+ <filter>
+  <name>KPPMS-bug_mp</name>
+  <debug>false</debug>
+  <type>exponential</type>
+   <filter-time>1.8</filter-time>
+   <input>/instrumentation/nav[0]/radials/selected-deg_no_minmax</input>
+   <output>/instrumentation/nav[0]/radials/selected-deg_no_minmax_filter</output>
+ </filter>
+
+ <filter>
+  <type>gain</type>
+  <gain>1.0</gain>
+  <input>
+   <expression>
+    <dif>
+     <property>/yak-40/GMK-1/BS-1_heading-out</property>
+     <property>/instrumentation/nav[0]/radials/selected-deg_no_minmax_filter</property>
+    </dif>
+   </expression>
+  </input>
+  <output>/yak-40/KPPMS/BS-1_heading-out_filter_lp</output>
+  <period>
+   <min>0</min>
+   <max>360</max>
+  </period>
+ </filter>
+<!---->
+ <filter>
+  <name>KPPMS-bug_rp</name>
+  <debug>false</debug>
+  <type>exponential</type>
+   <filter-time>1.8</filter-time>
+   <input>/instrumentation/nav[1]/radials/selected-deg_no_minmax</input>
+   <output>/instrumentation/nav[1]/radials/selected-deg_no_minmax_filter</output>
+ </filter>
+
+ <filter>
+  <type>gain</type>
+  <gain>1.0</gain>
+  <input>
+   <expression>
+    <dif>
+     <property>/yak-40/GMK-1/BS-1_heading-out</property>
+     <property>/instrumentation/nav[1]/radials/selected-deg_no_minmax_filter</property>
+    </dif>
+   </expression>
+  </input>
+  <output>/yak-40/KPPMS/BS-1_heading-out_filter_rp</output>
+  <period>
+   <min>0</min>
+   <max>360</max>
+  </period>
+ </filter>
+
+</PropertyList>

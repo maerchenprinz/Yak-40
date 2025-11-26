@@ -1,0 +1,407 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+ <path>azs_left.ac</path>
+
+<!-- 1st row -->
+ <model>
+  <name>ukv_1</name>
+  <path>0101.xml</path>
+   <offsets>
+    <x-m>0.0</x-m>
+    <y-m>0.103</y-m>
+    <z-m>0.1087</z-m>
+    <heading-deg>180.0</heading-deg>
+   </offsets>
+ </model>
+
+ <model>
+  <name>da-30</name>
+  <path>0102.xml</path>
+   <offsets>
+    <x-m>0.0</x-m>
+    <y-m>0.079</y-m>
+    <z-m>0.1087</z-m>
+    <heading-deg>180.0</heading-deg>
+   </offsets>
+ </model>
+
+ <model>
+  <name>agd-1_left</name>
+  <path>0103.xml</path>
+   <offsets>
+    <x-m>0.0</x-m>
+    <y-m>0.054</y-m>
+    <z-m>0.1087</z-m>
+    <heading-deg>180.0</heading-deg>
+   </offsets>
+ </model>
+
+ <model>
+  <name>fuelmeter</name>
+  <path>0104.xml</path>
+   <offsets>
+    <x-m>0.0</x-m>
+    <y-m>0.03</y-m>
+    <z-m>0.1087</z-m>
+    <heading-deg>180.0</heading-deg>
+   </offsets>
+ </model>
+
+ <model>
+  <name>check_lamps</name>
+  <path>0105.xml</path>
+   <offsets>
+    <x-m>0.0</x-m>
+    <y-m>0.0054</y-m>
+    <z-m>0.1087</z-m>
+    <heading-deg>180.0</heading-deg>
+   </offsets>
+ </model>
+
+ <model>
+  <name>enginecontrols1</name>
+  <path>0106.xml</path>
+   <offsets>
+    <x-m>0.0</x-m>
+    <y-m>-0.019</y-m>
+    <z-m>0.1087</z-m>
+    <heading-deg>180.0</heading-deg>
+   </offsets>
+ </model>
+
+ <model>
+  <name>enginecontrols2</name>
+  <path>0107.xml</path>
+   <offsets>
+    <x-m>0.0</x-m>
+    <y-m>-0.0435</y-m>
+    <z-m>0.1087</z-m>
+    <heading-deg>180.0</heading-deg>
+   </offsets>
+ </model>
+
+ <model>
+  <name>enginecontrols3</name>
+  <path>0108.xml</path>
+   <offsets>
+    <x-m>0.0</x-m>
+    <y-m>-0.068</y-m>
+    <z-m>0.1087</z-m>
+    <heading-deg>180.0</heading-deg>
+   </offsets>
+ </model>
+
+ <!--model>
+  <name>empty</name>
+  <path>0109.xml</path>
+   <offsets>
+    <x-m>0.0</x-m>
+    <y-m>0.0925</y-m>
+    <z-m>0.1087</z-m>
+    <heading-deg>180.0</heading-deg>
+   </offsets>
+ </model-->
+
+<!-- 2nd row -->
+ <model>
+  <name>ark_1</name>
+  <path>0201.xml</path>
+   <offsets>
+    <x-m>0.0</x-m>
+    <y-m>0.103</y-m>
+    <z-m>0.0374</z-m>
+    <heading-deg>180.0</heading-deg>
+   </offsets>
+ </model>
+
+ <model>
+  <name>020m</name>
+  <path>0202.xml</path>
+   <offsets>
+    <x-m>0.0</x-m>
+    <y-m>0.079</y-m>
+    <z-m>0.0374</z-m>
+    <heading-deg>180.0</heading-deg>
+   </offsets>
+ </model>
+
+ <model>
+  <name>emerg_36v</name>
+  <path>0203.xml</path>
+   <offsets>
+    <x-m>0.0</x-m>
+    <y-m>0.054</y-m>
+    <z-m>0.0374</z-m>
+    <heading-deg>180.0</heading-deg>
+   </offsets>
+ </model>
+
+ <model>
+  <name>by_radio</name>
+  <path>0204.xml</path>
+   <offsets>
+    <x-m>0.0</x-m>
+    <y-m>0.03</y-m>
+    <z-m>0.0374</z-m>
+    <heading-deg>180.0</heading-deg>
+   </offsets>
+ </model>
+
+ <model>
+  <name>by_window</name>
+  <path>0205.xml</path>
+   <offsets>
+    <x-m>0.0</x-m>
+    <y-m>0.0054</y-m>
+    <z-m>0.0374</z-m>
+    <heading-deg>180.0</heading-deg>
+   </offsets>
+ </model>
+
+ <model>
+  <name>emerg_115v_auto</name>
+  <path>0206.xml</path>
+   <offsets>
+    <x-m>0.0</x-m>
+    <y-m>-0.019</y-m>
+    <z-m>0.0374</z-m>
+    <heading-deg>180.0</heading-deg>
+   </offsets>
+ </model>
+
+ <model>
+  <name>fire_signal1</name>
+  <path>0207.xml</path>
+   <offsets>
+    <x-m>0.0</x-m>
+    <y-m>-0.0435</y-m>
+    <z-m>0.0374</z-m>
+    <heading-deg>180.0</heading-deg>
+   </offsets>
+ </model>
+
+ <model>
+  <name>fire_signal2</name>
+  <path>0208.xml</path>
+   <offsets>
+    <x-m>0.0</x-m>
+    <y-m>-0.068</y-m>
+    <z-m>0.0374</z-m>
+    <heading-deg>180.0</heading-deg>
+   </offsets>
+ </model>
+
+ <model>
+  <name>fire_signal3</name>
+  <path>0209.xml</path>
+   <offsets>
+    <x-m>0.0</x-m>
+    <y-m>-0.0925</y-m>
+    <z-m>0.0374</z-m>
+    <heading-deg>180.0</heading-deg>
+   </offsets>
+ </model>
+
+<!-- 3rd row -->
+ <model>
+  <name>stallsignal</name>
+  <path>0301.xml</path>
+   <offsets>
+    <x-m>0.0</x-m>
+    <y-m>0.103</y-m>
+    <z-m>-0.037</z-m>
+    <heading-deg>180.0</heading-deg>
+   </offsets>
+ </model>
+
+ <model>
+  <name>xfeed</name>
+  <path>0302.xml</path>
+   <offsets>
+    <x-m>0.0</x-m>
+    <y-m>0.079</y-m>
+    <z-m>-0.037</z-m>
+    <heading-deg>180.0</heading-deg>
+   </offsets>
+ </model>
+
+ <model>
+  <name>combine_fuel_cells</name>
+  <path>0303.xml</path>
+   <offsets>
+    <x-m>0.0</x-m>
+    <y-m>0.054</y-m>
+    <z-m>-0.037</z-m>
+    <heading-deg>180.0</heading-deg>
+   </offsets>
+ </model>
+
+ <model>
+  <name>cutoffvalve1</name>
+  <path>0304.xml</path>
+   <offsets>
+    <x-m>0.0</x-m>
+    <y-m>0.03</y-m>
+    <z-m>-0.037</z-m>
+    <heading-deg>180.0</heading-deg>
+   </offsets>
+ </model>
+
+ <model>
+  <name>cutoffvalve2</name>
+  <path>0305.xml</path>
+   <offsets>
+    <x-m>0.0</x-m>
+    <y-m>0.0054</y-m>
+    <z-m>-0.037</z-m>
+    <heading-deg>180.0</heading-deg>
+   </offsets>
+ </model>
+
+ <model>
+  <name>cutoffvalve3</name>
+  <path>0306.xml</path>
+   <offsets>
+    <x-m>0.0</x-m>
+    <y-m>-0.019</y-m>
+    <z-m>-0.037</z-m>
+    <heading-deg>180.0</heading-deg>
+   </offsets>
+ </model>
+
+ <model>
+  <name>fire_ext_line1</name>
+  <path>0307.xml</path>
+   <offsets>
+    <x-m>0.0</x-m>
+    <y-m>-0.0435</y-m>
+    <z-m>-0.037</z-m>
+    <heading-deg>180.0</heading-deg>
+   </offsets>
+ </model>
+
+ <model>
+  <name>fire_ext_line2</name>
+  <path>0308.xml</path>
+   <offsets>
+    <x-m>0.0</x-m>
+    <y-m>-0.068</y-m>
+    <z-m>-0.037</z-m>
+    <heading-deg>180.0</heading-deg>
+   </offsets>
+ </model>
+
+ <model>
+  <name>fire_ext_line3-4</name>
+  <path>0309.xml</path>
+   <offsets>
+    <x-m>0.0</x-m>
+    <y-m>-0.0925</y-m>
+    <z-m>-0.037</z-m>
+    <heading-deg>180.0</heading-deg>
+   </offsets>
+ </model>
+
+<!-- 4th row -->
+ <model>
+  <name>startsignal</name>
+  <path>0401.xml</path>
+   <offsets>
+    <x-m>0.0</x-m>
+    <y-m>0.103</y-m>
+    <z-m>-0.121</z-m>
+    <heading-deg>180.0</heading-deg>
+   </offsets>
+ </model>
+
+ <model>
+  <name>landing_w/o_gear</name>
+  <path>0402.xml</path>
+   <offsets>
+    <x-m>0.0</x-m>
+    <y-m>0.079</y-m>
+    <z-m>-0.121</z-m>
+    <heading-deg>180.0</heading-deg>
+   </offsets>
+ </model>
+
+ <model>
+  <name>ignition_ai9</name>
+  <path>0403.xml</path>
+   <offsets>
+    <x-m>0.0</x-m>
+    <y-m>0.054</y-m>
+    <z-m>-0.121</z-m>
+    <heading-deg>180.0</heading-deg>
+   </offsets>
+ </model>
+
+ <model>
+  <name>ignition_ai25_1</name>
+  <path>0404.xml</path>
+   <offsets>
+    <x-m>0.0</x-m>
+    <y-m>0.03</y-m>
+    <z-m>-0.121</z-m>
+    <heading-deg>180.0</heading-deg>
+   </offsets>
+ </model>
+
+ <model>
+  <name>ignition_ai25_2</name>
+  <path>0405.xml</path>
+   <offsets>
+    <x-m>0.0</x-m>
+    <y-m>0.0054</y-m>
+    <z-m>-0.121</z-m>
+    <heading-deg>180.0</heading-deg>
+   </offsets>
+ </model>
+
+ <model>
+  <name>ignition_ai25_3</name>
+  <path>0406.xml</path>
+   <offsets>
+    <x-m>0.0</x-m>
+    <y-m>-0.019</y-m>
+    <z-m>-0.121</z-m>
+    <heading-deg>180.0</heading-deg>
+   </offsets>
+ </model>
+
+ <model>
+  <name>cutoff_valve1</name>
+  <path>0407.xml</path>
+   <offsets>
+    <x-m>0.0</x-m>
+    <y-m>-0.0435</y-m>
+    <z-m>-0.121</z-m>
+    <heading-deg>180.0</heading-deg>
+   </offsets>
+ </model>
+
+ <model>
+  <name>cutoff_valve2</name>
+  <path>0408.xml</path>
+   <offsets>
+    <x-m>0.0</x-m>
+    <y-m>-0.068</y-m>
+    <z-m>-0.121</z-m>
+    <heading-deg>180.0</heading-deg>
+   </offsets>
+ </model>
+
+ <model>
+  <name>cutoff_valve3</name>
+  <path>0409.xml</path>
+   <offsets>
+    <x-m>0.0</x-m>
+    <y-m>-0.0925</y-m>
+    <z-m>-0.121</z-m>
+    <heading-deg>180.0</heading-deg>
+   </offsets>
+ </model>
+
+
+</PropertyList>

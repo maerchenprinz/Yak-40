@@ -1,0 +1,223 @@
+<PropertyList>
+
+<!-- AGB-3K, FO's AI -->
+  <path>agb-3k.ac</path>
+
+ <animation>
+   <type>material</type>
+   <object-name>case</object-name>
+    <condition>
+    <equals>
+     <property>yak-40/cockpit-colour</property>
+     <value>Brown</value>
+    </equals>
+    </condition>
+   <diffuse>
+     <red>1.0</red>
+     <green>0.725</green>
+     <blue>0.404</blue>
+   </diffuse>
+   <ambient>
+     <red>1.0</red>
+     <green>0.725</green>
+     <blue>0.404</blue>
+   </ambient>
+   <specular>
+     <red>1.0</red>
+     <green>1.0</green>
+     <blue>1.0</blue>
+   </specular>
+   <emission>
+     <red>0.0</red>
+     <green>0.0</green>
+     <blue>0.0</blue>
+   </emission>
+ </animation>
+
+ <!--animation>
+   <type>material</type>
+   <object-name>PitchScale</object-name>
+   <object-name>Plane</object-name>
+   <object-name>pitch</object-name>
+   <object-name>Blanker</object-name>
+   <object-name>bull_tube</object-name>
+   <emission>
+     <red>1.0</red>
+     <green>0.5</green>
+     <blue>0.5</blue>
+     <factor-prop>controls/lighting/panel-l_red</factor-prop>
+   </emission>
+ </animation-->
+
+ <!--animation>
+   <type>material</type>
+   <object-name>tubeback</object-name>
+   <emission>
+     <red>0.5</red>
+     <green>0.4</green>
+     <blue>0.4</blue>
+     <factor-prop>controls/lighting/panel-l_red</factor-prop>
+   </emission>
+ </animation-->
+
+
+ <!--animation>
+   <type>material</type>
+   <object-name>housing</object-name>
+   <emission>
+     <red>0.7</red>
+     <green>0.4</green>
+     <blue>0.4</blue>
+     <factor-prop>controls/lighting/panel-l_red</factor-prop>
+   </emission>
+ </animation-->
+
+ <effect>
+  <inherits-from>Effects/model-transparent</inherits-from>
+  <object-name>tubefront</object-name>
+ </effect>
+
+<!--Pitch-->
+
+<animation>
+  <type>rotate</type>
+  <object-name>PitchScale</object-name>
+  <expression>
+   <product>
+    <sum>
+     <property>instrumentation/AGB-3K[1]/indicated-pitch-deg</property>
+     <property>yak-40/AGB-3K/indicated-pitch-offset-deg-r</property>
+    </sum>
+    <value>2</value>
+   </product>
+  </expression>
+   <center>
+    <x-m>-0.0602</x-m>
+    <y-m>0.0</y-m>
+    <z-m>0.0029</z-m>
+   </center>
+   <axis>
+    <x>0.0</x>
+    <y>1.0</y>
+    <z>0.0</z>
+   </axis>
+</animation>
+
+ <animation>
+   <type>knob</type>
+   <object-name>pitchadjust</object-name>
+   <property>yak-40/AGB-3K/indicated-pitch-offset-deg-r</property>
+   <factor>-50</factor>
+  <center>
+    <x-m>0.0</x-m>
+    <y-m>-0.0516</y-m>
+    <z-m>-0.0316</z-m>
+  </center>
+  <axis>
+    <x>1.0</x>
+    <y>0.0</y>
+    <z>0.0</z>
+  </axis>
+    <action>
+     <binding>
+      <command>property-adjust</command>
+      <property>yak-40/AGB-3K/indicated-pitch-offset-deg-r</property>
+      <factor>-0.15</factor>
+      <min>-4</min>
+      <max>4</max>
+      <wrap>false</wrap>
+     </binding>
+    </action>
+ </animation>
+
+ <animation>
+  <type>translate</type>
+  <object-name>offsetind</object-name>
+  <property>yak-40/AGB-3K/indicated-pitch-offset-deg-r</property>
+  <factor>0.0016</factor>
+  <axis>
+   <x>0</x>
+   <y>0</y>
+   <z>-1</z>
+  </axis>
+ </animation>
+
+<!--Attitude-->
+<animation>
+  <type>rotate</type>
+  <object-name>Plane</object-name>
+  <property>instrumentation/AGB-3K[1]/indicated-roll-deg</property>
+  <center>
+    <x-m>0.0</x-m>
+    <y-m>0.0</y-m>
+    <z-m>0.0027</z-m>
+  </center>
+  <axis>
+    <x>-1.0</x>
+    <y>0.0</y>
+    <z>0.0</z>
+  </axis>
+</animation>
+
+<!--Slip-->
+<animation>
+  <type>rotate</type>
+  <object-name>skid_ball</object-name>
+  <property>fdm/jsbsim/instrumentation/slip-skid-indicator/slip-skid-deg</property>
+  <factor>1</factor>
+  <max-deg>20.0</max-deg>
+  <min-deg>-20.0</min-deg>
+  <center>
+    <x-m>0.0</x-m>
+    <y-m>0.0</y-m>
+    <z-m>0.006</z-m>
+  </center>
+  <axis>
+    <x>-1.0</x>
+    <y>0.0</y>
+    <z>0.0</z>
+  </axis>
+</animation>
+
+<!-- TEXT OSG -->
+  <animation>
+    <type>select</type>
+    <object-name>textagb2</object-name>
+    <condition>
+      <property>sim/panel-hotspots</property>
+    </condition>
+  </animation>
+
+  <text>
+    <name>textagb2</name>
+    <type type="string">literal</type>
+    <text type="string">AGB-3K AI</text>
+    <draw-text type="bool">true</draw-text>
+    <font>Helvetica.txf</font>
+    <character-size type="double">0.014</character-size>
+    <character-aspect-ratio type="double">1.0</character-aspect-ratio>
+    <axis-alignment>yz-plane</axis-alignment>
+    <max-height>0.06</max-height>
+    <max-width>0.05</max-width>
+    <font-resolution>
+      <width type="int">64</width>
+      <height type="int">64</height>
+    </font-resolution>
+    <alignment>center-center</alignment>
+    <offsets>
+      <x-m>0.005</x-m>
+      <y-m>0.0</y-m>
+      <z-m>0.0</z-m>
+    </offsets>
+  </text>
+  <animation>
+    <type>material</type>
+    <object-name>textagb2</object-name>
+    <emission>
+      <red>1.0</red>
+      <green>1.0</green>
+      <blue>1.0</blue>
+    </emission>
+  </animation>
+
+</PropertyList>

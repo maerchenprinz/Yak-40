@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+
+<!-- 2KNR, Engine Start in Air -->
+
+<PropertyList>
+ <path>../../shared/buttons/2knr.ac</path>
+
+ <animation>
+  <type>pick</type>
+  <object-name>press_me</object-name>
+  <visible>true</visible>
+  <action>
+   <button>0</button>
+   <repeatable>true</repeatable>
+   <binding>
+     <command>nasal</command>
+     <script>
+	interpolate("yak-40/FuelSystem/test-ATsT", 1.0, 0.1 );
+     </script>
+   </binding>
+  <mod-up>
+   <binding>
+     <command>nasal</command>
+     <script>
+	interpolate("yak-40/FuelSystem/test-ATsT", 0.0, 0.1 );
+     </script>
+   </binding>
+  </mod-up>
+  </action>
+ </animation>
+
+ <animation>
+  <type>translate</type>
+  <object-name>press_me</object-name>
+  <property>yak-40/FuelSystem/test-ATsT</property>
+  <factor>0.004</factor>
+  <axis>
+    <x>-1</x>
+    <y>0</y>
+    <z>0</z>
+  </axis>
+ </animation>
+</PropertyList>

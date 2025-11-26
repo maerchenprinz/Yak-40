@@ -1,0 +1,193 @@
+<?xml version="1.0"?>
+
+<system name="GMK-1G">
+
+<!--property value="123">/yak-40/GMK-1/GA-6-1_output</property-->
+<!--########################################
+## BASIC STUFF
+#########################################-->
+ <channel name="ID-3/KM-8">
+
+ <switch name="/yak-40/GMK-1/ID-3_output">
+  <default value="/orientation/heading-magnetic-deg"/>
+  <test value="0.0">
+	/yak-40/GMK-1/PU-27_sw_ctrl_0-300 EQ 1.0
+  </test>
+  <test value="300.0">
+	/yak-40/GMK-1/PU-27_sw_ctrl_0-300 EQ -1.0
+  </test>
+ </switch>
+
+ <summer name="/yak-40/GMK-1/KM-8_output">
+  <input>/yak-40/GMK-1/ID-3_output</input>
+  <input>/yak-40/GMK-1/KM-8_set-deviation</input>
+ </summer>
+
+ </channel>
+
+<!--***** GA-6 GYROS' precession *****-->
+<channel name="Earth rate" execrate="240">
+
+ <fcs_function name="/yak-40/GMK-1/GA-6_horiz-prec_degph">
+  <function>
+
+ <product>
+  <value>-15</value>
+  <sin>
+   <product>
+    <property>/position/latitude-deg</property>
+    <value>0.0174533</value>
+   </product>
+  </sin>
+ </product>
+
+  </function>
+ </fcs_function>
+
+ <fcs_function name="/yak-40/GMK-1/GA-6_horiz-prec_sum">
+  <function>
+
+  <sum>
+   <property>/yak-40/GMK-1/GA-6_horiz-prec_sum</property>
+   <product>
+    <property>/yak-40/GMK-1/GA-6_horiz-prec_degph</property>
+    <property>simulation/channel-dt</property>
+    <value>0.000277</value><!--1/3600 (degph->degps)-->
+   </product>
+  </sum>
+
+  </function>
+ </fcs_function>
+
+</channel>
+
+<!--########################################
+## GPK-MODE
+#########################################-->
+<channel name="Earth error correction" execrate="120" execute="/yak-40/GMK-1/mode_GPK">
+
+ <fcs_function name="/yak-40/GMK-1/GA-6_horiz-prec-corr_degph">
+  <function>
+
+ <product>
+  <value>15</value>
+  <property>/yak-40/GMK-1/PU-27_sw_hemisphere</property>
+  <sin>
+   <product>
+    <property>/yak-40/GMK-1/PU-27_kn_latitude</property>
+    <value>0.0174533</value>
+   </product>
+  </sin>
+ </product>
+
+  </function>
+ </fcs_function>
+
+</channel>
+
+<!--Correction sum by precession correction and GA-6 "itself"-->
+<channel name="Correction sum" execute="/yak-40/GMK-1/mode_GPK">
+
+ <fcs_function name="/yak-40/GMK-1/GA-6-1_corr_sum">
+  <function>
+
+  <sum>
+   <property>/yak-40/GMK-1/GA-6-1_corr_sum</property>
+
+   <product>
+    <property>/yak-40/GMK-1/GA-6_horiz-prec-corr_degph</property>
+    <property>simulation/channel-dt</property>
+    <value>0.000277</value><!--degph to degps-->
+   </product>
+
+   <product>
+    <property>/orientation/yaw-rate-degps</property><!--"ideal" gyro?-->
+    <property>simulation/channel-dt</property>
+   </product>
+  </sum>
+
+  </function>
+ </fcs_function>
+
+ <summer name="/yak-40/GMK-1/GA-6-1_heading">
+  <input>/yak-40/GMK-1/PU-27_gyro_corr</input>
+  <input>/yak-40/GMK-1/GA-6_horiz-prec_sum</input>
+  <input>/yak-40/GMK-1/GA-6-1_corr_sum</input>
+ </summer>
+
+</channel>
+
+<!--########################################
+## MK/AK-MODE
+#########################################-->
+<channel name="MK" execute="/yak-40/GMK-1/mode_MK">
+
+ <summer name="/yak-40/GMK-1/GA-6-1_from_KM-8_deviation">
+  <input>/yak-40/GMK-1/KM-8_output</input>
+  <input>-/yak-40/GMK-1/GA-6-1_heading</input>
+ </summer>
+
+ <fcs_function name="/yak-40/GMK-1/GA-6-1_heading">
+  <function>
+
+  <ifthen>
+   <gt>
+    <property>/yak-40/GMK-1/GA-6-1_from_KM-8_deviation</property>
+    <value>0</value>
+   </gt>
+
+   <sum>
+    <property>/yak-40/GMK-1/GA-6-1_heading</property>
+    <product>
+     <property>simulation/channel-dt</property>
+     <abs>
+      <property>/yak-40/GMK-1/correction-speed-degps</property>
+     </abs>
+    </product>
+   </sum>
+
+   <difference>
+    <property>/yak-40/GMK-1/GA-6-1_heading</property>
+    <product>
+     <property>simulation/channel-dt</property>
+     <abs>
+      <property>/yak-40/GMK-1/correction-speed-degps</property>
+     </abs>
+    </product>
+   </difference>
+
+  </ifthen>
+
+  </function>
+  <output>/yak-40/GMK-1/PU-27_gyro_corr</output><!--Handover to GPK-mode-->
+ </fcs_function>
+
+ <switch name="/yak-40/GMK-1/correction-speed-degps">
+  <default value="0.3"/><!--Correction by ID-3-->
+  <test logic="OR" value="/orientation/yaw-rate-degps"><!--Disconnect from ID-3 by VK-53Sh-->
+	/orientation/yaw-rate-degps GT 0.3
+	/orientation/yaw-rate-degps LT -0.3
+  </test>
+  <test logic="OR" value="12.0"><!--Fast alignment-->
+	/yak-40/GMK-1/GMK_first-init EQ 1
+	/yak-40/GMK-1/PU-27_sw_gyro_man_corr NE 0.0
+	/yak-40/GMK-1/GA-6-1_from_KM-8_deviation GT 10.0
+	/yak-40/GMK-1/GA-6-1_from_KM-8_deviation LT -10.0
+  </test>
+ </switch>
+
+</channel>
+
+<!--***** BS-1 Communication Unit *****-->
+ <!--channel name="BS-1">
+
+  <switch name="/yak-40/GMK-1/BS-1_heading-out">
+   <default value="/yak-40/GMK-1/GA-6-1_heading"/>
+   <test value="/yak-40/GMK-1/GA-6-2_heading">
+	/yak-40/GMK-1/PU-27_sw_active_gyro EQ 1.0
+   </test>
+  </switch>
+
+ </channel-->
+
+</system>

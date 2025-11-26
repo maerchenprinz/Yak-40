@@ -1,0 +1,99 @@
+<?xml version="1.0"?>
+
+<!--PPTIZ switch, indication selector -->
+<PropertyList>
+ <path>../../shared/switches/ppng-15k.ac</path><!--should be a ppvn-->
+
+ <animation>
+  <type>pick</type>
+  <object-name>clickspot_up</object-name>
+  <visible>false</visible>
+  <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <binding>
+      <command>nasal</command>
+      <script>
+        interpolate("yak-40/FuelSystem/sw_pptiz-ind", -1.0, 0.1 );
+      </script>
+    </binding>
+  </action>
+  <hovered>
+   <binding>
+    <command>set-tooltip</command>
+    <tooltip-id>pptizl</tooltip-id>
+    <label>     Fuel Level
+Indication LEFT</label>
+   </binding>
+  </hovered>
+ </animation>
+
+ <animation>
+  <type>pick</type>
+  <object-name>clickspot_middle</object-name>
+  <visible>false</visible>
+  <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <binding>
+      <command>nasal</command>
+      <script>
+        interpolate("yak-40/FuelSystem/sw_pptiz-ind", 0.0, 0.1 );
+      </script>
+    </binding>
+  </action>
+  <hovered>
+   <binding>
+    <command>set-tooltip</command>
+    <tooltip-id>pptizm</tooltip-id>
+    <label>    Fuel Level
+Indication SUM</label>
+   </binding>
+  </hovered>
+ </animation>
+
+ <animation>
+  <type>pick</type>
+  <object-name>clickspot_down</object-name>
+  <visible>false</visible>
+  <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <binding>
+      <command>nasal</command>
+      <script>
+        interpolate("yak-40/FuelSystem/sw_pptiz-ind", 1.0, 0.1 );
+      </script>
+    </binding>
+  </action>
+  <hovered>
+   <binding>
+    <command>set-tooltip</command>
+    <tooltip-id>pptizr</tooltip-id>
+    <label>      Fuel Level
+Indication RIGHT</label>
+   </binding>
+  </hovered>
+ </animation>
+
+ <animation>
+   <type>rotate</type>
+   <object-name>lever</object-name>
+   <property>yak-40/FuelSystem/sw_pptiz-ind</property>
+  <interpolation>
+    <entry><ind>-1.0</ind><dep>30.0</dep></entry>
+    <entry><ind>1.0</ind><dep>-30.0</dep></entry>
+  </interpolation>
+  <axis>
+    <x>0.0</x>
+    <y>-1.0</y>
+    <z>0.0</z>
+  </axis>
+  <center>
+    <x-m>0.0</x-m>
+    <y-m>0.0</y-m>
+    <z-m>0.0</z-m>
+  </center>
+ </animation>
+
+</PropertyList>

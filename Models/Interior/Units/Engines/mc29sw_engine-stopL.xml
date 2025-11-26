@@ -1,0 +1,85 @@
+<?xml version="1.0"?>
+
+<!-- AZS-5, Engine Stop switch -->
+
+<PropertyList>
+ <path>../../shared/switches/azs.ac</path>
+
+ <animation>
+  <type>pick</type>
+  <object-name>clickspot_up</object-name>
+  <visible>false</visible>
+  <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <binding>
+      <command>nasal</command>
+      <script>
+        interpolate("yak-40/Engines/stopL", 1.0, 0.4 );
+      </script>
+    </binding>
+<!-- animation, begin with sw -->
+    <binding>
+      <command>nasal</command>
+      <script>
+	interpolate("yak-40/Engines/sw_stopL", 1.0, 0.1 );
+      </script>
+    </binding>
+  </action>
+   <hovered>
+    <binding>
+      <command>set-tooltip</command>
+      <tooltip-id>stopenglno</tooltip-id>
+      <label>Left Engine
+ NORMAL</label>
+    </binding>
+   </hovered>
+ </animation>
+
+ <animation>
+  <type>pick</type>
+  <object-name>clickspot_down</object-name>
+  <visible>false</visible>
+  <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <binding>
+      <command>nasal</command>
+      <script>
+        interpolate("yak-40/Engines/stopL", 0.0, 0.4 );
+      </script>
+    </binding>
+<!-- animation, begin with sw -->
+    <binding>
+      <command>nasal</command>
+      <script>
+	interpolate("yak-40/Engines/sw_stopL", 0.0, 0.1 );
+      </script>
+    </binding>
+  </action>
+   <hovered>
+    <binding>
+      <command>set-tooltip</command>
+      <tooltip-id>stopenglyes</tooltip-id>
+      <label>Left Engine
+ STOP</label>
+    </binding>
+   </hovered>
+ </animation>
+
+ <animation>
+   <type>rotate</type>
+   <object-name>lever</object-name>
+   <property>yak-40/Engines/sw_stopL</property>
+  <interpolation>
+    <entry><ind>1.0</ind>	<dep>30.0</dep></entry>
+    <entry><ind>0.0</ind>	<dep>-30.0</dep></entry>
+  </interpolation>
+  <axis>
+    <x>0.0</x>
+    <y>-1.0</y>
+    <z>0.0</z>
+  </axis>
+ </animation>
+
+</PropertyList>

@@ -1,0 +1,774 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<PropertyList>
+ <path>Aircraft/Yak-40/Models/Exterior/yak-40-model.ac</path>
+
+<!--model>
+ <name>exhaust-flame_l</name>
+ <path>Aircraft/Yak-40/Models/Effects/exhaust-flame_l.xml</path>
+  <offsets>
+   <x-m>5.5</x-m>
+   <y-m>-1.75</y-m>
+   <z-m>1.41</z-m>
+  </offsets>
+ <nopreview/>
+</model>
+
+<model>
+ <name>exhaust-flame_r</name>
+ <path>Aircraft/Yak-40/Models/Effects/exhaust-flame_r.xml</path>
+  <offsets>
+   <x-m>5.5</x-m>
+   <y-m>1.75</y-m>
+   <z-m>1.41</z-m>
+  </offsets>
+ <nopreview/>
+</model-->
+
+<!-- Interior -->
+<model>
+ <name>cockpit</name>
+ <usage>interior</usage>
+ <path>Aircraft/Yak-40/Models/Interior/cockpit.xml</path>
+ <nopreview/>
+</model>
+
+<model>
+ <name>cabin</name>
+ <usage>interior</usage>
+ <path>Aircraft/Yak-40/Models/Interior/cabin.xml</path>
+ <nopreview/>
+</model>
+
+<!--******************************** ANIMATIONS *******************************-->
+ <animation>
+  <name>exterior</name>
+  <object-name>fuselage</object-name>
+ </animation>
+
+ <animation>
+  <type>select</type>
+  <object-name>exterior</object-name>
+  <condition>
+    <not>
+     <property>sim/current-view/internal</property>
+    </not>
+  </condition>
+ </animation>
+
+<!--***** SURFACES *****-->
+<!-- Elevators -->
+ <animation>
+  <type>rotate</type>
+  <object-name>elevators</object-name>
+  <property>/surface-positions/elevator-pos-norm</property>-->  
+  <interpolation>
+   <entry>
+    <ind>1</ind> 
+    <dep>25</dep>
+   </entry>
+   <entry>
+    <ind>0</ind> 
+    <dep>0</dep> 
+   </entry>
+   <entry>
+    <ind>-1</ind> 
+    <dep>-25</dep> 
+   </entry>
+  </interpolation>
+  <center>
+   <x-m>9.984</x-m>
+   <y-m>0.0</y-m>
+   <z-m>5.04</z-m>
+  </center>
+   <axis>
+    <x>0</x>
+    <y>1</y>
+    <z>0</z>
+   </axis>
+ </animation>
+
+<!-- Left aileron -->
+ <animation>
+  <type>rotate</type>
+  <object-name>aileronL</object-name>
+  <property>/surface-positions/left-aileron-pos-norm</property>
+ <interpolation>
+  <entry>
+   <ind>-1</ind> 
+   <dep>-19</dep> 
+  </entry>
+  <entry>
+   <ind>0</ind> 
+   <dep>0</dep> 
+  </entry>
+  <entry>
+   <ind>1</ind> 
+   <dep>15</dep> 
+  </entry> 
+  </interpolation>
+  <axis>
+    <x1-m>1.142</x1-m>
+    <y1-m>-8.184</y1-m>
+    <z1-m>0.764</z1-m>
+    <x2-m>0.767</x2-m>
+    <y2-m>-12.072</y2-m>
+    <z2-m>1.185</z2-m>
+  </axis>
+ </animation>
+
+<!-- Right aileron -->
+ <animation>
+  <type>rotate</type>
+  <object-name>aileronR</object-name>
+  <property>/surface-positions/right-aileron-pos-norm</property>
+  <interpolation>
+  <entry>
+   <ind>-1</ind> 
+   <dep>15</dep> 
+  </entry>
+  <entry>
+   <ind>0</ind> 
+   <dep>0</dep> 
+  </entry>
+  <entry>
+   <ind>1</ind> 
+   <dep>-19</dep> 
+  </entry>
+  </interpolation>
+  <axis>
+    <x1-m>0.767</x1-m>
+    <y1-m>12.072</y1-m>
+    <z1-m>1.185</z1-m>
+    <x2-m>1.142</x2-m>
+    <y2-m>8.184</y2-m>
+    <z2-m>0.764</z2-m>
+  </axis>
+ </animation>
+
+<!-- Rudder -->
+ <animation>
+  <type>rotate</type>
+  <object-name>rudder</object-name>
+  <property>/surface-positions/rudder-pos-norm</property>
+   <interpolation>
+	<entry>
+  <ind>1</ind> 
+  <dep>30</dep>
+  </entry>
+  <entry>
+  <ind>0</ind> 
+  <dep>0</dep> 
+  </entry>
+  <entry>
+  <ind>-1</ind> 
+  <dep>-30</dep> 
+  </entry>
+  </interpolation>
+  <axis>
+    <x1-m>7.15</x1-m>
+    <y1-m>0.00</y1-m>
+    <z1-m>1.41</z1-m>
+    
+    <x2-m>8.93</x2-m>
+    <y2-m>0.00</y2-m>
+    <z2-m>3.71</z2-m>    
+  </axis>
+ </animation>
+
+<!-- Elevator trim
+<animation>
+  <type>rotate</type>
+  <object-name>elevator_M</object-name>
+  <object-name>elevator_0</object-name>
+  <object-name>MESH77</object-name>
+  <object-name>MESH73</object-name>  
+  <property>/surface-positions/pitch-trim-pos-norm</property>
+ <interpolation>
+- <entry>
+  <ind>1</ind> 
+  <dep>6</dep> 
+  </entry>
+- <entry>
+  <ind>0</ind> 
+  <dep>0</dep> 
+  </entry>
+- <entry>
+  <ind>-1</ind> 
+  <dep>-3</dep> 
+  </entry>
+  </interpolation>
+	<center>
+   <x-m>8.840</x-m>
+   <y-m>0.000</y-m>
+   <z-m>4.020</z-m>
+	</center>
+   <axis>
+    <x>0</x>
+    <y>1</y>
+    <z>0</z>
+   </axis>
+</animation>
+-->
+
+<!-- Flaps -->
+ <animation>
+  <type>rotate</type>
+  <object-name>FlapsL</object-name>
+  <property>/fdm/jsbsim/fcs/flap-pos-deg</property>
+  <axis>    
+    <x1-m>1.021</x1-m>
+    <y1-m>-7.924</y1-m>
+    <z1-m >0.307</z1-m>
+	
+    <x2-m>1.479</x2-m>
+    <y2-m>0</y2-m>
+    <z2-m>-0.692</z2-m> 	
+  </axis>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>FlapsR</object-name>
+  <property>/fdm/jsbsim/fcs/flap-pos-deg</property>
+  <axis>
+    <x2-m>1.021</x2-m>
+    <y2-m>7.924</y2-m>
+    <z2-m>0.307</z2-m> 	
+	
+    <x1-m>1.479</x1-m>
+    <y1-m>0</y1-m>
+    <z1-m>-0.692</z1-m>
+  </axis>
+ </animation>
+
+<!--***** GEAR *****-->
+<!-- Front gear steering -->
+ <animation>
+  <type>rotate</type>
+  <object-name>WheelF</object-name>
+  <object-name>DamperStrutF</object-name>
+  <object-name>SteerAxis</object-name>
+  <property>gear/gear[0]/steering-norm</property>
+  <factor>45</factor>
+  <center>
+   <x-m>-7.150</x-m>
+   <y-m>0.0</y-m>
+   <z-m>0.0</z-m> 	
+  </center>
+  <axis>
+   <x>0</x>
+   <y>0</y>
+   <z>-1</z>
+  </axis>
+ </animation>
+
+<!-- Front gear complete retract/extend -->
+ <animation>
+ <type>rotate</type>
+ <object-name>WheelF</object-name>
+ <object-name>DamperStrutF</object-name>
+ <object-name>MainStrutF</object-name>
+ <object-name>DamperF</object-name>
+ <object-name>SteerAxisF</object-name>
+ <object-name>MiddleStrutF</object-name>
+  <property>gear/gear[0]/position-norm</property>
+  <interpolation>
+    <entry><ind>0.0</ind><dep>111.0</dep></entry>
+    <entry><ind>1.0</ind><dep>0.0</dep></entry>
+  </interpolation>
+  <center>
+   <x-m>-7.179</x-m>
+   <y-m>0.000</y-m>
+   <z-m>0.25</z-m>
+  </center>
+   <axis>
+    <x>0</x>
+    <y>1</y>
+    <z>0</z>
+   </axis>
+ </animation>
+
+ <animation>
+ <type>rotate</type>
+ <object-name>MiddleStrutF</object-name>
+  <property>gear/gear[0]/position-norm</property>
+  <interpolation>
+    <entry><ind>0.0</ind><dep>25.0</dep></entry>
+    <entry><ind>1.0</ind><dep>0.0</dep></entry>
+  </interpolation>
+  <center>
+   <x-m>-7.66</x-m>
+   <y-m>0.000</y-m>
+   <z-m>-0.37</z-m>
+  </center>
+   <axis>
+    <x>0</x>
+    <y>1</y>
+    <z>0</z>
+   </axis>
+ </animation>
+
+ <animation>
+ <type>rotate</type>
+ <object-name>V-StrutF</object-name>
+  <property>gear/gear[0]/position-norm</property>
+  <interpolation>
+    <entry><ind>0.0</ind><dep>-50.0</dep></entry>
+    <entry><ind>1.0</ind><dep>0.0</dep></entry>
+  </interpolation>
+  <center>
+   <x-m>-8.00</x-m>
+   <y-m>0.000</y-m>
+   <z-m>0.66</z-m>
+  </center>
+   <axis>
+    <x>0</x>
+    <y>1</y>
+    <z>0</z>
+   </axis>
+ </animation>
+
+<!--front gear damping-->
+ <animation>
+ <type>rotate</type>
+ <object-name>WheelF</object-name>
+ <object-name>DamperStrutF</object-name>
+  <property>gear/gear[0]/compression-norm</property>
+  <interpolation>
+    <entry><ind>	0.0</ind>	<dep>0.0</dep></entry>
+    <entry><ind>	0.6</ind>	<dep>-20.0</dep></entry>
+    <entry><ind>	1.0</ind>	<dep>-35.0</dep></entry>
+    <entry><ind>	1.5</ind>	<dep>-50.0</dep></entry>
+  </interpolation>
+  <center>
+   <x-m>-7.309</x-m>
+   <y-m>0.000</y-m>
+   <z-m>-0.715</z-m>
+  </center>
+  <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+<!-- Front gear spin animation -->
+ <animation>
+ <type>spin</type>
+ <object-name>WheelF</object-name>
+  <condition>
+   <property>gear/gear/compression-norm</property>
+  </condition>
+  <property>gear/gear/rollspeed-ms</property>
+   <factor>12.28</factor>
+   <center>
+   <x-m>-6.925</x-m>
+   <y-m>0.0</y-m>
+   <z-m>-1.124</z-m>
+   </center>
+   <axis>
+    <x>0</x>
+    <y>-1</y>
+    <z>0</z>
+   </axis>
+ </animation>
+
+<!--front doors-->
+ <animation>
+  <type>rotate</type>
+  <object-name>frontgeardoor1L</object-name>
+  <property>gear/gear[0]/position-norm</property>
+  <interpolation>
+    <entry><ind>	0.0</ind><dep>0.0</dep></entry>
+    <entry><ind>	0.1</ind><dep>5.0</dep></entry>
+    <entry><ind>	0.9</ind><dep>85.0</dep></entry>
+    <entry><ind>	1.0</ind><dep>90.0</dep></entry>
+  </interpolation>
+  <axis>
+    <x1-m>-7.652</x1-m>
+    <y1-m>-0.31</y1-m>
+    <z1-m>0.042</z1-m>
+
+    <x2-m>-8.833</x2-m>
+    <y2-m>-0.268</y2-m>
+    <z2-m>0.15</z2-m>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>frontgeardoor1R</object-name>
+  <property>gear/gear[0]/position-norm</property>
+  <interpolation>
+    <entry><ind>	0.0</ind><dep>0.0</dep></entry>
+    <entry><ind>	0.1</ind><dep>-5.0</dep></entry>
+    <entry><ind>	0.9</ind><dep>-85.0</dep></entry>
+    <entry><ind>	1.0</ind><dep>-90.0</dep></entry>
+  </interpolation>
+  <axis>
+    <x1-m>-7.652</x1-m>
+    <y1-m>0.31</y1-m>
+    <z1-m>0.042</z1-m>
+
+    <x2-m>-8.833</x2-m>
+    <y2-m>0.268</y2-m>
+    <z2-m>0.15</z2-m>
+  </axis>
+ </animation>
+
+
+<!--rear doors-->
+ <animation>
+  <type>rotate</type>
+  <object-name>frontgeardoorL2</object-name>
+  <property>gear/gear[0]/position-norm</property>
+  <interpolation>
+    <entry><ind>	0.0</ind><dep>0.0</dep></entry>
+    <entry><ind>	0.1</ind><dep>-5.0</dep></entry>
+    <entry><ind>	0.9</ind><dep>-85.0</dep></entry>
+    <entry><ind>	1.0</ind><dep>-90.0</dep></entry>
+  </interpolation>
+  <axis>
+    <x1-m>-7.652</x1-m>
+    <y1-m>-0.31</y1-m>
+    <z1-m>0.042</z1-m>
+
+    <x2-m>-7.029</x2-m>
+    <y2-m>-0.3105</y2-m>
+    <z2-m>0.018</z2-m>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>frontgeardoorR2</object-name>
+  <property>gear/gear[0]/position-norm</property>
+  <interpolation>
+    <entry><ind>	0.0</ind><dep>0.0</dep></entry>
+    <entry><ind>	0.1</ind><dep>5.0</dep></entry>
+    <entry><ind>	0.9</ind><dep>85.0</dep></entry>
+    <entry><ind>	1.0</ind><dep>90.0</dep></entry>
+  </interpolation>
+  <axis>
+    <x1-m>-7.652</x1-m>
+    <y1-m>0.31</y1-m>
+    <z1-m>0.042</z1-m>
+
+    <x2-m>-7.029</x2-m>
+    <y2-m>0.3105</y2-m>
+    <z2-m>0.018</z2-m>
+  </axis>
+ </animation>
+
+
+<!--*********** Main Gear *******-->
+<!-- Left gear complete retract/extend -->
+ <animation>
+ <type>rotate</type>
+ <object-name>StrutL</object-name>
+ <object-name>DampingStrutL</object-name>
+ <object-name>DamperL</object-name>
+ <object-name>WheelL</object-name>
+ <object-name>LateralStrutL</object-name>
+  <property>gear/gear[0]/position-norm</property>
+  <interpolation>
+    <entry><ind>0.0</ind><dep>90</dep></entry>
+    <entry><ind>1.0</ind><dep>0.0</dep></entry>
+  </interpolation>
+  <center>
+   <x-m>0.0</x-m>
+   <y-m>-2.0</y-m>
+   <z-m>0.205</z-m>
+  </center>
+   <axis>
+    <x>1</x>
+    <y>0</y>
+    <z>0</z>
+   </axis>
+ </animation>
+
+ <animation>
+ <type>rotate</type>
+ <object-name>LateralStrutL</object-name>
+  <property>gear/gear[0]/position-norm</property>
+  <interpolation>
+    <entry><ind>0.0</ind><dep>90</dep></entry>
+    <entry><ind>1.0</ind><dep>0.0</dep></entry>
+  </interpolation>
+  <center>
+   <x-m>0.0</x-m>
+   <y-m>-2.0</y-m>
+   <z-m>-0.227</z-m>
+  </center>
+   <axis>
+    <x>-1</x>
+    <y>0</y>
+    <z>0</z>
+   </axis>
+ </animation>
+
+<!-- Right gear complete retract/extend -->
+ <animation>
+ <type>rotate</type>
+ <object-name>StrutR</object-name>
+ <object-name>DampingStrutR</object-name>
+ <object-name>DamperR</object-name>
+ <object-name>WheelR</object-name>
+ <object-name>LateralStrutR</object-name>
+  <property>gear/gear[0]/position-norm</property>
+  <interpolation>
+    <entry><ind>0.0</ind><dep>90</dep></entry>
+    <entry><ind>1.0</ind><dep>0.0</dep></entry>
+  </interpolation>
+  <center>
+   <x-m>0.0</x-m>
+   <y-m>2.0</y-m>
+   <z-m>0.205</z-m>
+  </center>
+   <axis>
+    <x>-1</x>
+    <y>0</y>
+    <z>0</z>
+   </axis>
+ </animation>
+
+ <animation>
+ <type>rotate</type>
+ <object-name>LateralStrutR</object-name>
+  <property>gear/gear[0]/position-norm</property>
+  <interpolation>
+    <entry><ind>0.0</ind><dep>90</dep></entry>
+    <entry><ind>1.0</ind><dep>0.0</dep></entry>
+  </interpolation>
+  <center>
+   <x-m>0.0</x-m>
+   <y-m>2.0</y-m>
+   <z-m>-0.227</z-m>
+  </center>
+   <axis>
+    <x>1</x>
+    <y>0</y>
+    <z>0</z>
+   </axis>
+ </animation>
+
+
+<!-- Left gear damping -->
+<animation>
+  <type>rotate</type>
+  <object-name>DampingStrutL</object-name>
+  <object-name>WheelL</object-name>
+  <property>gear/gear[1]/compression-norm</property>
+  <interpolation>
+    <entry><ind>	0.0</ind>	<dep>0.0</dep></entry>
+    <entry><ind>	0.5</ind>	<dep>15.0</dep></entry>
+    <entry><ind>	1.0</ind>	<dep>30.0</dep></entry>
+    <entry><ind>	1.5</ind>	<dep>40.0</dep></entry>
+  </interpolation>
+  <center>
+    <x-m>0.093</x-m>
+    <y-m>0.0</y-m>
+    <z-m>-0.79</z-m>
+  </center>
+  <axis>
+    <x>0</x>
+    <y>-1</y>
+    <z>0</z>
+  </axis>
+</animation>
+
+<!-- Left wheel spin animation -->
+ <animation>
+  <type>spin</type>
+  <object-name>WheelL</object-name>
+  <property>gear/gear[1]/rollspeed-ms</property>
+  <factor>12.28</factor>
+   <center>
+    <x-m>0.636</x-m>
+    <y-m>0.0</y-m>
+    <z-m>-1.181</z-m>
+   </center>
+   <axis>
+    <x>0.0</x>
+    <y>-1.0</y>
+    <z>0.0</z>
+   </axis>
+ </animation>
+
+<!-- Right gear damping -->
+<animation>
+  <type>rotate</type>
+  <object-name>DampingStrutR</object-name>
+  <object-name>WheelR</object-name>
+  <property>gear/gear[2]/compression-norm</property>
+  <interpolation>
+    <entry><ind>	0.0</ind>	<dep>0.0</dep></entry>
+    <entry><ind>	0.5</ind>	<dep>15.0</dep></entry>
+    <entry><ind>	1.0</ind>	<dep>30.0</dep></entry>
+    <entry><ind>	1.5</ind>	<dep>40.0</dep></entry>
+  </interpolation>
+  <center>
+    <x-m>0.093</x-m>
+    <y-m>0.0</y-m>
+    <z-m>-0.79</z-m>
+  </center>
+  <axis>
+    <x>0</x>
+    <y>-1</y>
+    <z>0</z>
+  </axis>
+</animation>
+
+<!-- Right wheel spin animation -->
+ <animation>
+  <type>spin</type>
+  <object-name>WheelR</object-name>
+  <property>gear/gear[2]/rollspeed-ms</property>
+  <factor>12.28</factor>
+   <center>
+    <x-m>0.636</x-m>
+    <y-m>0.0</y-m>
+    <z-m>-1.181</z-m>
+   </center>
+  <axis>
+    <x>0.0</x>
+    <y>-1.0</y>
+    <z>0.0</z>
+  </axis>
+ </animation>
+
+
+<!--*********** Main Gear Doors *******-->
+<!--left-->
+ <animation>
+  <type>rotate</type>
+  <object-name>maingeardoorouterL</object-name>
+  <object-name>maingeardoorinnerL</object-name>
+  <property>gear/gear[0]/position-norm</property>
+  <interpolation>
+    <entry><ind>	0.0</ind><dep>0.0</dep></entry>
+    <entry><ind>	1.0</ind><dep>-170.0</dep></entry>
+  </interpolation>
+  <axis>
+    <x1-m>-0.01</x1-m>
+    <y1-m>-2.06</y1-m>
+    <z1-m>-0.12</z1-m>
+
+    <x2-m>0.49</x2-m>
+    <y2-m>-2.06</y2-m>
+    <z2-m>-0.11</z2-m>
+  </axis>
+ </animation>
+
+
+<!--left-->
+ <animation>
+  <type>rotate</type>
+  <object-name>maingeardoorouterR</object-name>
+  <object-name>maingeardoorinnerR</object-name>
+  <property>gear/gear[0]/position-norm</property>
+  <interpolation>
+    <entry><ind>	0.0</ind><dep>0.0</dep></entry>
+    <entry><ind>	1.0</ind><dep>170.0</dep></entry>
+  </interpolation>
+  <axis>
+    <x1-m>-0.01</x1-m>
+    <y1-m>2.06</y1-m>
+    <z1-m>-0.12</z1-m>
+
+    <x2-m>0.49</x2-m>
+    <y2-m>2.06</y2-m>
+    <z2-m>-0.11</z2-m>
+  </axis>
+ </animation>
+
+<!--++++++++++++++++++++++++++Левое шасси ++++++++++++++++++++++++++++++++++++ -->
+
+
+<!--animation>
+<type>rotate</type>
+	<object-name>l_gear_ME1</object-name--><!--Левая створка верхний тонкий-->
+  <!--property>gear/gear/position-norm</property>
+	  <interpolation>
+    <entry><ind>	0.0</ind>	<dep>40</dep></entry>
+    <entry><ind>	0.5</ind>	<dep>20.0</dep></entry>
+    <entry><ind>	1.0</ind>	<dep>0.0</dep></entry>
+  </interpolation>
+	<center>
+   <x-m>0.0</x-m>
+   <y-m>-3.10</y-m>
+   <z-m>-1.6</z-m>
+	</center>
+   <axis>
+    <x>1</x>
+    <y>0</y>
+    <z>0</z>
+   </axis>
+</animation-->
+
+<!--animation>
+<type>rotate</type>
+	<object-name>l_gear_MES</object-name--><!--Левая створка подкос нижний тонкий-->
+  <!--property>gear/gear/position-norm</property>
+	  <interpolation>
+    <entry><ind>	0.0</ind>	<dep>-10.0</dep></entry>
+    <entry><ind>	1.0</ind>	<dep>0.0</dep></entry>
+  </interpolation>
+	<center>
+   <x-m>0.1</x-m>
+   <y-m>-3.5</y-m>
+   <z-m>-2.0</z-m>
+	</center>
+   <axis>
+    <x>1</x>
+    <y>0</y>
+    <z>0</z>
+   </axis>
+</animation-->
+
+<!--animation>
+<type>rotate</type>
+	<object-name>l_gear_ME6</object-name--><!--Левая створка подкос верх-->
+	<!--object-name>l_gear_ME7</object-name>
+  <property>gear/gear/position-norm</property>
+	  <interpolation>
+    <entry><ind>	0.0</ind>	<dep>-20.0</dep></entry>
+    <entry><ind>	0.5</ind>	<dep>-10.0</dep></entry>
+    <entry><ind>	1.0</ind>	<dep>0.0</dep></entry>
+  </interpolation>
+	<center>
+   <x-m>0.1</x-m>
+   <y-m>-1.0</y-m>
+   <z-m>-1.4</z-m>
+	</center>
+   <axis>
+    <x>1</x>
+    <y>0</y>
+    <z>0</z>
+   </axis>
+</animation-->
+
+<!--+Уборка ++++++++++++++++++++++++++++++++++++ -->
+<!--animation>
+<type>rotate</type>
+<object-name>LGear</object-name--><!--Левое колесо-->
+
+  <!--property>gear/gear[1]/position-norm</property>
+	  <interpolation>
+    <entry><ind>	0.0</ind>	<dep>90.0</dep></entry>
+    <entry><ind>	1.0</ind>	<dep>	0.0</dep></entry>
+  </interpolation>
+	<center>
+   <x-m>0.296</x-m>
+   <y-m>-1.952</y-m>
+   <z-m>0.171</z-m>
+	</center>
+   <axis>
+    <x>1</x>
+    <y>0</y>
+    <z>0</z>
+   </axis>
+</animation-->
+
+</PropertyList>

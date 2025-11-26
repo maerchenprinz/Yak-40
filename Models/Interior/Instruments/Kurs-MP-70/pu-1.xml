@@ -1,0 +1,363 @@
+<?xml version="1.0"?>
+
+<!-- Landysh -->
+
+<PropertyList>
+ <path>pu.ac</path>
+
+<!-- Switch ON/OFF-->
+ <model>
+  <path>sw_kurs-mp1_on.xml</path>
+   <offsets>
+    <x-m>-0.005</x-m>
+    <y-m>0.052</y-m>
+    <z-m>0.0131</z-m>
+    <pitch-deg>0</pitch-deg>
+    <heading-deg>0</heading-deg>
+   </offsets>
+ </model>
+
+<!-- SP-50 check buttons-->
+ <animation>
+  <type>pick</type>
+  <object-name>btn_topleft</object-name>
+  <visible>true</visible>
+  <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <binding>
+      <command>nasal</command>
+      <script>
+	interpolate("yak-40/Kurs-MP-70/btn_topleft-1", 1.0, 0.1 );
+      </script>
+    </binding>
+   <mod-up>
+    <binding>
+     <command>nasal</command>
+      <script>
+	interpolate("yak-40/Kurs-MP-70/btn_topleft-1", 0.0, 0.1 );
+      </script>
+     </binding>
+    </mod-up>
+  </action>
+ </animation>
+
+ <animation>
+  <type>translate</type>
+  <object-name>btn_topleft</object-name>
+  <property>yak-40/Kurs-MP-70/btn_topleft-1</property>
+  <factor>0.003</factor>
+  <axis>
+   <x>-1</x>
+   <y>0</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>pick</type>
+  <object-name>btn_centre</object-name>
+  <visible>true</visible>
+  <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <binding>
+      <command>nasal</command>
+      <script>
+	interpolate("yak-40/Kurs-MP-70/btn_centre-1", 1.0, 0.1 );
+      </script>
+    </binding>
+   <mod-up>
+    <binding>
+     <command>nasal</command>
+      <script>
+	interpolate("yak-40/Kurs-MP-70/btn_centre-1", 0.0, 0.1 );
+      </script>
+     </binding>
+    </mod-up>
+  </action>
+ </animation>
+
+ <animation>
+  <type>translate</type>
+  <object-name>btn_centre</object-name>
+  <property>yak-40/Kurs-MP-70/btn_centre-1</property>
+  <factor>0.003</factor>
+  <axis>
+   <x>-1</x>
+   <y>0</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>pick</type>
+  <object-name>btn_bottomright</object-name>
+  <visible>true</visible>
+  <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <binding>
+      <command>nasal</command>
+      <script>
+	interpolate("yak-40/Kurs-MP-70/btn_bottomright-1", 1.0, 0.1 );
+      </script>
+    </binding>
+   <mod-up>
+    <binding>
+     <command>nasal</command>
+      <script>
+	interpolate("yak-40/Kurs-MP-70/btn_bottomright-1", 0.0, 0.1 );
+      </script>
+     </binding>
+    </mod-up>
+  </action>
+ </animation>
+
+ <animation>
+  <type>translate</type>
+  <object-name>btn_bottomright</object-name>
+  <property>yak-40/Kurs-MP-70/btn_bottomright-1</property>
+  <factor>0.003</factor>
+  <axis>
+   <x>-1</x>
+   <y>0</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+<!-- Frequency -->
+ <animation>
+  <type>knob</type>
+  <object-name>pufreqknob1</object-name>
+  <property>yak-40/Kurs-MP-70/kn_pu1-freq1</property>
+  <factor>400</factor>
+   <center>
+    <x-m>0.0</x-m>
+    <y-m>-0.0455</y-m>
+    <z-m>-0.0152</z-m>
+   </center>
+   <axis>
+    <x>-1.0</x>
+    <y>0.0</y>
+    <z>0.0</z>
+   </axis>
+    <action>
+     <binding>
+      <command>property-adjust</command>
+      <property>yak-40/Kurs-MP-70/kn_pu1-freq1</property>
+      <factor>1.0</factor>
+      <min>108</min>
+      <max>118</max>
+      <wrap>true</wrap>
+     </binding>
+    </action>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+   <object-name>pufreq1disc</object-name>
+    <property>yak-40/Kurs-MP-70/kn_pu1-freq1</property>
+  <interpolation>
+   <entry><ind>108.0</ind><dep>0.0</dep></entry>
+
+   <entry><ind>109.0</ind><dep>36.0</dep></entry>
+
+   <entry><ind>110.0</ind><dep>72.0</dep></entry>
+
+   <entry><ind>111.0</ind><dep>108.0</dep></entry>
+
+   <entry><ind>112.0</ind><dep>144.0</dep></entry>
+
+   <entry><ind>113.0</ind><dep>180.0</dep></entry>
+
+   <entry><ind>114.0</ind><dep>216.0</dep></entry>
+
+   <entry><ind>115.0</ind><dep>252.0</dep></entry>
+
+   <entry><ind>116.0</ind><dep>288.0</dep></entry>
+
+   <entry><ind>117.0</ind><dep>324.0</dep></entry>
+
+  </interpolation>
+   <center>
+    <x-m>-0.0129</x-m>
+    <y-m>0.0</y-m>
+    <z-m>0.0138</z-m>
+   </center>
+   <axis>
+    <x>0.0</x>
+    <y>-1.0</y>
+    <z>0.0</z>
+   </axis>
+ </animation>
+
+ <animation>
+  <type>knob</type>
+  <object-name>pufreqknob2</object-name>
+  <property>yak-40/Kurs-MP-70/kn_pu1-freq2</property>
+  <factor>400</factor>
+   <center>
+    <x-m>0.0</x-m>
+    <y-m>0.0455</y-m>
+    <z-m>-0.0152</z-m>
+   </center>
+   <axis>
+    <x>-1.0</x>
+    <y>0.0</y>
+    <z>0.0</z>
+   </axis>
+    <action>
+     <binding>
+      <command>property-adjust</command>
+      <property>yak-40/Kurs-MP-70/kn_pu1-freq2</property>
+      <factor>0.05</factor>
+      <min>0.00</min>
+      <max>1.00</max>
+      <wrap>true</wrap>
+     </binding>
+    </action>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+   <object-name>pufreq2disc</object-name>
+    <property>yak-40/Kurs-MP-70/kn_pu1-freq2</property>
+  <interpolation>
+   <entry><ind>0.00</ind><dep>0.0</dep></entry>
+   <entry><ind>0.09</ind><dep>0.0</dep></entry>
+   <entry><ind>0.10</ind><dep>36.0</dep></entry>
+   <entry><ind>0.19</ind><dep>36.0</dep></entry>
+   <entry><ind>0.20</ind><dep>72.0</dep></entry>
+   <entry><ind>0.29</ind><dep>72.0</dep></entry>
+   <entry><ind>0.30</ind><dep>108.0</dep></entry>
+   <entry><ind>0.39</ind><dep>108.0</dep></entry>
+   <entry><ind>0.40</ind><dep>144.0</dep></entry>
+   <entry><ind>0.49</ind><dep>144.0</dep></entry>
+   <entry><ind>0.50</ind><dep>180.0</dep></entry>
+   <entry><ind>0.59</ind><dep>180.0</dep></entry>
+   <entry><ind>0.60</ind><dep>216.0</dep></entry>
+   <entry><ind>0.69</ind><dep>216.0</dep></entry>
+   <entry><ind>0.70</ind><dep>252.0</dep></entry>
+   <entry><ind>0.79</ind><dep>252.0</dep></entry>
+   <entry><ind>0.80</ind><dep>288.0</dep></entry>
+   <entry><ind>0.89</ind><dep>288.0</dep></entry>
+   <entry><ind>0.90</ind><dep>324.0</dep></entry>
+   <entry><ind>0.99</ind><dep>324.0</dep></entry>
+  </interpolation>
+   <center>
+    <x-m>-0.0129</x-m>
+    <y-m>0.0</y-m>
+    <z-m>0.0138</z-m>
+   </center>
+   <axis>
+    <x>0.0</x>
+    <y>-1.0</y>
+    <z>0.0</z>
+   </axis>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+   <object-name>pufreq3disc</object-name>
+  <expression>
+   <table>
+   <mod>
+    <floor>
+     <sum>
+      <product>
+       <property>yak-40/Kurs-MP-70/kn_pu1-freq2</property>
+       <value>100.0</value>
+      </product>
+      <value>0.5</value>
+     </sum>
+    </floor>
+    <value>10</value>
+   </mod>
+    <entry><ind>0</ind><dep>0</dep></entry>
+    <entry><ind>5</ind><dep>180</dep></entry>
+   </table>
+  </expression>
+   <center>
+    <x-m>-0.0129</x-m>
+    <y-m>0.0</y-m>
+    <z-m>0.0138</z-m>
+   </center>
+   <axis>
+    <x>0.0</x>
+    <y>-1.0</y>
+    <z>0.0</z>
+   </axis>
+ </animation>
+
+<!-- Volume knob -->
+ <animation>
+  <type>knob</type>
+  <object-name>puvolknob</object-name>
+  <property>yak-40/Kurs-MP-70/kn_pu1-vol</property>
+  <offset-deg>0</offset-deg>
+  <factor>272</factor>
+   <center>
+    <x-m>0.0</x-m>
+    <y-m>0.0458</y-m>
+    <z-m>-0.0152</z-m>
+   </center>
+   <axis>
+    <x>-1.0</x>
+    <y>0.0</y>
+    <z>0.0</z>
+   </axis>
+    <action>
+     <binding>
+      <command>property-adjust</command>
+      <property>yak-40/Kurs-MP-70/kn_pu1-vol</property>
+      <factor>0.1</factor>
+      <min>0</min>
+      <max>1</max>
+      <wrap>false</wrap>
+     </binding>
+    </action>
+ </animation>
+
+<!-- Text OSG -->
+  <animation>
+    <type>select</type>
+    <object-name>textmppu1</object-name>
+    <condition>
+      <property>sim/panel-hotspots</property>
+    </condition>
+  </animation>
+
+  <text>
+    <name>textmppu1</name>
+    <type type="string">literal</type>
+    <text type="string">Kurs MP-70 No.1 PU</text>
+    <draw-text type="bool">true</draw-text>
+    <font>Helvetica.txf</font>
+    <character-size type="double">0.02</character-size>
+    <character-aspect-ratio type="double">1.0</character-aspect-ratio>
+    <axis-alignment>yz-plane</axis-alignment>
+    <max-height>0.05</max-height>
+    <max-width>0.1</max-width>
+    <font-resolution>
+      <width type="int">64</width>
+      <height type="int">64</height>
+    </font-resolution>
+    <alignment>center-center</alignment>
+    <offsets>
+      <x-m>  0.005 </x-m>
+      <y-m>  0.000 </y-m>
+      <z-m>  0.000 </z-m>
+    </offsets>
+  </text>
+  <animation>
+    <type>material</type>
+    <object-name>textmppu1</object-name>
+    <emission>
+      <red>   1.0 </red>
+      <green> 1.0 </green>
+      <blue>  1.0 </blue>
+    </emission>
+  </animation>
+
+</PropertyList>

@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!-- Stabilizer Indicator UP11-10  -->
+
+<PropertyList>
+ <path>stabind.ac</path>
+
+<!--Стрелка-->
+<animation>
+    <type>rotate</type>
+    <object-name>stabneedle</object-name>
+    <!--<property>/surface-positions/pitch-trim-pos-norm</property>-->
+	<property>/fdm/jsbsim/fcs/pitch-trim-pos-norm</property>
+    <interpolation>
+      <entry><ind>-0.0523</ind>	<dep>49.4</dep></entry>
+      <entry><ind>0.0</ind>	<dep>00.0</dep></entry>
+      <entry><ind>0.1047</ind>	<dep>-49.4</dep></entry>
+    </interpolation>
+		<center>
+	   <x-m>0.000</x-m>
+	   <y-m>-0.008</y-m>
+	<z-m>0.000</z-m>
+		</center>
+    <axis>
+      <x>1.0</x>
+      <y>0.0</y>
+      <z>0.0</z>
+    </axis>
+</animation>
+
+
+</PropertyList>

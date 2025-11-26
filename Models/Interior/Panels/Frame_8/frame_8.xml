@@ -1,0 +1,259 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+ <path>frame_8.ac</path>
+
+<!-- KM-8 -->
+ <model>
+  <path>../../Instruments/KM-8/km-8.xml</path>
+   <offsets>
+    <x-m>0.014</x-m>
+    <y-m>0.045</y-m>
+    <z-m>-0.0906</z-m>
+   </offsets>
+ </model>
+
+<!-- AP-40 TEST PANEL-->
+ <model>
+  <name>fr8pap01</name>
+  <path>ap01btn_test-bank.xml</path>
+  <offsets>
+   <x-m>0.008</x-m>
+   <y-m>-0.0654</y-m>
+   <z-m>-0.0638</z-m>
+  </offsets>
+ </model>
+
+ <model>
+  <name>fr8pap02</name>
+  <path>ap02btn_test-pitch.xml</path>
+  <offsets>
+   <x-m>0.008</x-m>
+   <y-m>-0.025</y-m>
+   <z-m>-0.0638</z-m>
+  </offsets>
+ </model>
+
+ <model>
+  <name>fr8pap03</name>
+  <path>ap03btn_test-bank-pitch.xml</path>
+  <offsets>
+   <x-m>0.008</x-m>
+   <y-m>-0.0654</y-m>
+   <z-m>-0.0854</z-m>
+  </offsets>
+ </model>
+
+ <model>
+  <name>fr8pap04</name>
+  <path>ap04btn_test-course.xml</path>
+  <offsets>
+   <x-m>0.008</x-m>
+   <y-m>-0.025</y-m>
+   <z-m>-0.0854</z-m>
+  </offsets>
+ </model>
+
+<!-- BSPK-1 TEST PANEL-->
+ <model>
+  <name>fr8pbpsk01</name>
+  <path>bspk01btn_test-bank.xml</path>
+  <offsets>
+   <x-m>0.008</x-m>
+   <y-m>-0.064</y-m>
+   <z-m>-0.145</z-m>
+  </offsets>
+ </model>
+
+ <model>
+  <name>fr8pbpsk02</name>
+  <path>bspk02btn_test-pitch.xml</path>
+  <offsets>
+   <x-m>0.008</x-m>
+   <y-m>-0.0236</y-m>
+   <z-m>-0.145</z-m>
+  </offsets>
+ </model>
+
+<!-- Buttons, switches etc. -->
+ <model>
+  <name>fr8p001</name>
+  <path>001btn_lamps-control.xml</path>
+  <offsets>
+   <x-m>0.002</x-m>
+   <y-m>-0.091</y-m>
+   <z-m>0.078</z-m>
+  </offsets>
+ </model>
+
+ <model>
+  <name>fr8p002</name>
+  <path>002sl_clear-filter_left.xml</path>
+  <offsets>
+   <x-m>-0.002</x-m>
+   <y-m>-0.064</y-m>
+   <z-m>0.078</z-m>
+  </offsets>
+ </model>
+
+ <model>
+  <name>fr8p003</name>
+  <path>003sl_clear-filter_center.xml</path>
+  <offsets>
+   <x-m>-0.002</x-m>
+   <y-m>-0.044</y-m>
+   <z-m>0.078</z-m>
+  </offsets>
+ </model>
+
+ <model>
+  <name>fr8p004</name>
+  <path>004sl_clear-filter_right.xml</path>
+  <offsets>
+   <x-m>-0.002</x-m>
+   <y-m>-0.024</y-m>
+   <z-m>0.078</z-m>
+  </offsets>
+ </model>
+
+ <model>
+  <name>fr8p005</name>
+  <path>005sw_rocket-red.xml</path>
+  <offsets>
+   <x-m>0.0</x-m>
+   <y-m>0.0077</y-m>
+   <z-m>0.079</z-m>
+  </offsets>
+ </model>
+
+ <model>
+  <name>fr8p006</name>
+  <path>006sw_rocket-white.xml</path>
+  <offsets>
+   <x-m>0.0</x-m>
+   <y-m>0.028</y-m>
+   <z-m>0.079</z-m>
+  </offsets>
+ </model>
+
+ <model>
+  <name>fr8p007</name>
+  <path>007sw_rocket-green.xml</path>
+  <offsets>
+   <x-m>0.0</x-m>
+   <y-m>0.049</y-m>
+   <z-m>0.079</z-m>
+  </offsets>
+ </model>
+
+ <model>
+  <name>fr8p007</name>
+  <path>008sw_rocket-yellow.xml</path>
+  <offsets>
+   <x-m>0.0</x-m>
+   <y-m>0.0694</y-m>
+   <z-m>0.079</z-m>
+  </offsets>
+ </model>
+
+ <model>
+  <name>fr8p009</name>
+  <path>009btn_rockets.xml</path>
+  <offsets>
+   <x-m>0.002</x-m>
+   <y-m>0.0948</y-m>
+   <z-m>0.078</z-m>
+  </offsets>
+ </model>
+
+ <model>
+  <name>fr8p010</name>
+  <path>010sw_compartment-lighting.xml</path>
+  <offsets>
+   <x-m>0.001</x-m>
+   <y-m>-0.079</y-m>
+   <z-m>0.0128</z-m>
+  </offsets>
+ </model>
+
+ <model>
+  <name>fr8p011a</name>
+  <path>011asl_DUA-heating-ctrl.xml</path>
+  <offsets>
+   <x-m>-0.002</x-m>
+   <y-m>0.062</y-m>
+   <z-m>-0.156</z-m>
+  </offsets>
+ </model>
+
+ <model>
+  <name>fr8p015</name>
+  <path>015kn_right_cabin_panel.xml</path>
+  <offsets>
+   <x-m>0.0</x-m>
+   <y-m>-0.075</y-m>
+   <z-m>-0.209</z-m>
+  </offsets>
+ </model>
+
+ <model>
+  <name>fr8p016</name>
+  <path>016sw_accumulator_left.xml</path>
+  <offsets>
+   <x-m>0.0</x-m>
+   <y-m>-0.0353</y-m>
+   <z-m>-0.224</z-m>
+  </offsets>
+ </model>
+
+ <model>
+  <name>fr8p017</name>
+  <path>017sw_accumulator_right.xml</path>
+  <offsets>
+   <x-m>0.0</x-m>
+   <y-m>-0.0149</y-m>
+   <z-m>-0.224</z-m>
+  </offsets>
+ </model>
+
+ <model>
+  <name>fr8p020</name>
+  <path>020btn_PPD-test.xml</path>
+  <offsets>
+   <x-m>0.002</x-m>
+   <y-m>0.0865</y-m>
+   <z-m>-0.2286</z-m>
+  </offsets>
+ </model>
+
+ <model>
+  <name>fr8p021</name>
+  <path>021sw_drain-heating.xml</path>
+  <offsets>
+   <x-m>0.0</x-m>
+   <y-m>0.013</y-m>
+   <z-m>-0.224</z-m>
+  </offsets>
+ </model>
+
+ <model>
+  <name>fr8p022</name>
+  <path>022btn_DUA-heating-ctrl.xml</path>
+  <offsets>
+   <x-m>0.002</x-m>
+   <y-m>0.0356</y-m>
+   <z-m>-0.156</z-m>
+  </offsets>
+ </model>
+
+ <model>
+  <name>fr8p023</name>
+  <path>023sw_drain.xml</path>
+  <offsets>
+   <x-m>0.0</x-m>
+   <y-m>0.0457</y-m>
+   <z-m>-0.224</z-m>
+  </offsets>
+ </model>
+
+</PropertyList>

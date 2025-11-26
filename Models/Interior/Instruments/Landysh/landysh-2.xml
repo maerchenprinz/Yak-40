@@ -1,0 +1,319 @@
+<?xml version="1.0"?>
+
+<!-- Landysh Comm Radio No.2-->
+<PropertyList>
+ <path>landysh.ac</path>
+
+<!-- Switch -->
+ <animation>
+  <type>pick</type>
+  <object-name>clickspot_up</object-name>
+  <visible>false</visible>
+  <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <binding>
+      <command>nasal</command>
+      <script>
+	interpolate("yak-40/Landysh/sw_land-2", 1.0, 0.1 );
+      </script>
+    </binding>
+  </action>
+   <hovered>
+    <binding>
+      <command>set-tooltip</command>
+      <tooltip-id>landsw2up</tooltip-id>
+      <label>Switch UP</label>
+    </binding>
+   </hovered>
+ </animation>
+
+ <animation>
+  <type>pick</type>
+  <object-name>clickspot_down</object-name>
+  <visible>false</visible>
+  <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <binding>
+      <command>nasal</command>
+      <script>
+	interpolate("yak-40/Landysh/sw_land-2", 0.0, 0.1 );
+      </script>
+    </binding>
+  </action>
+   <hovered>
+    <binding>
+      <command>set-tooltip</command>
+      <tooltip-id>landsw2down</tooltip-id>
+      <label>Switch DOWN</label>
+    </binding>
+   </hovered>
+ </animation>
+
+ <animation>
+   <type>rotate</type>
+   <object-name>landyshlever</object-name>
+   <property>yak-40/Landysh/sw_land-2</property>
+  <interpolation>
+   <entry><ind>1.0</ind><dep>-25.0</dep></entry>
+   <entry><ind>0.0</ind><dep>25.0</dep></entry>
+  </interpolation>
+  <center>
+   <x-m>0.001</x-m>
+   <y-m>0.0</y-m>
+   <z-m>-0.023</z-m>
+  </center>
+  <axis>
+    <x>0.0</x>
+    <y>1.0</y>
+    <z>0.0</z>
+  </axis>
+ </animation>
+
+<!-- Volume knob -->
+ <animation>
+   <type>knob</type>
+   <object-name>landyshvolknob</object-name>
+   <property>yak-40/Landysh/kn_volume-2</property>
+   <offset-deg>-135</offset-deg>
+   <factor>270</factor>
+  <center>
+   <x-m>0.0</x-m>
+   <y-m>-0.0073</y-m>
+   <z-m>-0.0204</z-m>
+  </center>
+  <axis>
+    <x>-1.0</x>
+    <y>0.0</y>
+    <z>0.0</z>
+  </axis>
+    <action>
+     <binding>
+      <command>property-adjust</command>
+      <property>yak-40/Landysh/kn_volume-2</property>
+      <factor>0.1</factor>
+      <min>0</min>
+      <max>1</max>
+      <wrap>false</wrap>
+     </binding>
+    </action>
+ </animation>
+
+<!-- Frequency -->
+ <animation>
+  <type>knob</type>
+  <object-name>landyshfreq1and2knob</object-name>
+  <property>yak-40/Landysh/freq1-2</property>
+  <factor>1.0</factor>
+   <center>
+    <x-m>0.0</x-m>
+    <y-m>-0.0555</y-m>
+    <z-m>-0.007</z-m>
+   </center>
+   <axis>
+    <x>1.0</x>
+    <y>0.0</y>
+    <z>0.0</z>
+   </axis>
+    <action>
+     <binding>
+      <command>property-adjust</command>
+      <property>yak-40/Landysh/freq1-2</property>
+      <factor>1.0</factor>
+      <min>110</min>
+      <max>140</max>
+      <wrap>true</wrap>
+     </binding>
+    </action>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+   <object-name>landyshfreq1disc</object-name>
+    <property>yak-40/Landysh/freq1-2</property>
+  <interpolation>
+   <entry><ind>110.0</ind><dep>0.0</dep></entry>
+   <entry><ind>119.5</ind><dep>0.0</dep></entry>
+   <entry><ind>120.0</ind><dep>120.0</dep></entry>
+   <entry><ind>129.5</ind><dep>120.0</dep></entry>
+   <entry><ind>130.0</ind><dep>240.0</dep></entry>
+   <entry><ind>139.5</ind><dep>240.0</dep></entry>
+  </interpolation>
+   <center>
+    <x-m>-0.004</x-m>
+    <y-m>0.0</y-m>
+    <z-m>0.016</z-m>
+   </center>
+   <axis>
+    <x>0.0</x>
+    <y>-1.0</y>
+    <z>0.0</z>
+   </axis>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+   <object-name>landyshfreq2disc</object-name>
+    <property>yak-40/Landysh/freq1-2</property>
+    <factor>36.0</factor>
+   <center>
+    <x-m>-0.004</x-m>
+    <y-m>0.0</y-m>
+    <z-m>0.016</z-m>
+   </center>
+   <axis>
+    <x>0.0</x>
+    <y>-1.0</y>
+    <z>0.0</z>
+   </axis>
+ </animation>
+
+<!---->
+ <animation>
+  <type>knob</type>
+  <object-name>landyshfreq3and4knob</object-name>
+  <property>yak-40/Landysh/freq2-2</property>
+  <factor>1.0</factor>
+   <center>
+    <x-m>0.0</x-m>
+    <y-m>0.055</y-m>
+    <z-m>-0.007</z-m>
+   </center>
+   <axis>
+    <x>1.0</x>
+    <y>0.0</y>
+    <z>0.0</z>
+   </axis>
+    <action>
+     <binding>
+      <command>property-adjust</command>
+      <property>yak-40/Landysh/freq2-2</property>
+      <factor>0.025</factor>
+      <min>0.0</min>
+      <max>1.0</max>
+      <wrap>true</wrap>
+     </binding>
+    </action>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+   <object-name>landyshfreq3disc</object-name>
+    <property>yak-40/Landysh/freq2-2</property>
+     <interpolation>
+      <entry><ind>0.000</ind><dep>0.0</dep></entry>
+      <entry><ind>0.075</ind><dep>0.0</dep></entry>
+
+      <entry><ind>0.100</ind><dep>36.0</dep></entry>
+      <entry><ind>0.175</ind><dep>36.0</dep></entry>
+
+      <entry><ind>0.200</ind><dep>72.0</dep></entry>
+      <entry><ind>0.275</ind><dep>72.0</dep></entry>
+
+      <entry><ind>0.300</ind><dep>108.0</dep></entry>
+      <entry><ind>0.375</ind><dep>108.0</dep></entry>
+
+      <entry><ind>0.400</ind><dep>144.0</dep></entry>
+      <entry><ind>0.475</ind><dep>144.0</dep></entry>
+
+      <entry><ind>0.500</ind><dep>180.0</dep></entry>
+      <entry><ind>0.575</ind><dep>180.0</dep></entry>
+
+      <entry><ind>0.600</ind><dep>216.0</dep></entry>
+      <entry><ind>0.675</ind><dep>216.0</dep></entry>
+
+      <entry><ind>0.700</ind><dep>252.0</dep></entry>
+      <entry><ind>0.775</ind><dep>252.0</dep></entry>
+
+      <entry><ind>0.800</ind><dep>288.0</dep></entry>
+      <entry><ind>0.875</ind><dep>288.0</dep></entry>
+
+      <entry><ind>0.900</ind><dep>324.0</dep></entry>
+      <entry><ind>0.975</ind><dep>324.0</dep></entry>
+
+  </interpolation>
+   <center>
+    <x-m>-0.004</x-m>
+    <y-m>0.0</y-m>
+    <z-m>0.016</z-m>
+   </center>
+   <axis>
+    <x>0.0</x>
+    <y>1.0</y>
+    <z>0.0</z>
+   </axis>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+   <object-name>landyshfreq4disc</object-name>
+   <expression>
+    <table>
+     <mod>
+      <product>
+       <property>yak-40/Landysh/freq2-2</property>
+       <value>1000</value>
+      </product>
+      <value>100</value>
+     </mod>
+      <entry><ind>0</ind><dep>0</dep></entry> 
+      <entry><ind>25</ind><dep>90</dep></entry>
+      <entry><ind>50</ind><dep>180</dep></entry>
+      <entry><ind>75</ind><dep>270</dep></entry>
+    </table>
+  </expression>
+   <center>
+    <x-m>-0.004</x-m>
+    <y-m>0.0</y-m>
+    <z-m>0.016</z-m>
+   </center>
+   <axis>
+    <x>0.0</x>
+    <y>1.0</y>
+    <z>0.0</z>
+   </axis>
+ </animation>
+
+<!-- Text OSG -->
+  <animation>
+    <type>select</type>
+    <object-name>textland2</object-name>
+    <condition>
+      <property>sim/panel-hotspots</property>
+    </condition>
+  </animation>
+
+  <text>
+    <name>textland2</name>
+    <type type="string">literal</type>
+    <text type="string">Landysh No.2 UHF</text>
+    <draw-text type="bool">true</draw-text>
+    <font>Helvetica.txf</font>
+    <character-size type="double">0.024</character-size>
+    <character-aspect-ratio type="double">1.0</character-aspect-ratio>
+    <axis-alignment>yz-plane</axis-alignment>
+    <max-height>0.05</max-height>
+    <max-width>0.08</max-width>
+    <font-resolution>
+      <width type="int">64</width>
+      <height type="int">64</height>
+    </font-resolution>
+    <alignment>center-center</alignment>
+    <offsets>
+     <x-m>0.015</x-m>
+     <y-m>0.000</y-m>
+     <z-m>0.000</z-m>
+    </offsets>
+  </text>
+  <animation>
+    <type>material</type>
+    <object-name>textland2</object-name>
+    <emission>
+     <red>1.0</red>
+     <green>1.0</green>
+     <blue>1.0</blue>
+    </emission>
+  </animation>
+
+</PropertyList>

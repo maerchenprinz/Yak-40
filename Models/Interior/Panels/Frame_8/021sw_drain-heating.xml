@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+
+<!-- Drain Heating -->
+<PropertyList>
+ <path>../../shared/switches/azs.ac</path>
+
+ <animation>
+  <type>pick</type>
+  <object-name>clickspot_up</object-name>
+  <visible>false</visible>
+  <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <binding>
+      <command>nasal</command>
+      <script>
+	interpolate("yak-40/Heating/sw_drain_heat", 1.0, 0.1 );
+      </script>
+    </binding>
+  </action>
+   <hovered>
+    <binding>
+      <command>set-tooltip</command>
+      <tooltip-id>fr8drainheaton</tooltip-id>
+      <label>Drain Heating
+     ON</label>
+    </binding>
+   </hovered>
+ </animation>
+
+ <animation>
+  <type>pick</type>
+  <object-name>clickspot_down</object-name>
+  <visible>false</visible>
+  <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <binding>
+      <command>nasal</command>
+      <script>
+	interpolate("yak-40/Heating/sw_drain_heat", 0.0, 0.1 );
+      </script>
+    </binding>
+  </action>
+   <hovered>
+    <binding>
+      <command>set-tooltip</command>
+      <tooltip-id>fr8drainheatoff</tooltip-id>
+      <label>Drain Heating
+    OFF</label>
+    </binding>
+   </hovered>
+ </animation>
+
+ <animation>
+   <type>rotate</type>
+   <object-name>lever</object-name>
+   <property>yak-40/Heating/sw_drain_heat</property>
+  <interpolation>
+    <entry><ind>1.0</ind>	<dep>18.0</dep></entry>
+    <entry><ind>0.0</ind>	<dep>-18.0</dep></entry>
+  </interpolation>
+  <axis>
+    <x>0.0</x>
+    <y>-1.0</y>
+    <z>0.0</z>
+  </axis>
+ </animation>
+</PropertyList>

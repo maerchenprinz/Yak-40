@@ -1,0 +1,2864 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+ <path>cockpit.ac</path>
+
+  <!--model>
+   <path>Aircraft/Generic/marker.xml</path>
+  </model-->
+
+<!--*************** ANIMATIONS ****************-->
+
+<!--Cockpit Colour-->
+ <animation>
+   <type>material</type>
+   <object-name>backplate</object-name>
+
+   <object-name>leftpanel</object-name>
+   <object-name>middlepanel</object-name>
+   <object-name>rightpanel</object-name>
+   <object-name>outerpanels</object-name>
+
+   <object-name>console_v_front</object-name>
+   <object-name>console_v_middle</object-name>
+   <object-name>console_v_back</object-name>
+
+   <object-name>consolel_h_front</object-name>
+   <object-name>consolel_h_middle</object-name>
+   <object-name>consolel_h_back</object-name>
+
+   <object-name>consoler_h_front</object-name>
+   <object-name>consoler_h_middle</object-name>
+   <object-name>consoler_h_back</object-name>
+   <object-name>consoler_v_holder</object-name>
+
+   <object-name>consolem_h_front</object-name>
+   <object-name>consolem_block</object-name>
+   <object-name>consolem_h_middle_lr</object-name>
+
+   <object-name>console_stringer</object-name>
+
+   <object-name>overhead_back</object-name>
+   <object-name>overhead_box</object-name>
+   <object-name>overhead_tubes</object-name>
+   <object-name>overhead_achsholder</object-name>
+   <object-name>compassholder</object-name>
+
+   <object-name>lid</object-name>
+
+   <object-name>cockpit_fw_lr</object-name>
+
+   <object-name>board_linings</object-name>
+   <object-name>window_linings</object-name>
+   <object-name>window_frames</object-name>
+
+   <object-name>switchboard</object-name>
+   <object-name>switchboard_cover</object-name>
+
+   <object-name>panelscreenframe</object-name>
+    <condition>
+    <equals>
+     <property>yak-40/cockpit-colour</property>
+     <value>Brown</value>
+    </equals>
+    </condition>
+   <diffuse>
+     <red>1.0</red>
+     <green>0.725</green>
+     <blue>0.404</blue>
+   </diffuse>
+   <ambient>
+     <red>1.0</red>
+     <green>0.725</green>
+     <blue>0.404</blue>
+   </ambient>
+   <specular>
+     <red>1.0</red>
+     <green>1.0</green>
+     <blue>1.0</blue>
+   </specular>
+   <emission>
+     <red>0.0</red>
+     <green>0.0</green>
+     <blue>0.0</blue>
+   </emission>
+ </animation>
+
+ <animation>
+   <type>material</type>
+   <object-name>overhead_panel1</object-name>
+   <object-name>overhead_panel2</object-name>
+   <object-name>switchprots</object-name>
+    <condition>
+    <equals>
+     <property>yak-40/cockpit-colour</property>
+     <value>Brown</value>
+    </equals>
+    </condition>
+   <diffuse>
+     <red>1.0</red>
+     <green>0.710</green>
+     <blue>0.450</blue>
+   </diffuse>
+   <ambient>
+     <red>1.0</red>
+     <green>0.710</green>
+     <blue>0.450</blue>
+   </ambient>
+   <specular>
+     <red>1.0</red>
+     <green>1.0</green>
+     <blue>1.0</blue>
+   </specular>
+   <emission>
+     <red>0.0</red>
+     <green>0.0</green>
+     <blue>0.0</blue>
+   </emission>
+ </animation>
+
+<!--Cockpit Door-->
+ <animation>
+  <type>pick</type>
+  <object-name>cockpitdoor</object-name>
+  <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <binding>
+      <command>nasal</command>
+      <script>
+        if( getprop("yak-40/animations/cockpitdoor" ) == 0.0 ) {
+        interpolate("yak-40/animations/cockpitdoor", 1.0, 0.4 );
+	}
+	else {
+	interpolate("yak-40/animations/cockpitdoor", 0.0, 0.4 );
+	}
+      </script>
+    </binding>
+  </action>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>cockpitdoor</object-name>
+  <property>yak-40/animations/cockpitdoor</property>
+  <factor>110.0</factor>
+  <center>
+   <x-m>-6.185</x-m>
+   <y-m>0.2985</y-m>
+   <z-m>0.0</z-m>
+  </center>
+  <axis>
+   <x>0</x>
+   <y>0</y>
+   <z>1</z>
+  </axis>
+ </animation>
+
+<!--Yokes-->
+ <animation>
+  <type>rotate</type>
+  <object-name>yoke_lever</object-name>
+  <object-name>yokeL</object-name>
+  <object-name>yokeR</object-name>
+  <object-name>yokeknobsL</object-name>
+  <object-name>yokewheelsL</object-name>
+  <object-name>yokeknobsR</object-name>
+  <object-name>yokewheelsR</object-name>
+  <property>controls/flight/elevator</property>
+  <factor>16.0</factor>
+  <!--offset-deg>25</offset-deg-->
+  <center>
+   <x-m>-7.877</x-m>
+   <y-m>0.0</y-m>
+   <z-m>0.703</z-m>
+  </center>
+  <axis>
+   <x>0</x>
+   <y>-1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>yokeL</object-name>
+  <object-name>yokeknobsL</object-name>
+  <object-name>yokewheelsL</object-name>
+  <property>controls/flight/aileron</property>
+  <factor>90.0</factor>
+  <center>
+   <x-m>0.0</x-m>
+   <y-m>-0.5137</y-m>
+   <z-m>1.464</z-m>
+  </center>
+  <axis>
+   <x>-1</x>
+   <y>0</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>yokeR</object-name>
+  <object-name>yokeknobsR</object-name>
+  <object-name>yokewheelsR</object-name>
+  <property>controls/flight/aileron</property>
+  <factor>90.0</factor>
+  <center>
+   <x-m>0.0</x-m>
+   <y-m>0.5137</y-m>
+   <z-m>1.464</z-m>
+  </center>
+  <axis>
+   <x>-1</x>
+   <y>0</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+<!--*************** INSTRUMENTS OUTER LEFT PANEL ****************-->
+
+<!--*************** INSTRUMENTS LEFT PANEL ****************
+From left to right, top to bottom-->
+
+ <!--KUS-730-1100--> 
+ <model>
+  <name>KUS-730_left</name>
+  <path>Aircraft/Yak-40/Models/Interior/Instruments/KUS-730-1100/kus-730-1100.xml</path>
+  <offsets>
+   <x-m>-8.15</x-m>
+   <y-m>-0.543</y-m>
+   <z-m>1.5223</z-m>
+  </offsets>
+ </model>
+
+ <model>
+  <name>S-80</name>
+  <path>Aircraft/Yak-40/Models/Interior/shared/lamps/s-80.ac</path>
+  <offsets>
+   <x-m>-8.15</x-m>
+   <y-m>-0.543</y-m>
+   <z-m>1.5223</z-m>
+  </offsets>
+ </model>
+
+ <!--AGB-3K_left-->
+ <model>
+  <name>AGB-3K_left</name>
+  <path>Aircraft/Yak-40/Models/Interior/Instruments/AGB-3K/lp_agb-3k.xml</path>
+  <offsets>
+   <x-m>-8.135</x-m>
+   <y-m>-0.429</y-m>
+   <z-m>1.5272</z-m>
+  </offsets>
+ </model>
+
+ <!--DA-30-->
+ <model>
+  <name>DA-30</name>
+  <path>Aircraft/Yak-40/Models/Interior/Instruments/DA-30/da-30-l.xml</path>
+  <offsets>
+   <x-m>-8.15</x-m>
+   <y-m>-0.3133</y-m>
+   <z-m>1.5434</z-m>
+  </offsets>
+ </model>
+
+ <model>
+  <name>S-80</name>
+  <path>Aircraft/Yak-40/Models/Interior/shared/lamps/s-80.ac</path>
+  <offsets>
+   <x-m>-8.15</x-m>
+   <y-m>-0.3133</y-m>
+   <z-m>1.5434</z-m>
+  </offsets>
+ </model>
+
+ <!--Radio altimeter-->
+ <model>
+  <name>UV-5m</name>
+  <path>Aircraft/Yak-40/Models/Interior/Instruments/UV-5M/uv-5m.xml</path>
+  <offsets>
+   <x-m>-8.151</x-m>
+   <y-m>-0.2212</y-m>
+   <z-m>1.5262</z-m>
+  </offsets>
+ </model>
+
+ <model>
+  <name>lc_switch10</name>
+  <path>Aircraft/Yak-40/Models/Interior/Instruments/UV-5M/lc10sw_uv-5m_on.xml</path>
+  <offsets>
+   <x-m>-7.438</x-m>
+   <y-m>-1.037</y-m>
+   <z-m>1.157</z-m>
+   <pitch-deg>-90</pitch-deg>
+  </offsets>
+ </model>
+
+ <!--Altimeter-->
+ <model>
+  <name>UVID-15f</name>
+  <path>Aircraft/Yak-40/Models/Interior/Instruments/UVID-15/uvid-15f.xml</path>
+  <offsets>
+   <x-m>-8.15</x-m>
+   <y-m>-0.5438</y-m>
+   <z-m>1.4214</z-m>
+  </offsets>
+ </model>
+
+ <model>
+  <name>S-80</name>
+  <path>Aircraft/Yak-40/Models/Interior/shared/lamps/s-80.ac</path>
+  <offsets>
+   <x-m>-8.15</x-m>
+   <y-m>-0.5438</y-m>
+   <z-m>1.4214</z-m>
+  </offsets>
+ </model>
+
+ <!--KPPM-->
+ <model>
+  <name>KPPM</name>
+  <path>Aircraft/Yak-40/Models/Interior/Instruments/KPPM/kppm_l.xml</path>
+  <offsets>
+   <x-m>-8.15</x-m>
+   <y-m>-0.4197</y-m>
+   <z-m>1.4035</z-m>
+  </offsets>
+ </model>
+
+ <!--IKU-1-->
+ <model>
+  <name>IKU-1</name>
+  <path>Aircraft/Yak-40/Models/Interior/Instruments/IKU-1/iku-1.xml</path>
+  <offsets>
+   <x-m>-8.15</x-m>
+   <y-m>-0.318</y-m>
+   <z-m>1.4287</z-m>
+  </offsets>
+ </model>
+
+ <model>
+  <name>S-80</name>
+  <path>Aircraft/Yak-40/Models/Interior/shared/lamps/s-80.ac</path>
+  <offsets>
+   <x-m>-8.15</x-m>
+   <y-m>-0.318</y-m>
+   <z-m>1.4287</z-m>
+  </offsets>
+ </model>
+
+<!--Fuel gauge-->
+ <model>
+  <name>PPTIZ-2T</name>
+  <path>Aircraft/Yak-40/Models/Interior/Instruments/PPTIZ-2T/pptiz.xml</path>
+  <offsets>
+   <x-m>-8.15</x-m>
+   <y-m>-0.2193</y-m>
+   <z-m>1.431</z-m>
+  </offsets>
+ </model>
+
+ <model>
+  <name>S-80</name>
+  <path>Aircraft/Yak-40/Models/Interior/shared/lamps/s-80.ac</path>
+  <offsets>
+   <x-m>-8.15</x-m>
+   <y-m>-0.2193</y-m>
+   <z-m>1.431</z-m>
+  </offsets>
+ </model>
+
+<!--UI2-240 or 2DIM-240-->
+ <model>
+  <name>UI2-240</name>
+  <path>Aircraft/Yak-40/Models/Interior/Instruments/UIx-xxx/ui2-240.xml</path>
+  <offsets>
+   <x-m>-8.148</x-m>
+   <y-m>-0.5467</y-m>
+   <z-m>1.251</z-m>
+  </offsets>
+ </model>
+
+ <!--UI2-150K or 2DIM-150-->
+ <model>
+  <name>UI2-150K</name>
+  <path>Aircraft/Yak-40/Models/Interior/Instruments/UIx-xxx/2dim-150k.xml</path>
+  <offsets>
+   <x-m>-8.148</x-m>
+   <y-m>-0.4752</y-m>
+   <z-m>1.284</z-m>
+  </offsets>
+ </model>
+
+ <!--UI2-150K or 2DIM-150-->
+ <model>
+  <name>UI2-150K</name>
+  <path>Aircraft/Yak-40/Models/Interior/Instruments/UIx-xxx/2dim-150k.xml</path>
+  <offsets>
+   <x-m>-8.148</x-m>
+   <y-m>-0.4056</y-m>
+   <z-m>1.284</z-m>
+  </offsets>
+ </model>
+
+ <!--TNV-1 OAT-->
+ <model>
+  <name>TNV-1</name>
+  <path>Aircraft/Yak-40/Models/Interior/Instruments/TNV-1/tnv-1.xml</path>
+  <offsets>
+   <x-m>-8.152</x-m>
+   <y-m>-0.336</y-m>
+   <z-m>1.284</z-m>
+  </offsets>
+ </model>
+
+ <!--AGB-3K_standby-->
+ <model>
+  <name>AGB-3K_standby</name>
+  <path>Aircraft/Yak-40/Models/Interior/Instruments/AGB-3K/lp_agb-3k.xml</path>
+  <offsets>
+   <x-m>-8.13</x-m>
+   <y-m>-0.232</y-m>
+   <z-m>1.285</z-m>
+  </offsets>
+ </model>-->
+
+<!--*************** INSTRUMENTS MIDDLE PANEL ****************
+From left to right, top to bottom-->
+
+ <!--Stab indicator, UP11-10 -->
+ <model>
+  <name>Stab_indicator</name>
+  <path>Aircraft/Yak-40/Models/Interior/Instruments/stabind/stabind.xml</path>
+  <offsets>
+   <x-m>-8.144</x-m>
+   <y-m>-0.082</y-m>
+   <z-m>1.476</z-m>
+  </offsets>
+ </model>
+
+ <model>
+  <name>Gear</name>
+  <path>Aircraft/Yak-40/Models/Interior/Instruments/gear/gear.xml</path>
+  <offsets>
+   <x-m>-8.143</x-m>
+   <y-m>0.0</y-m>
+   <z-m>1.476</z-m>
+  </offsets>
+ </model>
+
+ <!--Flaps indicator, UP11-09 -->
+ <model>
+  <name>Flaps_indicator</name>
+  <path>Aircraft/Yak-40/Models/Interior/Instruments/flapsind/flaps.xml</path>
+  <offsets>
+   <x-m>-8.144</x-m>
+   <y-m>0.082</y-m>
+   <z-m>1.476</z-m>
+  </offsets>
+ </model>
+
+ <!--TST-2 of TST-299-->
+ <model>
+  <name>TST-2-1</name>
+  <path>Aircraft/Yak-40/Models/Interior/Instruments/TST-2/tst-2.xml</path>
+  <offsets>
+   <x-m>-8.147</x-m>
+   <y-m>-0.0748</y-m>
+   <z-m>1.4155</z-m>
+  </offsets>
+ </model>
+
+ <model>
+  <name>TST-2-2</name>
+  <path>Aircraft/Yak-40/Models/Interior/Instruments/TST-2/tst-2.xml</path>
+  <offsets>
+   <x-m>-8.147</x-m>
+   <y-m>0.0</y-m>
+   <z-m>1.4155</z-m>
+  </offsets>
+ </model>
+
+ <model>
+  <name>TST-2-3</name>
+  <path>Aircraft/Yak-40/Models/Interior/Instruments/TST-2/tst-2.xml</path>
+  <offsets>
+   <x-m>-8.147</x-m>
+   <y-m>0.0748</y-m>
+   <z-m>1.4155</z-m>
+  </offsets>
+ </model>
+
+ <!--ITE-2-->
+ <model>
+  <name>ITE-2-1</name>
+  <path>Aircraft/Yak-40/Models/Interior/Instruments/ITE-2/ite-2_1.xml</path>
+  <offsets>
+   <x-m>-8.147</x-m>
+   <y-m>-0.0897</y-m>
+   <z-m>1.3377</z-m>
+  </offsets>
+ </model>
+
+ <model>
+  <name>S-80</name>
+  <path>Aircraft/Yak-40/Models/Interior/shared/lamps/s-80.ac</path>
+  <offsets>
+   <x-m>-8.147</x-m>
+   <y-m>-0.0897</y-m>
+   <z-m>1.3377</z-m>
+  </offsets>
+ </model>
+
+ <model>
+  <name>ITE-2-2</name>
+  <path>Aircraft/Yak-40/Models/Interior/Instruments/ITE-2/ite-2_2.xml</path>
+  <offsets>
+   <x-m>-8.147</x-m>
+   <y-m>0.0</y-m>
+   <z-m>1.3377</z-m>
+  </offsets>
+ </model>
+
+ <model>
+  <name>S-80</name>
+  <path>Aircraft/Yak-40/Models/Interior/shared/lamps/s-80.ac</path>
+  <offsets>
+   <x-m>-8.147</x-m>
+   <y-m>0.0</y-m>
+   <z-m>1.3377</z-m>
+  </offsets>
+ </model>
+
+ <model>
+  <name>ITE-2-3</name>
+  <path>Aircraft/Yak-40/Models/Interior/Instruments/ITE-2/ite-2_3.xml</path>
+  <offsets>
+   <x-m>-8.147</x-m>
+   <y-m>0.0896</y-m>
+   <z-m>1.3377</z-m>
+  </offsets>
+ </model>
+
+ <model>
+  <name>S-80</name>
+  <path>Aircraft/Yak-40/Models/Interior/shared/lamps/s-80.ac</path>
+  <offsets>
+   <x-m>-8.147</x-m>
+   <y-m>0.0896</y-m>
+   <z-m>1.3377</z-m>
+  </offsets>
+ </model>
+
+ <!--UIZ-3-->
+ <model>
+  <name>UIZ-3-1</name>
+  <path>Aircraft/Yak-40/Models/Interior/Instruments/UIx-xxx/uiz-3.xml</path>
+  <offsets>
+   <x-m>-8.147</x-m>
+   <y-m>-0.0897</y-m>
+   <z-m>1.2495</z-m>
+  </offsets>
+ </model>
+
+ <model>
+  <name>UIZ-3-2</name>
+  <path>Aircraft/Yak-40/Models/Interior/Instruments/UIx-xxx/uiz-3.xml</path>
+  <offsets>
+   <x-m>-8.147</x-m>
+   <y-m>0.0</y-m>
+   <z-m>1.2495</z-m>
+  </offsets>
+ </model>
+
+ <model>
+  <name>UIZ-3-3</name>
+  <path>Aircraft/Yak-40/Models/Interior/Instruments/UIx-xxx/uiz-3.xml</path>
+  <offsets>
+   <x-m>-8.147</x-m>
+   <y-m>0.0896</y-m>
+   <z-m>1.2495</z-m>
+  </offsets>
+ </model>
+
+<!--*************** INSTRUMENTS RIGHT PANEL ****************
+From left to right, top to bottom-->
+
+ <!--UPDB-2-->
+ <model>
+  <name>UPDB-2</name>
+  <path>Aircraft/Yak-40/Models/Interior/Instruments/UPDB-2/updb-2.xml</path>
+  <offsets>
+   <x-m>-8.151</x-m>
+   <y-m>0.231</y-m>
+   <z-m>1.5397</z-m>
+  </offsets>
+ </model>
+
+ <model>
+  <name>S-80</name>
+  <path>Aircraft/Yak-40/Models/Interior/shared/lamps/s-80.ac</path>
+  <offsets>
+   <x-m>-8.151</x-m>
+   <y-m>0.231</y-m>
+   <z-m>1.5397</z-m>
+  </offsets>
+ </model>
+
+ <!--KUS-730-1100--> 
+ <model>
+  <name>KUS-730_right</name>
+  <path>Aircraft/Yak-40/Models/Interior/Instruments/KUS-730-1100/kus-730-1100.xml</path>
+  <offsets>
+   <x-m>-8.15</x-m>
+   <y-m>0.3236</y-m>
+   <z-m>1.5397</z-m>
+  </offsets>
+ </model>
+
+ <!--AGB-3K_right-->
+ <model>
+  <name>AGB-3K_right</name>
+  <path>Aircraft/Yak-40/Models/Interior/Instruments/AGB-3K/rp_agb-3k.xml</path>
+  <offsets>
+   <x-m>-8.135</x-m>
+   <y-m>0.43</y-m>
+   <z-m>1.522</z-m>
+  </offsets>
+ </model>
+
+ <!--Variometer VAR-30MK-->
+ <model>
+  <name>VAR-30MK</name>
+  <path>Aircraft/Yak-40/Models/Interior/Instruments/VAR-30MK/var-30.xml</path>
+  <offsets>
+   <x-m>-8.148</x-m>
+   <y-m>0.5413</y-m>
+   <z-m>1.5117</z-m>
+  </offsets>
+ </model>
+
+ <model>
+  <name>S-80</name>
+  <path>Aircraft/Yak-40/Models/Interior/shared/lamps/s-80.ac</path>
+  <offsets>
+   <x-m>-8.148</x-m>
+   <y-m>0.5413</y-m>
+   <z-m>1.5117</z-m>
+  </offsets>
+ </model>
+
+ <!--UVPD-15-->
+ <model>
+  <name>UVPD-15</name>
+  <path>Aircraft/Yak-40/Models/Interior/Instruments/UVPD-15/uvpd-15.xml</path>
+  <offsets>
+   <x-m>-8.151</x-m>
+   <y-m>0.231</y-m>
+   <z-m>1.4508</z-m>
+  </offsets>
+ </model>
+
+ <model>
+  <name>S-80</name>
+  <path>Aircraft/Yak-40/Models/Interior/shared/lamps/s-80.ac</path>
+  <offsets>
+   <x-m>-8.151</x-m>
+   <y-m>0.231</y-m>
+   <z-m>1.4508</z-m>
+  </offsets>
+ </model>
+
+ <!--UVID-15m-->
+ <model>
+  <name>UVID-15m</name>
+  <path>Aircraft/Yak-40/Models/Interior/Instruments/UVID-15/uvid-15m.xml</path>
+  <offsets>
+   <x-m>-8.151</x-m>
+   <y-m>0.3236</y-m>
+   <z-m>1.4508</z-m>
+  </offsets>
+ </model>
+
+ <!--KPPM-->
+ <model>
+  <name>KPPM</name>
+  <path>Aircraft/Yak-40/Models/Interior/Instruments/KPPM/kppm_r.xml</path>
+  <offsets>
+   <x-m>-8.15</x-m>
+   <y-m>0.4274</y-m>
+   <z-m>1.41</z-m>
+  </offsets>
+ </model>
+
+ <!--URVK-18-->
+ <model>
+  <name>URVK-18</name>
+  <path>Aircraft/Yak-40/Models/Interior/Instruments/URVK-18/urvk-18.xml</path>
+  <offsets>
+   <x-m>-8.153</x-m>
+   <y-m>0.5413</y-m>
+   <z-m>1.4237</z-m>
+  </offsets>
+ </model>
+
+ <model>
+  <name>S-80</name>
+  <path>Aircraft/Yak-40/Models/Interior/shared/lamps/s-80.ac</path>
+  <offsets>
+   <x-m>-8.153</x-m>
+   <y-m>0.5413</y-m>
+   <z-m>1.4237</z-m>
+  </offsets>
+ </model>
+
+ <!--Variometer VR-10MK-->
+ <model>
+  <name>VR-10_right</name>
+  <path>Aircraft/Yak-40/Models/Interior/Instruments/VR-10MK/vr-10mk.xml</path>
+  <offsets>
+   <x-m>-8.151</x-m>
+   <y-m>0.231</y-m>
+   <z-m>1.3556</z-m>
+  </offsets>
+ </model>
+
+ <!--Thermometer TUE-48K-->
+ <model>
+  <name>TUE-48</name>
+  <path>Aircraft/Yak-40/Models/Interior/Instruments/TUE-48K/tue-48k.xml</path>
+  <offsets>
+   <x-m>-8.15</x-m>
+   <y-m>0.3188</y-m>
+   <z-m>1.3487</z-m>
+  </offsets>
+ </model>
+
+ <!--Voltmeter VF-0.4-45
+(still VF-0.4-150)-->
+ <model>
+  <name>VF-45</name>
+  <path>Aircraft/Yak-40/Models/Interior/Instruments/VF0.4-150/vf-150.xml</path>
+  <offsets>
+   <x-m>-8.15</x-m>
+   <y-m>0.4393</y-m>
+   <z-m>1.3226</z-m>
+  </offsets>
+ </model>
+
+ <!--Voltmeter VF-0.4-150-->
+ <model>
+  <name>VF-150</name>
+  <path>Aircraft/Yak-40/Models/Interior/Instruments/VF0.4-150/vf-150.xml</path>
+  <offsets>
+   <x-m>-8.15</x-m>
+   <y-m>0.4875</y-m>
+   <z-m>1.3226</z-m>
+  </offsets>
+ </model>
+
+ <!--Thermometer TV-1-->
+ <model>
+  <name>TV-1</name>
+  <path>Aircraft/Yak-40/Models/Interior/Instruments/TV-1/tv-1.xml</path>
+  <offsets>
+   <x-m>-8.152</x-m>
+   <y-m>0.552</y-m>
+   <z-m>1.332</z-m>
+  </offsets>
+ </model>
+
+ <!--Amperemeters A-2 -->
+ <model>
+  <name>A-2-1</name>
+  <path>Aircraft/Yak-40/Models/Interior/Instruments/A-2/a-2.xml</path>
+  <offsets>
+   <x-m>-8.15</x-m>
+   <y-m>0.2045</y-m>
+   <z-m>1.257</z-m>
+  </offsets>
+ </model>
+
+ <model>
+  <name>A-2-2</name>
+  <path>Aircraft/Yak-40/Models/Interior/Instruments/A-2/a-2.xml</path>
+  <offsets>
+   <x-m>-8.15</x-m>
+   <y-m>0.2565</y-m>
+   <z-m>1.257</z-m>
+  </offsets>
+ </model>
+
+ <model>
+  <name>A-2-3</name>
+  <path>Aircraft/Yak-40/Models/Interior/Instruments/A-2/a-2.xml</path>
+  <offsets>
+   <x-m>-8.15</x-m>
+   <y-m>0.3097</y-m>
+   <z-m>1.257</z-m>
+  </offsets>
+ </model>
+
+ <model>
+  <name>A-2-4</name>
+  <path>Aircraft/Yak-40/Models/Interior/Instruments/A-2/a-2.xml</path>
+  <offsets>
+   <x-m>-8.15</x-m>
+   <y-m>0.362</y-m>
+   <z-m>1.257</z-m>
+  </offsets>
+ </model>
+
+ <!-- Voltmeter V-1 -->
+ <model>
+  <name>V-1</name>
+  <path>Aircraft/Yak-40/Models/Interior/Instruments/V-1/v-1.xml</path>
+  <offsets>
+   <x-m>-8.15</x-m>
+   <y-m>0.415</y-m>
+   <z-m>1.257</z-m>
+  </offsets>
+ </model>
+
+<!--*************** INSTRUMENTS LEFT CONSOLE ****************-->
+<!-- Komplex 020M -->
+ <model>
+  <name>SRO-2</name>
+  <path>Aircraft/Yak-40/Models/Interior/Instruments/SRO-2/sro-2_controlpanel.xml</path>
+  <offsets>
+   <x-m>-7.247</x-m>
+   <y-m>-0.987</y-m>
+   <z-m>1.19</z-m>
+   <heading-deg>90</heading-deg>
+   <pitch-deg>40</pitch-deg>
+  </offsets>
+ </model>
+
+ <model>
+  <name>lc_switch02</name>
+  <path>Aircraft/Yak-40/Models/Interior/Instruments/SRO-2/lc02sw_block-34.xml</path>
+  <offsets>
+   <x-m>-7.086</x-m>
+   <y-m>-0.972</y-m>
+   <z-m>1.157</z-m>
+   <pitch-deg>-90</pitch-deg>
+   <heading-deg>90</heading-deg>
+  </offsets>
+ </model>
+
+ <model>
+  <name>lc_switch03</name>
+  <path>Aircraft/Yak-40/Models/Interior/Instruments/SRO-2/lc03sw_spare-working.xml</path>
+  <offsets>
+   <x-m>-7.1374</x-m>
+   <y-m>-0.972</y-m>
+   <z-m>1.157</z-m>
+   <pitch-deg>-90</pitch-deg>
+   <heading-deg>90</heading-deg>
+  </offsets>
+ </model>
+
+<!--"SPU" Selector Panel-->
+ <model>
+  <name>spupanelleft</name>
+  <path>Aircraft/Yak-40/Models/Interior/Instruments/Landysh/lc_landysh_sel_panel.xml</path>
+  <offsets>
+   <x-m>-7.88</x-m>
+   <y-m>-0.926</y-m>
+   <z-m>1.159</z-m>
+  </offsets>
+ </model>
+
+<!--*************** INSTRUMENTS RIGHT CONSOLE ****************-->
+ <model>
+  <name>ARD-2077</name>
+  <path>Aircraft/Yak-40/Models/Interior/Panels/ARD-2077/ard-2077.xml</path>
+  <offsets>
+   <x-m>-7.172</x-m>
+   <y-m>0.98</y-m>
+   <z-m>1.161</z-m>
+   <heading-deg>-90</heading-deg>
+  </offsets>
+ </model>
+
+ <model>
+  <name>Kurs-MP-70_PU1</name>
+  <path>Aircraft/Yak-40/Models/Interior/Instruments/Kurs-MP-70/pu-1.xml</path>
+  <offsets>
+   <x-m>-7.484</x-m>
+   <y-m>0.81</y-m>
+   <z-m>1.138</z-m>
+   <pitch-deg>-90</pitch-deg>
+   <heading-deg>-90</heading-deg>
+  </offsets>
+ </model>
+
+ <model>
+  <name>Kurs-MP-70_PU2</name>
+  <path>Aircraft/Yak-40/Models/Interior/Instruments/Kurs-MP-70/pu-2.xml</path>
+  <offsets>
+   <x-m>-7.6345</x-m>
+   <y-m>0.81</y-m>
+   <z-m>1.133</z-m>
+   <pitch-deg>-90</pitch-deg>
+   <heading-deg>-90</heading-deg>
+  </offsets>
+ </model>
+
+ <model>
+  <name>SD-75_PU</name>
+  <path>Aircraft/Yak-40/Models/Interior/Instruments/SD-75/pu_sd-75.xml</path>
+  <offsets>
+   <x-m>-7.325</x-m>
+   <y-m>0.81</y-m>
+   <z-m>1.1385</z-m>
+   <pitch-deg>-90</pitch-deg>
+   <heading-deg>-90</heading-deg>
+  </offsets>
+ </model>
+
+<!--"SPU" Selector Panel-->
+ <model>
+  <name>spupanelright</name>
+  <path>Aircraft/Yak-40/Models/Interior/Instruments/Landysh/rc_landysh_sel_panel.xml</path>
+  <offsets>
+   <x-m>-7.894</x-m>
+   <y-m>0.927</y-m>
+   <z-m>1.159</z-m>
+  </offsets>
+ </model>
+
+<!--*************** INSTRUMENTS OVERHEAD ****************-->
+ <model>
+  <name>Fire_Panel</name>
+  <path>Aircraft/Yak-40/Models/Interior/Panels/Fire_Panel/fire_protection.xml</path>
+  <offsets>
+   <x-m>-8.0325</x-m>
+   <y-m>0.0</y-m>
+   <z-m>1.9657</z-m>
+   <pitch-deg>-15</pitch-deg>
+  </offsets>
+ </model>
+
+ <model>
+  <name>AChS</name>
+  <path>Aircraft/Yak-40/Models/Interior/Instruments/AChS-1/achs-1.xml</path>
+  <offsets>
+   <x-m>-8.1</x-m>
+   <y-m>0.0</y-m>
+   <z-m>1.9245</z-m>
+  </offsets>
+ </model>
+
+<!-- ARK-9 -->
+ <model>
+  <name>ARK-9-1</name>
+  <path>Aircraft/Yak-40/Models/Interior/Instruments/ARK-9/ark-9-1.xml</path>
+  <offsets>
+   <x-m>-7.926</x-m>
+   <y-m>-0.1085</y-m>
+   <z-m>1.99</z-m>
+   <pitch-deg>75</pitch-deg>
+  </offsets>
+ </model>
+
+ <model>
+  <name>oh_switch12</name>
+  <path>Aircraft/Yak-40/Models/Interior/Instruments/ARK-9/oh12sw_main1-rsrv1.xml</path>
+  <offsets>
+   <x-m>-7.834</x-m>
+   <y-m>-0.21</y-m>
+   <z-m>2.031</z-m>
+   <pitch-deg>65</pitch-deg>
+   <heading-deg>0</heading-deg>
+   <roll-deg>0</roll-deg>
+  </offsets>
+ </model>
+
+ <model>
+  <name>ARK-9-2</name>
+  <path>Aircraft/Yak-40/Models/Interior/Instruments/ARK-9/ark-9-2.xml</path>
+  <offsets>
+   <x-m>-7.926</x-m>
+   <y-m>0.1087</y-m>
+   <z-m>1.99</z-m>
+   <pitch-deg>75</pitch-deg>
+  </offsets>
+ </model>
+
+ <model>
+  <name>oh_switch15</name>
+  <path>Aircraft/Yak-40/Models/Interior/Instruments/ARK-9/oh15sw_main2-rsrv2.xml</path>
+  <offsets>
+   <x-m>-7.834</x-m>
+   <y-m>0.21</y-m>
+   <z-m>2.031</z-m>
+   <pitch-deg>65</pitch-deg>
+   <heading-deg>0</heading-deg>
+   <roll-deg>0</roll-deg>
+  </offsets>
+ </model>
+
+<!-- Landysh -->
+ <model>
+  <name>Landysh1</name>
+  <path>Aircraft/Yak-40/Models/Interior/Instruments/Landysh/landysh-1.xml</path>
+  <offsets>
+   <x-m>-7.8115</x-m>
+   <y-m>-0.0965</y-m>
+   <z-m>2.056</z-m>
+   <pitch-deg>65</pitch-deg>
+  </offsets>
+ </model>
+
+ <model>
+  <name>Landysh2</name>
+  <path>Aircraft/Yak-40/Models/Interior/Instruments/Landysh/landysh-2.xml</path>
+  <offsets>
+   <x-m>-7.8115</x-m>
+   <y-m>0.0965</y-m>
+   <z-m>2.056</z-m>
+   <pitch-deg>65</pitch-deg>
+  </offsets>
+ </model>
+
+<!--*************** PANELS ****************-->
+ <model>
+  <name>AZSleft</name>
+  <path>Aircraft/Yak-40/Models/Interior/Panels/AZS_left/azs_left.xml</path>
+  <offsets>
+   <x-m>-7.042</x-m>
+   <y-m>-0.935</y-m>
+   <z-m>1.375</z-m>
+  </offsets>
+ </model>
+
+ <model>
+  <name>AZSright</name>
+  <path>Aircraft/Yak-40/Models/Interior/Panels/AZS_right/azs_right.xml</path>
+  <offsets>
+   <x-m>-7.042</x-m>
+   <y-m>0.935</y-m>
+   <z-m>1.375</z-m>
+  </offsets>
+ </model>
+
+ <model>
+  <name>Electrical</name>
+  <path>Aircraft/Yak-40/Models/Interior/Panels/Electric/electric.ac</path>
+  <offsets>
+   <x-m>-8.142</x-m>
+   <y-m>0.52</y-m>
+   <z-m>1.249</z-m>
+  </offsets>
+ </model>
+
+ <model>
+  <name>PU-27</name>
+  <path>Aircraft/Yak-40/Models/Interior/Panels/PU-27/pu-27.xml</path>
+  <offsets>
+   <x-m>-8.15</x-m>
+   <y-m>0.688</y-m>
+   <z-m>1.243</z-m>
+  </offsets>
+ </model>
+
+ <model>
+  <name>AP-40</name>
+  <path>Aircraft/Yak-40/Models/Interior/Panels/AP-40/ap-40.xml</path>
+  <offsets>
+   <x-m>-7.698</x-m>
+   <y-m>-0.04</y-m>
+   <z-m>1.07</z-m>
+   <pitch-deg>-26.5</pitch-deg>
+  </offsets>
+ </model>
+
+ <model>
+  <name>Frame_8</name>
+  <path>Aircraft/Yak-40/Models/Interior/Panels/Frame_8/frame_8.xml</path>
+  <offsets>
+   <x-m>-6.822</x-m>
+   <y-m>-0.338</y-m>
+   <z-m>1.504</z-m>
+   <heading-deg>105.0</heading-deg>
+  </offsets>
+ </model>
+
+<!--*************** SSP2 SIGNAL LAMPS ****************-->
+<!--Left Panel-->
+ <model>
+  <name>ssp005</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/SSP2s/ssp026_AP_power_OFF.xml</path>
+  <offsets>
+   <x-m>-8.161</x-m>
+   <y-m>-0.73</y-m>
+   <z-m>1.465</z-m>
+  </offsets>
+ </model>
+
+ <model>
+  <name>ssp006</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/SSP2s/ssp026_AP_power_OFF.xml</path>
+  <offsets>
+   <x-m>-8.161</x-m>
+   <y-m>-0.745</y-m>
+   <z-m>1.432</z-m>
+  </offsets>
+ </model>
+
+ <model>
+  <name>ssp007</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/SSP2s/ssp026_AP_power_OFF.xml</path>
+  <offsets>
+   <x-m>-8.161</x-m>
+   <y-m>-0.715</y-m>
+   <z-m>1.432</z-m>
+  </offsets>
+ </model>
+
+ <model>
+  <name>ssp008</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/SSP2s/ssp026_AP_power_OFF.xml</path>
+  <offsets>
+   <x-m>-8.161</x-m>
+   <y-m>-0.8</y-m>
+   <z-m>1.412</z-m>
+  </offsets>
+ </model>
+
+ <model>
+  <name>ssp009</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/SSP2s/ssp026_AP_power_OFF.xml</path>
+  <offsets>
+   <x-m>-8.161</x-m>
+   <y-m>-0.745</y-m>
+   <z-m>1.412</z-m>
+  </offsets>
+ </model>
+
+ <model>
+  <name>ssp010</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/SSP2s/ssp026_AP_power_OFF.xml</path>
+  <offsets>
+   <x-m>-8.161</x-m>
+   <y-m>-0.715</y-m>
+   <z-m>1.412</z-m>
+  </offsets>
+ </model>
+<!---->
+ <model>
+  <name>ssp026</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/SSP2s/ssp026_AP_power_OFF.xml</path>
+  <offsets>
+   <x-m>-8.147</x-m>
+   <y-m>-0.40</y-m>
+   <z-m>1.626</z-m>
+  </offsets>
+ </model>
+
+ <model>
+  <name>ssp027</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/SSP2s/ssp026_AP_power_OFF.xml</path>
+  <offsets>
+   <x-m>-8.147</x-m>
+   <y-m>-0.37</y-m>
+   <z-m>1.626</z-m>
+  </offsets>
+ </model>
+
+ <model>
+  <name>ssp028</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/SSP2s/ssp026_AP_power_OFF.xml</path>
+  <offsets>
+   <x-m>-8.147</x-m>
+   <y-m>-0.34</y-m>
+   <z-m>1.626</z-m>
+  </offsets>
+ </model>
+
+ <model>
+  <name>ssp029</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/SSP2s/ssp026_AP_power_OFF.xml</path>
+  <offsets>
+   <x-m>-8.147</x-m>
+   <y-m>-0.31</y-m>
+   <z-m>1.626</z-m>
+  </offsets>
+ </model>
+
+ <model>
+  <name>ssp030</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/SSP2s/ssp026_AP_power_OFF.xml</path>
+  <offsets>
+   <x-m>-8.147</x-m>
+   <y-m>-0.28</y-m>
+   <z-m>1.626</z-m>
+  </offsets>
+ </model>
+
+ <model>
+  <name>ssp031</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/SSP2s/ssp026_AP_power_OFF.xml</path>
+  <offsets>
+   <x-m>-8.147</x-m>
+   <y-m>-0.25</y-m>
+   <z-m>1.626</z-m>
+  </offsets>
+ </model>
+
+ <model>
+  <name>ssp032</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/SSP2s/ssp026_AP_power_OFF.xml</path>
+  <offsets>
+   <x-m>-8.147</x-m>
+   <y-m>-0.22</y-m>
+   <z-m>1.626</z-m>
+  </offsets>
+ </model>
+<!---->
+ <model>
+  <name>ssp033</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/SSP2s/ssp026_AP_power_OFF.xml</path>
+  <offsets>
+   <x-m>-8.147</x-m>
+   <y-m>-0.46</y-m>
+   <z-m>1.605</z-m>
+  </offsets>
+ </model>
+
+ <model>
+  <name>ssp034</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/SSP2s/ssp026_AP_power_OFF.xml</path>
+  <offsets>
+   <x-m>-8.147</x-m>
+   <y-m>-0.43</y-m>
+   <z-m>1.606</z-m>
+  </offsets>
+ </model>
+
+ <model>
+  <name>ssp035</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/SSP2s/ssp026_AP_power_OFF.xml</path>
+  <offsets>
+   <x-m>-8.147</x-m>
+   <y-m>-0.40</y-m>
+   <z-m>1.606</z-m>
+  </offsets>
+ </model>
+
+ <model>
+  <name>ssp036</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/SSP2s/ssp026_AP_power_OFF.xml</path>
+  <offsets>
+   <x-m>-8.147</x-m>
+   <y-m>-0.37</y-m>
+   <z-m>1.606</z-m>
+  </offsets>
+ </model>
+
+ <model>
+  <name>ssp037</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/SSP2s/ssp026_AP_power_OFF.xml</path>
+  <offsets>
+   <x-m>-8.147</x-m>
+   <y-m>-0.34</y-m>
+   <z-m>1.606</z-m>
+  </offsets>
+ </model>
+
+ <model>
+  <name>ssp038</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/SSP2s/ssp026_AP_power_OFF.xml</path>
+  <offsets>
+   <x-m>-8.147</x-m>
+   <y-m>-0.31</y-m>
+   <z-m>1.606</z-m>
+  </offsets>
+ </model>
+
+
+ <model>
+  <name>ssp039</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/SSP2s/ssp026_AP_power_OFF.xml</path>
+  <offsets>
+   <x-m>-8.147</x-m>
+   <y-m>-0.28</y-m>
+   <z-m>1.606</z-m>
+  </offsets>
+ </model>
+
+ <model>
+  <name>ssp040</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/SSP2s/ssp026_AP_power_OFF.xml</path>
+  <offsets>
+   <x-m>-8.147</x-m>
+   <y-m>-0.25</y-m>
+   <z-m>1.606</z-m>
+  </offsets>
+ </model>
+
+ <model>
+  <name>ssp041</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/SSP2s/ssp026_AP_power_OFF.xml</path>
+  <offsets>
+   <x-m>-8.147</x-m>
+   <y-m>-0.22</y-m>
+   <z-m>1.606</z-m>
+  </offsets>
+ </model>
+
+ <model>
+  <name>ssp042</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/SSP2s/ssp026_AP_power_OFF.xml</path>
+  <offsets>
+   <x-m>-8.147</x-m>
+   <y-m>-0.19</y-m>
+   <z-m>1.606</z-m>
+  </offsets>
+ </model>
+<!---->
+ <model>
+  <name>ssp040</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/SSP2s/ssp026_AP_power_OFF.xml</path>
+  <offsets>
+   <x-m>-8.147</x-m>
+   <y-m>-0.25</y-m>
+   <z-m>1.586</z-m>
+  </offsets>
+ </model>
+
+ <model>
+  <name>ssp041</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/SSP2s/ssp026_AP_power_OFF.xml</path>
+  <offsets>
+   <x-m>-8.147</x-m>
+   <y-m>-0.22</y-m>
+   <z-m>1.586</z-m>
+  </offsets>
+ </model>
+
+ <model>
+  <name>ssp042</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/SSP2s/ssp026_AP_power_OFF.xml</path>
+  <offsets>
+   <x-m>-8.147</x-m>
+   <y-m>-0.19</y-m>
+   <z-m>1.586</z-m>
+  </offsets>
+ </model>
+<!---->
+ <model>
+  <name>ssp056</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/SSP2s/ssp026_AP_power_OFF.xml</path>
+  <offsets>
+   <x-m>-8.147</x-m>
+   <y-m>-0.43</y-m>
+   <z-m>1.344</z-m>
+  </offsets>
+ </model>
+
+ <model>
+  <name>ssp057</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/SSP2s/ssp026_AP_power_OFF.xml</path>
+  <offsets>
+   <x-m>-8.147</x-m>
+   <y-m>-0.40</y-m>
+   <z-m>1.344</z-m>
+  </offsets>
+ </model>
+
+ <model>
+  <name>ssp059</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/SSP2s/ssp026_AP_power_OFF.xml</path>
+  <offsets>
+   <x-m>-8.147</x-m>
+   <y-m>-0.345</y-m>
+   <z-m>1.344</z-m>
+  </offsets>
+ </model>
+
+<!--Middle Panel-->
+ <model>
+  <name>ssp066</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/SSP2s/ssp026_AP_power_OFF.xml</path>
+  <offsets>
+   <x-m>-8.143</x-m>
+   <y-m>-0.125</y-m>
+   <z-m>1.476</z-m>
+  </offsets>
+ </model>
+
+ <model>
+  <name>ssp074</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/SSP2s/ssp026_AP_power_OFF.xml</path>
+  <offsets>
+   <x-m>-8.143</x-m>
+   <y-m>0.125</y-m>
+   <z-m>1.435</z-m>
+  </offsets>
+ </model>
+
+ <model>
+  <name>ssp075</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/SSP2s/ssp026_AP_power_OFF.xml</path>
+  <offsets>
+   <x-m>-8.143</x-m>
+   <y-m>0.12</y-m>
+   <z-m>1.466</z-m>
+  </offsets>
+ </model>
+
+ <model>
+  <name>ssp076</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/SSP2s/ssp026_AP_power_OFF.xml</path>
+  <offsets>
+   <x-m>-8.143</x-m>
+   <y-m>0.125</y-m>
+   <z-m>1.405</z-m>
+  </offsets>
+ </model>
+
+<!--Right Panel-->
+ <model>
+  <name>ssp083</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/SSP2s/ssp026_AP_power_OFF.xml</path>
+  <offsets>
+   <x-m>-8.147</x-m>
+   <y-m>0.23</y-m>
+   <z-m>1.625</z-m>
+  </offsets>
+ </model>
+
+ <model>
+  <name>ssp084</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/SSP2s/ssp026_AP_power_OFF.xml</path>
+  <offsets>
+   <x-m>-8.147</x-m>
+   <y-m>0.26</y-m>
+   <z-m>1.625</z-m>
+  </offsets>
+ </model>
+
+ <model>
+  <name>ssp085</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/SSP2s/ssp026_AP_power_OFF.xml</path>
+  <offsets>
+   <x-m>-8.147</x-m>
+   <y-m>0.29</y-m>
+   <z-m>1.625</z-m>
+  </offsets>
+ </model>
+
+ <model>
+  <name>ssp087</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/SSP2s/ssp026_AP_power_OFF.xml</path>
+  <offsets>
+   <x-m>-8.147</x-m>
+   <y-m>0.35</y-m>
+   <z-m>1.625</z-m>
+  </offsets>
+ </model>
+
+ <model>
+  <name>ssp088</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/SSP2s/ssp026_AP_power_OFF.xml</path>
+  <offsets>
+   <x-m>-8.147</x-m>
+   <y-m>0.38</y-m>
+   <z-m>1.625</z-m>
+  </offsets>
+ </model>
+
+ <model>
+  <name>ssp089</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/SSP2s/ssp026_AP_power_OFF.xml</path>
+  <offsets>
+   <x-m>-8.147</x-m>
+   <y-m>0.425</y-m>
+   <z-m>1.625</z-m>
+  </offsets>
+ </model>
+<!---->
+ <model>
+  <name>ssp090</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/SSP2s/ssp026_AP_power_OFF.xml</path>
+  <offsets>
+   <x-m>-8.147</x-m>
+   <y-m>0.20</y-m>
+   <z-m>1.605</z-m>
+  </offsets>
+ </model>
+
+ <model>
+  <name>ssp091</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/SSP2s/ssp026_AP_power_OFF.xml</path>
+  <offsets>
+   <x-m>-8.147</x-m>
+   <y-m>0.23</y-m>
+   <z-m>1.605</z-m>
+  </offsets>
+ </model>
+
+ <model>
+  <name>ssp092</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/SSP2s/ssp026_AP_power_OFF.xml</path>
+  <offsets>
+   <x-m>-8.147</x-m>
+   <y-m>0.26</y-m>
+   <z-m>1.605</z-m>
+  </offsets>
+ </model>
+
+ <model>
+  <name>ssp093</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/SSP2s/ssp026_AP_power_OFF.xml</path>
+  <offsets>
+   <x-m>-8.147</x-m>
+   <y-m>0.29</y-m>
+   <z-m>1.605</z-m>
+  </offsets>
+ </model>
+
+
+
+ <model>
+  <name>ssp094</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/SSP2s/ssp026_AP_power_OFF.xml</path>
+  <offsets>
+   <x-m>-8.147</x-m>
+   <y-m>0.32</y-m>
+   <z-m>1.605</z-m>
+  </offsets>
+ </model>
+
+ <model>
+  <name>ssp095</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/SSP2s/ssp026_AP_power_OFF.xml</path>
+  <offsets>
+   <x-m>-8.147</x-m>
+   <y-m>0.35</y-m>
+   <z-m>1.605</z-m>
+  </offsets>
+ </model>
+
+ <model>
+  <name>ssp096</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/SSP2s/ssp026_AP_power_OFF.xml</path>
+  <offsets>
+   <x-m>-8.147</x-m>
+   <y-m>0.38</y-m>
+   <z-m>1.605</z-m>
+  </offsets>
+ </model>
+
+ <model>
+  <name>ssp097</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/SSP2s/ssp026_AP_power_OFF.xml</path>
+  <offsets>
+   <x-m>-8.147</x-m>
+   <y-m>0.41</y-m>
+   <z-m>1.605</z-m>
+  </offsets>
+ </model>
+
+ <model>
+  <name>ssp099A</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/SSP2s/ssp026_AP_power_OFF.xml</path>
+  <offsets>
+   <x-m>-8.147</x-m>
+   <y-m>0.44</y-m>
+   <z-m>1.605</z-m>
+  </offsets>
+ </model>
+
+ <model>
+  <name>ssp101</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/SSP2s/ssp026_AP_power_OFF.xml</path>
+  <offsets>
+   <x-m>-8.147</x-m>
+   <y-m>0.566</y-m>
+   <z-m>1.568</z-m>
+  </offsets>
+ </model>
+
+ <model>
+  <name>ssp110</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/SSP2s/ssp026_AP_power_OFF.xml</path>
+  <offsets>
+   <x-m>-8.147</x-m>
+   <y-m>0.282</y-m>
+   <z-m>1.305</z-m>
+  </offsets>
+ </model>
+
+ <model>
+  <name>ssp111</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/SSP2s/ssp026_AP_power_OFF.xml</path>
+  <offsets>
+   <x-m>-8.147</x-m>
+   <y-m>0.309</y-m>
+   <z-m>1.305</z-m>
+  </offsets>
+ </model>
+
+ <model>
+  <name>ssp112</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/SSP2s/ssp026_AP_power_OFF.xml</path>
+  <offsets>
+   <x-m>-8.147</x-m>
+   <y-m>0.336</y-m>
+   <z-m>1.305</z-m>
+  </offsets>
+ </model>
+
+<!--*************** SYSTEMS, UNITS, etc. ****************
+olp = Outer Left Panel
+orp = Outer Right Panel
+lp = Left Panel
+rp = Right Panel
+mp = Middle Panel
+lc = Left Console
+mc = Middle Console
+rc = Right Console
+oh = Overhead
+Numbering according to "ИНСТРУКЦИЯ ПО ЭКСПЛУАТАЦИИ, КНИГА 6", pp. 255-->
+
+<!-- FUEL -->
+ <model>
+  <name>lp_sw059A</name>
+  <path>Aircraft/Yak-40/Models/Interior/Instruments/PPTIZ-2T/lp059Asw_ind-sel.xml</path>
+  <offsets>
+   <x-m>-8.15</x-m>
+   <y-m>-0.2196</y-m>
+   <z-m>1.371</z-m>
+   <roll-deg>90</roll-deg>
+  </offsets>
+ </model>
+
+<!-- GEAR -->
+ <model>
+  <name>olp_sl001</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/Gear/olp001sl_brake_releaseL.xml</path>
+  <offsets>
+   <x-m>-8.16</x-m>
+   <y-m>-0.653</y-m>
+   <z-m>1.514</z-m>
+  </offsets>
+ </model>
+
+ <model>
+  <name>olp_sl002</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/Gear/olp002sl_brake_releaseR.xml</path>
+  <offsets>
+   <x-m>-8.16</x-m>
+   <y-m>-0.628</y-m>
+   <z-m>1.514</z-m>
+  </offsets>
+ </model>
+
+ <model>
+  <name>olp_sw013</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/Gear/olp013sw_aural_gear-warning.xml</path>
+  <offsets>
+   <x-m>-8.164</x-m>
+   <y-m>-0.784</y-m>
+   <z-m>1.3232</z-m>
+  </offsets>
+ </model>
+
+ <model>
+  <name>olp_switch014</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/Gear/olp014sw_auto_release-brake.xml</path>
+  <offsets>
+   <x-m>-8.164</x-m>
+   <y-m>-0.754</y-m>
+   <z-m>1.3232</z-m>
+  </offsets>
+ </model>
+
+<!-- AGB -->
+ <model>
+  <name>olp_switch015</name>
+  <path>Aircraft/Yak-40/Models/Interior/Instruments/AGB-3K/olp015sw_agb_auto-manual.xml</path>
+  <offsets>
+   <x-m>-8.164</x-m>
+   <y-m>-0.7254</y-m>
+   <z-m>1.3232</z-m>
+  </offsets>
+ </model>
+
+ <model>
+  <name>orp_switch152</name>
+  <path>Aircraft/Yak-40/Models/Interior/Instruments/AGB-3K/orp152sw_agb_auto-manual.xml</path>
+  <offsets>
+   <x-m>-8.164</x-m>
+   <y-m>0.83</y-m>
+   <z-m>1.3</z-m>
+  </offsets>
+ </model>
+
+<!-- FIRE SIGNALISATION/PROTECTION -->
+ <model>
+  <name>olp_sl011</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/FireProtection/olp011sl_fire_signalisation.xml</path>
+  <offsets>
+   <x-m>-8.16</x-m>
+   <y-m>-0.8414</y-m>
+   <z-m>1.331</z-m>
+  </offsets>
+ </model>
+
+ <model>
+  <name>olp_sw012</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/FireProtection/olp012sw_fire_protect.xml</path>
+  <offsets>
+   <x-m>-8.164</x-m>
+   <y-m>-0.814</y-m>
+   <z-m>1.3275</z-m>
+  </offsets>
+ </model>
+
+<!-- Lighting -->
+ <model>
+  <name>olp_switch016</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/Lighting/olp016sw_panel_day-night.xml</path>
+  <offsets>
+   <x-m>-8.164</x-m>
+   <y-m>-0.676</y-m>
+   <z-m>1.234</z-m>
+  </offsets>
+ </model>
+
+ <model>
+  <name>olp_switch017</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/Lighting/olp017sw_left-panel_emerg.xml</path>
+  <offsets>
+   <x-m>-8.164</x-m>
+   <y-m>-0.6514</y-m>
+   <z-m>1.234</z-m>
+  </offsets>
+ </model>
+
+ <model>
+  <name>olp_switch018</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/Lighting/olp018sw_ai-9_panel.xml</path>
+  <offsets>
+   <x-m>-8.164</x-m>
+   <y-m>-0.6248</y-m>
+   <z-m>1.234</z-m>
+  </offsets>
+ </model>
+
+ <model>
+  <name>olp_knob19</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/Lighting/olp019kn_left-console.xml</path>
+  <offsets>
+   <x-m>-8.158</x-m>
+   <y-m>-0.855</y-m>
+   <z-m>1.245</z-m>
+  </offsets>
+ </model>
+
+ <model>
+  <name>olp_knob20</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/Lighting/olp020kn_left-panel.xml</path>
+  <offsets>
+   <x-m>-8.158</x-m>
+   <y-m>-0.803</y-m>
+   <z-m>1.245</z-m>
+  </offsets>
+ </model>
+
+ <model>
+  <name>olp_knob21</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/Lighting/olp021kn_cabin-ceiling.xml</path>
+  <offsets>
+   <x-m>-8.158</x-m>
+   <y-m>-0.754</y-m>
+   <z-m>1.245</z-m>
+  </offsets>
+ </model>
+
+ <model>
+  <name>olp_switch022</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/Lighting/olp022sw_cabin-ceiling.xml</path>
+  <offsets>
+   <x-m>-8.164</x-m>
+   <y-m>-0.7227</y-m>
+   <z-m>1.234</z-m>
+  </offsets>
+ </model>
+
+ <model>
+  <name>olp_switch023</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/Lighting/olp023sw_cabin-left.xml</path>
+  <offsets>
+   <x-m>-8.164</x-m>
+   <y-m>-0.701</y-m>
+   <z-m>1.234</z-m>
+  </offsets>
+ </model>
+
+ <model>
+  <name>orp_switch159</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/Lighting/orp159sw_center-lights.xml</path>
+  <offsets>
+   <x-m>-8.164</x-m>
+   <y-m>0.8713</y-m>
+   <z-m>1.224</z-m>
+  </offsets>
+ </model>
+
+ <model>
+  <name>orp_switch160</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/Lighting/orp160sw_right-lights.xml</path>
+  <offsets>
+   <x-m>-8.164</x-m>
+   <y-m>0.892</y-m>
+   <z-m>1.224</z-m>
+  </offsets>
+ </model>
+
+ <model>
+  <name>rc_knob26</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/Lighting/rc026kn_right.xml</path>
+  <offsets>
+   <x-m>-7.36</x-m>
+   <y-m>0.995</y-m>
+   <z-m>1.155</z-m>
+   <pitch-deg>-90</pitch-deg>
+  </offsets>
+ </model>
+
+ <model>
+  <name>rc_knob27</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/Lighting/rc027kn_middle-console.xml</path>
+  <offsets>
+   <x-m>-7.36</x-m>
+   <y-m>0.945</y-m>
+   <z-m>1.155</z-m>
+   <pitch-deg>-90</pitch-deg>
+  </offsets>
+ </model>
+
+ <model>
+  <name>rc_knob28</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/Lighting/rc028kn_remote-console.xml</path>
+  <offsets>
+   <x-m>-7.36</x-m>
+   <y-m>0.895</y-m>
+   <z-m>1.155</z-m>
+   <pitch-deg>-90</pitch-deg>
+  </offsets>
+ </model>
+
+ <model>
+  <name>rc_switch29</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/Lighting/rc029sw_rc_main-emerg.xml</path>
+  <offsets>
+   <x-m>-7.291</x-m>
+   <y-m>1.049</y-m>
+   <z-m>1.157</z-m>
+   <pitch-deg>-90</pitch-deg>
+  </offsets>
+ </model>
+
+<!-- Water system -->
+ <model>
+  <name>lp_lamp060g</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/WaterSystem/lp060gwl_water-level_nominal.xml</path>
+  <offsets>
+   <x-m>-8.146</x-m>
+   <y-m>-0.388</y-m>
+   <z-m>1.223</z-m>
+  </offsets>
+ </model>
+
+ <model>
+  <name>lp_lamp060d</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/WaterSystem/lp060dwl_water-level_low.xml</path>
+  <offsets>
+   <x-m>-8.146</x-m>
+   <y-m>-0.354</y-m>
+   <z-m>1.223</z-m>
+  </offsets>
+ </model>
+
+<!-- Electrical System -->
+ <model>
+  <name>rp_switch113</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/Electrical/rp113sw_generator1_on.xml</path>
+  <offsets>
+   <x-m>-8.149</x-m>
+   <y-m>0.3596</y-m>
+   <z-m>1.316</z-m>
+  </offsets>
+ </model>
+
+ <model>
+  <name>rp_switch114</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/Electrical/rp114sw_generator2_on.xml</path>
+  <offsets>
+   <x-m>-8.149</x-m>
+   <y-m>0.3814</y-m>
+   <z-m>1.316</z-m>
+  </offsets>
+ </model>
+
+ <model>
+  <name>rp_switch115</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/Electrical/rp115sw_generator3_on.xml</path>
+  <offsets>
+   <x-m>-8.149</x-m>
+   <y-m>0.404</y-m>
+   <z-m>1.316</z-m>
+  </offsets>
+ </model>
+
+ <model>
+  <name>orp_lamp129</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/Electrical/orp129wl_po-1500_fail.xml</path>
+  <offsets>
+   <x-m>-8.16</x-m>
+   <y-m>0.665</y-m>
+   <z-m>1.489</z-m>
+  </offsets>
+ </model>
+
+ <model>
+  <name>orp_lamp130</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/Electrical/orp130wl_aerodrome_power_on.xml</path>
+  <offsets>
+   <x-m>-8.16</x-m>
+   <y-m>0.69</y-m>
+   <z-m>1.489</z-m>
+  </offsets>
+ </model>
+
+ <model>
+  <name>orp_switch132</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/Electrical/orp132sw_accum-aerodrome.xml</path>
+  <offsets>
+   <x-m>-8.164</x-m>
+   <y-m>0.6444</y-m>
+   <z-m>1.442</z-m>
+  </offsets>
+ </model>
+
+ <model>
+  <name>orp_switch133</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/Electrical/orp133sw_pt-500_rls.xml</path>
+  <offsets>
+   <x-m>-8.164</x-m>
+   <y-m>0.6627</y-m>
+   <z-m>1.442</z-m>
+  </offsets>
+ </model>
+
+ <model>
+  <name>orp_switch134</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/Electrical/orp134sw_pt-500_ap.xml</path>
+  <offsets>
+   <x-m>-8.164</x-m>
+   <y-m>0.681</y-m>
+   <z-m>1.442</z-m>
+  </offsets>
+ </model>
+
+ <model>
+  <name>orp_switch135</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/Electrical/orp135sw_radio_man-auto.xml</path>
+  <offsets>
+   <x-m>-8.164</x-m>
+   <y-m>0.7</y-m>
+   <z-m>1.442</z-m>
+  </offsets>
+ </model>
+
+<!-- Air Conditioning/ Heating -->
+ <model>
+  <name>orp_lamp131</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/AirConditioning/orp131wl_second_pressure_reg.xml</path>
+  <offsets>
+   <x-m>-8.16</x-m>
+   <y-m>0.65</y-m>
+   <z-m>1.41</z-m>
+  </offsets>
+ </model>
+
+ <model>
+  <name>orp_lamp138</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/AirConditioning/orp138wl_pressure_relief.xml</path>
+  <offsets>
+   <x-m>-8.16</x-m>
+   <y-m>0.629</y-m>
+   <z-m>1.41</z-m>
+  </offsets>
+ </model>
+
+ <model>
+  <name>orp_lamp139</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/AirConditioning/orp139wl_system.xml</path>
+  <offsets>
+   <x-m>-8.16</x-m>
+   <y-m>0.674</y-m>
+   <z-m>1.41</z-m>
+  </offsets>
+ </model>
+
+ <model>
+  <name>orp_switch140</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/AirConditioning/orp140sw_pressure-relief.xml</path>
+  <offsets>
+   <x-m>-8.164</x-m>
+   <y-m>0.629</y-m>
+   <z-m>1.3646</z-m>
+  </offsets>
+ </model>
+
+ <model>
+  <name>orp_switch141</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/AirConditioning/orp141sw_system-mode.xml</path>
+  <offsets>
+   <x-m>-8.164</x-m>
+   <y-m>0.6736</y-m>
+   <z-m>1.3646</z-m>
+  </offsets>
+ </model>
+
+ <model>
+  <name>orp_switch143</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/AirConditioning/orp143sw_normal-system_on.xml</path>
+  <offsets>
+   <x-m>-8.164</x-m>
+   <y-m>0.7194</y-m>
+   <z-m>1.3646</z-m>
+  </offsets>
+ </model>
+
+ <model>
+  <name>orp_switch144</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/AirConditioning/orp144sw_temp_air-to-cabin.xml</path>
+  <offsets>
+   <x-m>-8.166</x-m>
+   <y-m>0.751</y-m>
+   <z-m>1.3646</z-m>
+  </offsets>
+ </model>
+
+ <model>
+  <name>orp_switch145</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/AirConditioning/orp145sw_temp_air-for-turbocooler.xml</path>
+  <offsets>
+   <x-m>-8.166</x-m>
+   <y-m>0.7943</y-m>
+   <z-m>1.3646</z-m>
+  </offsets>
+ </model>
+
+ <model>
+  <name>orp_lamp146</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/AirConditioning/orp146sl_turbocooler_on.xml</path>
+  <offsets>
+   <x-m>-8.16</x-m>
+   <y-m>0.725</y-m>
+   <z-m>1.41</z-m>
+  </offsets>
+ </model>
+
+ <model>
+  <name>orp_switch147</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/AirConditioning/orp147sw_bleedair_auto-man.xml</path>
+  <offsets>
+   <x-m>-8.166</x-m>
+   <y-m>0.6342</y-m>
+   <z-m>1.3037</z-m>
+  </offsets>
+ </model>
+
+ <model>
+  <name>orp_switch148</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/AirConditioning/orp148sw_bleedair_regime.xml</path>
+  <offsets>
+   <x-m>-8.164</x-m>
+   <y-m>0.663</y-m>
+   <z-m>1.3037</z-m>
+  </offsets>
+ </model>
+
+ <model>
+  <name>orp_switch149</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/AirConditioning/orp149sw_air_crew-cabin.xml</path>
+  <offsets>
+   <x-m>-8.164</x-m>
+   <y-m>0.689</y-m>
+   <z-m>1.3037</z-m>
+  </offsets>
+ </model>
+
+ <model>
+  <name>orp_switch161</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/AirConditioning/orp161sw_sec_press-reg.xml</path>
+  <offsets>
+   <x-m>-8.164</x-m>
+   <y-m>0.6505</y-m>
+   <z-m>1.3646</z-m>
+  </offsets>
+ </model>
+
+
+<!-- Flight Attendants/PAX Cabin -->
+ <model>
+  <name>orp_lamp127</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/PAXCabin/orp127sl_flight-attendant.xml</path>
+  <offsets>
+   <x-m>-8.16</x-m>
+   <y-m>0.635</y-m>
+   <z-m>1.527</z-m>
+  </offsets>
+ </model>
+
+ <model>
+  <name>orp_switch157</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/PAXCabin/orp157sw_nosmoking_seatbelts.xml</path>
+  <offsets>
+   <x-m>-8.164</x-m>
+   <y-m>0.8503</y-m>
+   <z-m>1.224</z-m>
+  </offsets>
+ </model>
+
+<!-- General (or still unknown (where to put them yet...)...) ones -->
+ <model>
+  <name>orp_switch142</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/General/orp142sw_aural_signalisation.xml</path>
+  <offsets>
+   <x-m>-8.164</x-m>
+   <y-m>0.6943</y-m>
+   <z-m>1.3646</z-m>
+  </offsets>
+ </model>
+
+ <model>
+  <name>lc_switch09</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/General/lc09sw_ventilatorL.xml</path>
+  <offsets>
+   <x-m>-7.364</x-m>
+   <y-m>-0.9096</y-m>
+   <z-m>1.157</z-m>
+   <pitch-deg>-90</pitch-deg>
+  </offsets>
+ </model>
+
+ <model>
+  <name>lc_switch11</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/General/lc11sw_sgu.xml</path>
+  <offsets>
+   <x-m>-7.514</x-m>
+   <y-m>-1.037</y-m>
+   <z-m>1.157</z-m>
+   <pitch-deg>-90</pitch-deg>
+  </offsets>
+ </model>
+
+ <model>
+  <name>lc_switch31</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/General/lc31sw_heating-DUA.xml</path>
+  <offsets>
+   <x-m>-7.169</x-m>
+   <y-m>-0.972</y-m>
+   <z-m>1.157</z-m>
+   <pitch-deg>-90</pitch-deg>
+   <heading-deg>90</heading-deg>
+  </offsets>
+ </model>
+
+ <model>
+  <name>rc_switch30</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/General/rc30sw_ventilatorR.xml</path>
+  <offsets>
+   <x-m>-7.2916</x-m>
+   <y-m>0.949</y-m>
+   <z-m>1.157</z-m>
+   <pitch-deg>-90</pitch-deg>
+   <heading-deg>90</heading-deg>
+  </offsets>
+ </model>
+
+ <model>
+  <name>rc_switch31</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/General/rc31sw_permanent_pos-lock.xml</path>
+  <offsets>
+   <x-m>-7.169</x-m>
+   <y-m>1.0584</y-m>
+   <z-m>1.157</z-m>
+   <pitch-deg>-90</pitch-deg>
+  </offsets>
+ </model>
+
+<!-- Flight Recorder MSRP -->
+ <model>
+  <name>rc_lamp33</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/MSRP/rc33sl_ppm_working.xml</path>
+  <offsets>
+   <x-m>-7.812</x-m>
+   <y-m>0.985</y-m>
+   <z-m>1.157</z-m>
+   <pitch-deg>-90</pitch-deg>
+  </offsets>
+ </model>
+
+ <model>
+  <name>rc_switch34</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/MSRP/rc34sw_ppm_on.xml</path>
+  <offsets>
+   <x-m>-7.812</x-m>
+   <y-m>0.968</y-m>
+   <z-m>1.157</z-m>
+   <pitch-deg>-90</pitch-deg>
+  </offsets>
+ </model>
+
+ <model>
+  <name>rc_switch35</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/MSRP/rc35sw_msrp_power.xml</path>
+  <offsets>
+   <x-m>-7.812</x-m>
+   <y-m>0.927</y-m>
+   <z-m>1.157</z-m>
+   <pitch-deg>-90</pitch-deg>
+  </offsets>
+ </model>
+
+<!-- FUEL SYSTEM -->
+ <model>
+  <name>mc_lamp01</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/FuelSystem/mc01sl_valve_openL.xml</path>
+  <offsets>
+   <x-m>-8.111</x-m>
+   <y-m>-0.088</y-m>
+   <z-m>1.1945</z-m>
+   <pitch-deg>-90</pitch-deg>
+  </offsets>
+ </model>
+
+ <model>
+  <name>mc_lamp02</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/FuelSystem/mc02sl_valve_openR.xml</path>
+  <offsets>
+   <x-m>-8.111</x-m>
+   <y-m>-0.066</y-m>
+   <z-m>1.1945</z-m>
+   <pitch-deg>-90</pitch-deg>
+  </offsets>
+ </model>
+
+ <model>
+  <name>mc_lamp03</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/FuelSystem/mc03sl_failure.xml</path>
+  <offsets>
+   <x-m>-8.111</x-m>
+   <y-m>-0.044</y-m>
+   <z-m>1.1945</z-m>
+   <pitch-deg>-90</pitch-deg>
+  </offsets>
+ </model>
+
+ <model>
+  <name>mc_lamp04</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/FuelSystem/mc04sl_serviceable.xml</path>
+  <offsets>
+   <x-m>-8.111</x-m>
+   <y-m>-0.022</y-m>
+   <z-m>1.1945</z-m>
+   <pitch-deg>-90</pitch-deg>
+  </offsets>
+ </model>
+
+ <model>
+  <name>mc_lamp05</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/FuelSystem/mc05sl_pumpsL.xml</path>
+  <offsets>
+   <x-m>-8.111</x-m>
+   <y-m>0.0</y-m>
+   <z-m>1.1945</z-m>
+   <pitch-deg>-90</pitch-deg>
+  </offsets>
+ </model>
+
+ <model>
+  <name>mc_lamp06</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/FuelSystem/mc06sl_pumpsR.xml</path>
+  <offsets>
+   <x-m>-8.111</x-m>
+   <y-m>0.022</y-m>
+   <z-m>1.1945</z-m>
+   <pitch-deg>-90</pitch-deg>
+  </offsets>
+ </model>
+
+ <model>
+  <name>mc_sw07</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/FuelSystem/mc07sw_combine-valve.xml</path>
+  <offsets>
+   <x-m>-8.066</x-m>
+   <y-m>-0.0905</y-m>
+   <z-m>1.192</z-m>
+   <pitch-deg>-90</pitch-deg>
+  </offsets>
+ </model>
+
+ <model>
+  <name>mc_sw08</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/FuelSystem/mc08sw_cross-valve.xml</path>
+  <offsets>
+   <x-m>-8.066</x-m>
+   <y-m>-0.067</y-m>
+   <z-m>1.192</z-m>
+   <pitch-deg>-90</pitch-deg>
+  </offsets>
+ </model>
+
+ <model>
+  <name>mc_sw09</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/FuelSystem/mc09sw_auto-fuel-centering.xml</path>
+  <offsets>
+   <x-m>-8.066</x-m>
+   <y-m>-0.044</y-m>
+   <z-m>1.192</z-m>
+   <pitch-deg>-90</pitch-deg>
+  </offsets>
+ </model>
+
+ <model>
+  <name>mc_btn10</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/FuelSystem/mc10btn_test_ATsT.xml</path>
+  <offsets>
+   <x-m>-8.074</x-m>
+   <y-m>-0.023</y-m>
+   <z-m>1.191</z-m>
+   <pitch-deg>-90</pitch-deg>
+  </offsets>
+ </model>
+
+ <model>
+  <name>mc_sw11</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/FuelSystem/mc11sw_pumpsL.xml</path>
+  <offsets>
+   <x-m>-8.066</x-m>
+   <y-m>-0.002</y-m>
+   <z-m>1.192</z-m>
+   <pitch-deg>-90</pitch-deg>
+  </offsets>
+ </model>
+
+ <model>
+  <name>mc_sw12</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/FuelSystem/mc12sw_pumpsR.xml</path>
+  <offsets>
+   <x-m>-8.066</x-m>
+   <y-m>0.019</y-m>
+   <z-m>1.192</z-m>
+   <pitch-deg>-90</pitch-deg>
+  </offsets>
+ </model>
+
+ <model>
+  <name>mc_sw13</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/FuelSystem/mc13sw_pumps_weak_mode.xml</path>
+  <offsets>
+   <x-m>-8.066</x-m>
+   <y-m>0.04</y-m>
+   <z-m>1.192</z-m>
+   <pitch-deg>-90</pitch-deg>
+  </offsets>
+ </model>
+
+ <model>
+  <name>mc_sw14</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/FuelSystem/mc14sw_emerg-pumpsR.xml</path>
+  <offsets>
+   <x-m>-8.066</x-m>
+   <y-m>0.062</y-m>
+   <z-m>1.192</z-m>
+   <pitch-deg>-90</pitch-deg>
+  </offsets>
+ </model>
+
+ <model>
+  <name>mc_sw16</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/FuelSystem/mc16sw_manometers.xml</path>
+  <offsets>
+   <x-m>-8.07</x-m>
+   <y-m>0.124</y-m>
+   <z-m>1.192</z-m>
+   <pitch-deg>-90</pitch-deg>
+  </offsets>
+ </model>
+
+ <model>
+  <name>mc_lamp17</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/FuelSystem/mc17sl_reserve_open.xml</path>
+  <offsets>
+   <x-m>-8.065</x-m>
+   <y-m>-0.128</y-m>
+   <z-m>1.1945</z-m>
+   <pitch-deg>-90</pitch-deg>
+  </offsets>
+ </model>
+
+ <model>
+  <name>mc_sw18</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/FuelSystem/mc18sw_reserve.xml</path>
+  <offsets>
+   <x-m>-8.018</x-m>
+   <y-m>-0.123</y-m>
+   <z-m>1.192</z-m>
+   <pitch-deg>-90</pitch-deg>
+  </offsets>
+ </model>
+
+ <model>
+  <name>mc_lamp19</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/FuelSystem/mc19sl_center.xml</path>
+  <offsets>
+   <x-m>-8.035</x-m>
+   <y-m>-0.036</y-m>
+   <z-m>1.1945</z-m>
+   <pitch-deg>-90</pitch-deg>
+  </offsets>
+ </model>
+
+ <model>
+  <name>mc_sw20</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/FuelSystem/mc20sw_pump-station.xml</path>
+  <offsets>
+   <x-m>-8.009</x-m>
+   <y-m>-0.008</y-m>
+   <z-m>1.192</z-m>
+   <pitch-deg>-90</pitch-deg>
+  </offsets>
+ </model>
+
+ <model>
+  <name>mc_sw21</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/FuelSystem/mc21sw_front-booster_shutdown.xml</path>
+  <offsets>
+   <x-m>-8.01</x-m>
+   <y-m>0.034</y-m>
+   <z-m>1.192</z-m>
+   <pitch-deg>-90</pitch-deg>
+  </offsets>
+ </model>
+
+ <model>
+  <name>mc_lamp22</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/FuelSystem/mc22sl_fire-valveL.xml</path>
+  <offsets>
+   <x-m>-8.019</x-m>
+   <y-m>0.081</y-m>
+   <z-m>1.1945</z-m>
+   <pitch-deg>-90</pitch-deg>
+  </offsets>
+ </model>
+
+ <model>
+  <name>mc_lamp23</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/FuelSystem/mc23sl_fire-valveC.xml</path>
+  <offsets>
+   <x-m>-8.019</x-m>
+   <y-m>0.103</y-m>
+   <z-m>1.1945</z-m>
+   <pitch-deg>-90</pitch-deg>
+  </offsets>
+ </model>
+
+ <model>
+  <name>mc_lamp24</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/FuelSystem/mc24sl_fire-valveR.xml</path>
+  <offsets>
+   <x-m>-8.019</x-m>
+   <y-m>0.124</y-m>
+   <z-m>1.1945</z-m>
+   <pitch-deg>-90</pitch-deg>
+  </offsets>
+ </model>
+
+ <model>
+  <name>mc_lamp28</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/FuelSystem/mc28sl_reserve_closed.xml</path>
+  <offsets>
+   <x-m>-7.98</x-m>
+   <y-m>-0.128</y-m>
+   <z-m>1.1945</z-m>
+   <pitch-deg>-90</pitch-deg>
+  </offsets>
+ </model>
+
+ <model>
+  <name>rc_switch38</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/FuelSystem/rc38sw_fuel-drain-openR.xml</path>
+  <offsets>
+   <x-m>-7.669</x-m>
+   <y-m>0.927</y-m>
+   <z-m>1.157</z-m>
+   <pitch-deg>-90</pitch-deg>
+  </offsets>
+ </model>
+
+ <model>
+  <name>rc_switch39</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/FuelSystem/rc39sw_fuel-drain-openL.xml</path>
+  <offsets>
+   <x-m>-7.669</x-m>
+   <y-m>0.8956</y-m>
+   <z-m>1.157</z-m>
+   <pitch-deg>-90</pitch-deg>
+  </offsets>
+ </model>
+
+<!-- DOORS/HATCHES/GANGWAY -->
+ <model>
+  <name>orp_lamp128</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/DoorsGangway/orp128wl_gangway.xml</path>
+  <offsets>
+   <x-m>-8.16</x-m>
+   <y-m>0.64</y-m>
+   <z-m>1.489</z-m>
+  </offsets>
+ </model>
+
+ <model>
+  <name>orp_switch155</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/DoorsGangway/orp155sw_gangway-power.xml</path>
+  <offsets>
+   <x-m>-8.164</x-m>
+   <y-m>0.783</y-m>
+   <z-m>1.224</z-m>
+  </offsets>
+ </model>
+
+ <model>
+  <name>orp_switch156</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/DoorsGangway/orp156sw_gangway-release.xml</path>
+  <offsets>
+   <x-m>-8.164</x-m>
+   <y-m>0.807</y-m>
+   <z-m>1.224</z-m>
+  </offsets>
+ </model>
+
+ <model>
+  <name>rc_switch42</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/DoorsGangway/rc42sw_cargo-door-light.xml</path>
+  <offsets>
+   <x-m>-7.669</x-m>
+   <y-m>1.0</y-m>
+   <z-m>1.157</z-m>
+   <pitch-deg>-90</pitch-deg>
+  </offsets>
+ </model>
+
+ <model>
+  <name>rc_lamp43</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/DoorsGangway/rc43wl_cargo-door_open.xml</path>
+  <offsets>
+   <x-m>-7.669</x-m>
+   <y-m>0.97</y-m>
+   <z-m>1.157</z-m>
+   <pitch-deg>-90</pitch-deg>
+  </offsets>
+ </model>
+
+<!-- ICING PROTECTION -->
+ <model>
+  <name>orp_switch136</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/IcingProtection/orp136sw_window_heat.xml</path>
+  <offsets>
+   <x-m>-8.164</x-m>
+   <y-m>0.721</y-m>
+   <z-m>1.442</z-m>
+  </offsets>
+ </model>
+
+ <model>
+  <name>orp_switch137</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/IcingProtection/orp137sw_radio_heat.xml</path>
+  <offsets>
+   <x-m>-8.164</x-m>
+   <y-m>0.7486</y-m>
+   <z-m>1.442</z-m>
+  </offsets>
+ </model>
+
+ <model>
+  <name>rc_switch06</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/IcingProtection/rc06sw_anti-ice-system.xml</path>
+  <offsets>
+   <x-m>-7.5626</x-m>
+   <y-m>1.00</y-m>
+   <z-m>1.157</z-m>
+   <pitch-deg>-90</pitch-deg>
+  </offsets>
+ </model>
+
+ <model>
+  <name>rc_switch08</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/IcingProtection/rc08sw_icing-signalisation.xml</path>
+  <offsets>
+   <x-m>-7.557</x-m>
+   <y-m>0.9474</y-m>
+   <z-m>1.157</z-m>
+   <pitch-deg>-90</pitch-deg>
+  </offsets>
+ </model>
+
+ <model>
+  <name>rc_switch09</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/IcingProtection/rc09sw_inlet-heatingR.xml</path>
+  <offsets>
+   <x-m>-7.557</x-m>
+   <y-m>0.924</y-m>
+   <z-m>1.157</z-m>
+   <pitch-deg>-90</pitch-deg>
+  </offsets>
+ </model>
+
+ <model>
+  <name>rc_switch10</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/IcingProtection/rc10sw_inlet-heatingL.xml</path>
+  <offsets>
+   <x-m>-7.557</x-m>
+   <y-m>0.9023</y-m>
+   <z-m>1.157</z-m>
+   <pitch-deg>-90</pitch-deg>
+  </offsets>
+ </model>
+
+ <model>
+  <name>rc_lamp12</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/IcingProtection/rc12sl_anti-ice-system_check.xml</path>
+  <offsets>
+   <x-m>-7.565</x-m>
+   <y-m>1.028</y-m>
+   <z-m>1.157</z-m>
+   <pitch-deg>-90</pitch-deg>
+  </offsets>
+ </model>
+
+ <model>
+  <name>rc_lamp13</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/IcingProtection/rc13sl_engine-heat_full.xml</path>
+  <offsets>
+   <x-m>-7.515</x-m>
+   <y-m>0.95</y-m>
+   <z-m>1.157</z-m>
+   <pitch-deg>-90</pitch-deg>
+  </offsets>
+ </model>
+
+ <model>
+  <name>rc_switch14</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/IcingProtection/rc14sw_engine_heat.xml</path>
+  <offsets>
+   <x-m>-7.5025</x-m>
+   <y-m>0.927</y-m>
+   <z-m>1.157</z-m>
+   <pitch-deg>-90</pitch-deg>
+  </offsets>
+ </model>
+
+ <model>
+  <name>rc_switch15</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/IcingProtection/rc15sw_engine_heat_auto.xml</path>
+  <offsets>
+   <x-m>-7.5025</x-m>
+   <y-m>0.8986</y-m>
+   <z-m>1.157</z-m>
+   <pitch-deg>-90</pitch-deg>
+  </offsets>
+ </model>
+
+ <model>
+  <name>rc_lamp18</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/IcingProtection/rc18sl_engine-heat_front.xml</path>
+  <offsets>
+   <x-m>-7.485</x-m>
+   <y-m>0.95</y-m>
+   <z-m>1.157</z-m>
+   <pitch-deg>-90</pitch-deg>
+  </offsets>
+ </model>
+
+ <model>
+  <name>rc_lamp19</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/IcingProtection/rc19sl_engine-heat_on-groundR.xml</path>
+  <offsets>
+   <x-m>-7.458</x-m>
+   <y-m>0.9747</y-m>
+   <z-m>1.157</z-m>
+   <pitch-deg>-90</pitch-deg>
+  </offsets>
+ </model>
+
+ <model>
+  <name>rc_lamp20</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/IcingProtection/rc20sl_engine-heat_on-groundM.xml</path>
+  <offsets>
+   <x-m>-7.458</x-m>
+   <y-m>0.9404</y-m>
+   <z-m>1.157</z-m>
+   <pitch-deg>-90</pitch-deg>
+  </offsets>
+ </model>
+
+ <model>
+  <name>rc_lamp21</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/IcingProtection/rc21sl_engine-heat_on-groundL.xml</path>
+  <offsets>
+   <x-m>-7.458</x-m>
+   <y-m>0.906</y-m>
+   <z-m>1.157</z-m>
+   <pitch-deg>-90</pitch-deg>
+  </offsets>
+ </model>
+
+ <model>
+  <name>rc_switch22</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/IcingProtection/rc22sw_engine-heat_on-groundR.xml</path>
+  <offsets>
+   <x-m>-7.42</x-m>
+   <y-m>0.9747</y-m>
+   <z-m>1.157</z-m>
+   <pitch-deg>-90</pitch-deg>
+  </offsets>
+ </model>
+
+ <model>
+  <name>rc_switch23</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/IcingProtection/rc23sw_engine-heat_on-groundM.xml</path>
+  <offsets>
+   <x-m>-7.42</x-m>
+   <y-m>0.9404</y-m>
+   <z-m>1.157</z-m>
+   <pitch-deg>-90</pitch-deg>
+  </offsets>
+ </model>
+
+ <model>
+  <name>rc_switch24</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/IcingProtection/rc24sw_engine-heat_on-groundL.xml</path>
+  <offsets>
+   <x-m>-7.42</x-m>
+   <y-m>0.906</y-m>
+   <z-m>1.157</z-m>
+   <pitch-deg>-90</pitch-deg>
+  </offsets>
+ </model>
+
+<!-- ENGINES -->
+ <model>
+  <name>mc_sw25</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/Engines/mc25sw_fire-craneL.xml</path>
+  <offsets>
+   <x-m>-7.968</x-m>
+   <y-m>0.081</y-m>
+   <z-m>1.192</z-m>
+   <pitch-deg>-90</pitch-deg>
+  </offsets>
+ </model>
+
+ <model>
+  <name>mc_sw26</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/Engines/mc26sw_fire-craneC.xml</path>
+  <offsets>
+   <x-m>-7.968</x-m>
+   <y-m>0.102</y-m>
+   <z-m>1.192</z-m>
+   <pitch-deg>-90</pitch-deg>
+  </offsets>
+ </model>
+
+ <model>
+  <name>mc_sw27</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/Engines/mc27sw_fire-craneR.xml</path>
+  <offsets>
+   <x-m>-7.968</x-m>
+   <y-m>0.124</y-m>
+   <z-m>1.192</z-m>
+   <pitch-deg>-90</pitch-deg>
+  </offsets>
+ </model>
+
+ <model>
+  <name>mc_sw29</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/Engines/mc29sw_engine-stopL.xml</path>
+  <offsets>
+   <x-m>-7.972</x-m>
+   <y-m>-0.0905</y-m>
+   <z-m>1.192</z-m>
+   <pitch-deg>-90</pitch-deg>
+  </offsets>
+ </model>
+
+ <model>
+  <name>mc_sw30</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/Engines/mc30sw_engine-stopC.xml</path>
+  <offsets>
+   <x-m>-7.972</x-m>
+   <y-m>-0.067</y-m>
+   <z-m>1.192</z-m>
+   <pitch-deg>-90</pitch-deg>
+  </offsets>
+ </model>
+
+ <model>
+  <name>mc_sw31</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/Engines/mc31sw_engine-stopR.xml</path>
+  <offsets>
+   <x-m>-7.972</x-m>
+   <y-m>-0.044</y-m>
+   <z-m>1.192</z-m>
+   <pitch-deg>-90</pitch-deg>
+  </offsets>
+ </model>
+
+ <model>
+  <name>mc_btn32</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/Engines/mc32btn_start-in-airL.xml</path>
+  <offsets>
+   <x-m>-7.955</x-m>
+   <y-m>-0.016</y-m>
+   <z-m>1.191</z-m>
+   <pitch-deg>-90</pitch-deg>
+  </offsets>
+ </model>
+
+ <model>
+  <name>mc_btn33</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/Engines/mc33btn_start-in-airC.xml</path>
+  <offsets>
+   <x-m>-7.955</x-m>
+   <y-m>0.0175</y-m>
+   <z-m>1.191</z-m>
+   <pitch-deg>-90</pitch-deg>
+  </offsets>
+ </model>
+
+ <model>
+  <name>mc_btn34</name>
+  <path>Aircraft/Yak-40/Models/Interior/Units/Engines/mc34btn_start-in-airR.xml</path>
+  <offsets>
+   <x-m>-7.955</x-m>
+   <y-m>0.05</y-m>
+   <z-m>1.191</z-m>
+   <pitch-deg>-90</pitch-deg>
+  </offsets>
+ </model>
+
+</PropertyList>

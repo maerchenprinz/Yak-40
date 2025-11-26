@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+
+<system name="Instruments">
+
+<!--########################################
+## PPTIZ FUEL METER
+#########################################-->
+ <channel name="PPTIZ" execrate="60">
+
+  <switch name="/yak-40/FuelSystem/indicated-fuel-kg">
+   <default value="0.0"/>
+   <test logic="AND" value="0.0">
+	/yak-40/AZS/l0104 EQ 1.0
+	/yak-40/FuelSystem/btn_h EQ 1.0
+   </test>
+   <test logic="AND" value="4400.0">
+	/yak-40/AZS/l0104 EQ 1.0
+	/yak-40/FuelSystem/btn_p EQ 1.0
+   </test>
+   <test logic="AND" value="/consumables/fuel/tank[0]/level-kg">
+	/yak-40/AZS/l0104 EQ 1.0
+	/yak-40/FuelSystem/sw_pptiz-ind EQ -1.0
+   </test>
+   <test logic="AND" value="/consumables/fuel/total-fuel-kg">
+	/yak-40/AZS/l0104 EQ 1.0
+	/yak-40/FuelSystem/sw_pptiz-ind EQ 0.0
+   </test>
+   <test logic="AND" value="/consumables/fuel/tank[3]/level-kg">
+	/yak-40/AZS/l0104 EQ 1.0
+	/yak-40/FuelSystem/sw_pptiz-ind EQ 1.0
+   </test>
+  </switch>
+
+ </channel>
+
+</system>

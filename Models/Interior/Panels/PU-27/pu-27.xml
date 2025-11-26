@@ -1,0 +1,556 @@
+<?xml version="1.0"?>
+
+<!-- PU-27, remoe control panel of GMK-1 -->
+<PropertyList>
+ <path>pu-27.ac</path>
+
+<!-- Set latitude -->
+ <animation>
+   <type>knob</type>
+   <object-name>latitudeknob</object-name>
+    <property>yak-40/GMK-1/PU-27_kn_latitude</property>
+   <factor>3.666</factor>
+  <center>
+   <x-m>0.0</x-m>
+   <y-m>0.0021</y-m>
+   <z-m>-0.0141</z-m>
+  </center>
+  <axis>
+    <x>1.0</x>
+    <y>0.0</y>
+    <z>0.0</z>
+  </axis>
+  <action>
+   <binding>
+    <command>property-adjust</command>
+    <property>yak-40/GMK-1/PU-27_kn_latitude</property>
+    <factor>1</factor>
+    <min>0</min>
+    <max>90</max>                
+    <wrap>false</wrap>
+   </binding>
+  </action>
+  <hovered>
+   <binding>
+    <command>set-tooltip</command>
+    <tooltip-id>pu27lat</tooltip-id>
+    <label>Set Current
+Latitude</label>
+   </binding>
+  </hovered>
+ </animation>
+
+<!-- Set Hemisphere -->
+ <animation>
+  <type>pick</type>
+  <object-name>clickspot_hemin</object-name>
+  <visible>false</visible>
+  <action>
+   <button>0</button>
+   <repeatable>false</repeatable>
+    <binding>
+     <command>nasal</command>
+      <script>
+	interpolate("yak-40/GMK-1/PU-27_sw_hemisphere", 1.0, 0.1 );
+      </script>
+    </binding>
+  </action>
+  <hovered>
+   <binding>
+    <command>set-tooltip</command>
+    <tooltip-id>pu27hemin</tooltip-id>
+    <label>Set NORTHERN
+   Hemisphere</label>
+   </binding>
+  </hovered>
+ </animation>
+
+ <animation>
+  <type>pick</type>
+  <object-name>clickspot_hemis</object-name>
+  <visible>false</visible>
+  <action>
+   <button>0</button>
+   <repeatable>false</repeatable>
+    <binding>
+     <command>nasal</command>
+      <script>
+	interpolate("yak-40/GMK-1/PU-27_sw_hemisphere", -1.0, 0.1 );
+      </script>
+    </binding>
+  </action>
+  <hovered>
+   <binding>
+    <command>set-tooltip</command>
+    <tooltip-id>pu27hemis</tooltip-id>
+    <label>Set SOUTHERN
+   Hemisphere</label>
+   </binding>
+  </hovered>
+ </animation>
+
+ <animation>
+   <type>rotate</type>
+   <object-name>s-n_front</object-name>
+   <property>yak-40/GMK-1/PU-27_sw_hemisphere</property>
+  <interpolation>
+    <entry><ind>-1.0</ind><dep>-15.0</dep></entry>
+    <entry><ind>1.0</ind><dep>15.0</dep></entry>
+  </interpolation>
+  <center>
+   <x-m>-0.003</x-m>
+   <y-m>-0.045</y-m>
+   <z-m>0.0</z-m>
+  </center>
+  <axis>
+    <x>0.0</x>
+    <y>0.0</y>
+    <z>-1.0</z>
+  </axis>
+ </animation>
+
+ <animation>
+   <type>rotate</type>
+   <object-name>s-n_back</object-name>
+   <property>yak-40/GMK-1/PU-27_sw_hemisphere</property>
+  <interpolation>
+    <entry><ind>-1.0</ind><dep>-3.0</dep></entry>
+    <entry><ind>1.0</ind><dep>3.0</dep></entry>
+  </interpolation>
+  <center>
+   <x-m>-0.002</x-m>
+   <y-m>-0.045</y-m>
+   <z-m>0.0</z-m>
+  </center>
+  <axis>
+    <x>0.0</x>
+    <y>0.0</y>
+    <z>-1.0</z>
+  </axis>
+ </animation>
+
+<!-- Control 0-300 -->
+ <animation>
+  <type>pick</type>
+  <object-name>clickspot_0</object-name>
+  <visible>false</visible>
+  <action>
+   <button>0</button>
+   <repeatable>false</repeatable>
+    <binding>
+     <command>nasal</command>
+      <script>
+	interpolate("yak-40/GMK-1/PU-27_sw_ctrl_0-300", 1.0, 0.1 );
+      </script>
+    </binding>
+   <mod-up>
+    <binding>
+     <command>nasal</command>
+      <script>
+	interpolate("yak-40/GMK-1/PU-27_sw_ctrl_0-300", 0.0, 0.1 );
+      </script>
+    </binding>
+   </mod-up>
+  </action>
+  <hovered>
+   <binding>
+    <command>set-tooltip</command>
+    <tooltip-id>pu27check0</tooltip-id>
+    <label>GMK Check
+0 degrees</label>
+   </binding>
+  </hovered>
+ </animation>
+
+ <animation>
+  <type>pick</type>
+  <object-name>clickspot_300</object-name>
+  <visible>false</visible>
+  <action>
+   <button>0</button>
+   <repeatable>false</repeatable>
+    <binding>
+     <command>nasal</command>
+      <script>
+	interpolate("yak-40/GMK-1/PU-27_sw_ctrl_0-300", -1.0, 0.1 );
+      </script>
+    </binding>
+   <mod-up>
+    <binding>
+     <command>nasal</command>
+      <script>
+	interpolate("yak-40/GMK-1/PU-27_sw_ctrl_0-300", 0.0, 0.1 );
+      </script>
+    </binding>
+   </mod-up>
+  </action>
+  <hovered>
+   <binding>
+    <command>set-tooltip</command>
+    <tooltip-id>pu27check0</tooltip-id>
+    <label> GMK Check
+300 degrees</label>
+   </binding>
+  </hovered>
+ </animation>
+
+ <animation>
+   <type>rotate</type>
+   <object-name>contr_front</object-name>
+   <property>yak-40/GMK-1/PU-27_sw_ctrl_0-300</property>
+  <interpolation>
+    <entry><ind>-1.0</ind><dep>-15.0</dep></entry>
+    <entry><ind>1.0</ind><dep>15.0</dep></entry>
+  </interpolation>
+  <center>
+   <x-m>-0.003</x-m>
+   <y-m>-0.0455</y-m>
+   <z-m>0.0</z-m>
+  </center>
+  <axis>
+    <x>0.0</x>
+    <y>0.0</y>
+    <z>-1.0</z>
+  </axis>
+ </animation>
+
+ <animation>
+   <type>rotate</type>
+   <object-name>contr_back</object-name>
+   <property>yak-40/GMK-1/PU-27_sw_ctrl_0-300</property>
+  <interpolation>
+    <entry><ind>-1.0</ind><dep>-3.0</dep></entry>
+    <entry><ind>1.0</ind><dep>3.0</dep></entry>
+  </interpolation>
+  <center>
+   <x-m>-0.002</x-m>
+   <y-m>-0.0455</y-m>
+   <z-m>0.0</z-m>
+  </center>
+  <axis>
+    <x>0.0</x>
+    <y>0.0</y>
+    <z>-1.0</z>
+  </axis>
+ </animation>
+
+<!-- Select active gyro -->
+ <animation>
+  <type>pick</type>
+  <object-name>clickspot_gyro2</object-name>
+  <visible>false</visible>
+  <action>
+   <button>0</button>
+   <repeatable>false</repeatable>
+    <binding>
+     <command>nasal</command>
+      <script>
+	interpolate("yak-40/GMK-1/PU-27_sw_active_gyro", 1.0, 0.1 );
+      </script>
+    </binding>
+  </action>
+ </animation>
+
+ <animation>
+  <type>pick</type>
+  <object-name>clickspot_gyro1</object-name>
+  <visible>false</visible>
+  <action>
+   <button>0</button>
+   <repeatable>false</repeatable>
+    <binding>
+     <command>nasal</command>
+      <script>
+	interpolate("yak-40/GMK-1/PU-27_sw_active_gyro", 0.0, 0.1 );
+      </script>
+    </binding>
+  </action>
+ </animation>
+
+ <animation>
+   <type>rotate</type>
+   <object-name>sw_act_gyro_front</object-name>
+   <property>yak-40/GMK-1/PU-27_sw_active_gyro</property>
+  <interpolation>
+    <entry><ind>1.0</ind><dep>-15.0</dep></entry>
+    <entry><ind>0.0</ind><dep>15.0</dep></entry>
+  </interpolation>
+  <center>
+   <x-m>-0.003</x-m>
+   <y-m>0.0024</y-m>
+   <z-m>0.0</z-m>
+  </center>
+  <axis>
+    <x>0.0</x>
+    <y>0.0</y>
+    <z>1.0</z>
+  </axis>
+ </animation>
+
+ <animation>
+   <type>rotate</type>
+   <object-name>sw_act_gyro_back</object-name>
+   <property>yak-40/GMK-1/PU-27_sw_active_gyro</property>
+  <interpolation>
+    <entry><ind>1.0</ind><dep>-3.0</dep></entry>
+    <entry><ind>0.0</ind><dep>3.0</dep></entry>
+  </interpolation>
+  <center>
+   <x-m>-0.002</x-m>
+   <y-m>0.0024</y-m>
+   <z-m>0.0</z-m>
+  </center>
+  <axis>
+    <x>0.0</x>
+    <y>0.0</y>
+    <z>1.0</z>
+  </axis>
+ </animation>
+
+<!-- GPK manual correction -->
+ <animation>
+  <type>pick</type>
+  <object-name>clickspot_zkl</object-name>
+  <visible>false</visible>
+  <action>
+   <button>0</button>
+   <repeatable>true</repeatable>
+    <binding>
+     <command>nasal</command>
+      <script>
+	interpolate("yak-40/GMK-1/PU-27_sw_gyro_man_corr", -1.0, 0.1 );
+      </script>
+    </binding>
+    <binding>
+     <command>property-adjust</command>
+      <property>yak-40/GMK-1/PU-27_gyro_corr</property>
+      <step>-1.0</step>
+      <min>-180</min>
+      <max>180</max>
+      <wrap>true</wrap>
+    </binding>
+    <!--binding>
+     <command>property-adjust</command>
+      <property>yak-40/GMK-1/GA-6-1_init</property>
+      <step>-1.0</step>
+    </binding-->
+   <mod-up>
+    <binding>
+     <command>nasal</command>
+      <script>
+	interpolate("yak-40/GMK-1/PU-27_sw_gyro_man_corr", 0.0, 0.1 );
+      </script>
+    </binding>
+   </mod-up>
+  </action>
+ </animation>
+
+ <animation>
+  <type>pick</type>
+  <object-name>clickspot_zkr</object-name>
+  <visible>false</visible>
+  <action>
+   <button>0</button>
+   <repeatable>true</repeatable>
+    <binding>
+     <command>nasal</command>
+      <script>
+	interpolate("yak-40/GMK-1/PU-27_sw_gyro_man_corr", 1.0, 0.1 );
+      </script>
+    </binding>
+    <binding>
+     <command>property-adjust</command>
+      <property>yak-40/GMK-1/PU-27_gyro_corr</property>
+      <step>1.0</step>
+      <min>-180</min>
+      <max>180</max>
+      <wrap>true</wrap>
+    </binding>
+    <!--binding>
+     <command>property-adjust</command>
+      <property>yak-40/GMK-1/GA-6-1_init</property>
+      <step>1.0</step>
+    </binding-->
+   <mod-up>
+    <binding>
+     <command>nasal</command>
+      <script>
+	interpolate("yak-40/GMK-1/PU-27_sw_gyro_man_corr", 0.0, 0.1 );
+      </script>
+    </binding>
+   </mod-up>
+  </action>
+ </animation>
+
+ <animation>
+   <type>rotate</type>
+   <object-name>sw_zk_front</object-name>
+   <property>yak-40/GMK-1/PU-27_sw_gyro_man_corr</property>
+  <interpolation>
+    <entry><ind>-1.0</ind><dep>-15.0</dep></entry>
+    <entry><ind>1.0</ind><dep>15.0</dep></entry>
+  </interpolation>
+  <center>
+   <x-m>-0.003</x-m>
+   <y-m>0.048</y-m>
+   <z-m>0.0</z-m>
+  </center>
+  <axis>
+    <x>0.0</x>
+    <y>0.0</y>
+    <z>1.0</z>
+  </axis>
+ </animation>
+
+ <animation>
+   <type>rotate</type>
+   <object-name>sw_zk_back</object-name>
+   <property>yak-40/GMK-1/PU-27_sw_gyro_man_corr</property>
+  <interpolation>
+    <entry><ind>-1.0</ind><dep>-3.0</dep></entry>
+    <entry><ind>1.0</ind><dep>3.0</dep></entry>
+  </interpolation>
+  <center>
+   <x-m>-0.002</x-m>
+   <y-m>0.048</y-m>
+   <z-m>0.0</z-m>
+  </center>
+  <axis>
+    <x>0.0</x>
+    <y>0.0</y>
+    <z>1.0</z>
+  </axis>
+ </animation>
+
+<!-- Select mode -->
+ <animation>
+  <type>pick</type>
+  <object-name>clickspot_MK</object-name>
+  <visible>false</visible>
+  <action>
+   <button>0</button>
+   <repeatable>false</repeatable>
+    <binding>
+     <command>nasal</command>
+      <script>
+	interpolate("yak-40/GMK-1/PU-27_sw_gmk_mode", -1.0, 0.1 );
+      </script>
+    </binding>
+  </action>
+ </animation>
+
+ <animation>
+  <type>pick</type>
+  <object-name>clickspot_GPK</object-name>
+  <visible>false</visible>
+  <action>
+   <button>0</button>
+   <repeatable>false</repeatable>
+    <binding>
+     <command>nasal</command>
+      <script>
+	interpolate("yak-40/GMK-1/PU-27_sw_gmk_mode", 0.0, 0.1 );
+      </script>
+    </binding>
+  </action>
+ </animation>
+
+ <animation>
+  <type>pick</type>
+  <object-name>clickspot_AK</object-name>
+  <visible>false</visible>
+  <action>
+   <button>0</button>
+   <repeatable>false</repeatable>
+    <binding>
+     <command>nasal</command>
+      <script>
+	interpolate("yak-40/GMK-1/PU-27_sw_gmk_mode", 1.0, 0.1 );
+      </script>
+    </binding>
+  </action>
+ </animation>
+
+ <animation>
+   <type>rotate</type>
+   <object-name>sw_mode_front</object-name>
+   <property>yak-40/GMK-1/PU-27_sw_gmk_mode</property>
+  <interpolation>
+    <entry><ind>-1.0</ind><dep>-15.0</dep></entry>
+    <entry><ind>1.0</ind><dep>15.0</dep></entry>
+  </interpolation>
+  <center>
+   <x-m>-0.003</x-m>
+   <y-m>0.048</y-m>
+   <z-m>0.0</z-m>
+  </center>
+  <axis>
+    <x>0.0</x>
+    <y>0.0</y>
+    <z>1.0</z>
+  </axis>
+ </animation>
+
+ <animation>
+   <type>rotate</type>
+   <object-name>sw_mode_back</object-name>
+   <property>yak-40/GMK-1/PU-27_sw_gmk_mode</property>
+  <interpolation>
+    <entry><ind>-1.0</ind><dep>-3.0</dep></entry>
+    <entry><ind>1.0</ind><dep>3.0</dep></entry>
+  </interpolation>
+  <center>
+   <x-m>-0.002</x-m>
+   <y-m>0.048</y-m>
+   <z-m>0.0</z-m>
+  </center>
+  <axis>
+    <x>0.0</x>
+    <y>0.0</y>
+    <z>1.0</z>
+  </axis>
+ </animation>
+
+<!-- Text OSG -->
+  <animation>
+    <type>select</type>
+    <object-name>textpu27</object-name>
+    <condition>
+      <property>sim/panel-hotspots</property>
+    </condition>
+  </animation>
+
+  <text>
+    <name>textpu27</name>
+    <type type="string">literal</type>
+    <text type="string">PU-27 GMK-1 Control Panel</text>
+    <draw-text type="bool">true</draw-text>
+    <font>Helvetica.txf</font>
+    <character-size type="double">0.014</character-size>
+    <character-aspect-ratio type="double">1.0</character-aspect-ratio>
+    <axis-alignment>xy-plane</axis-alignment>
+    <max-height>0.1</max-height>
+    <max-width>0.1</max-width>
+    <font-resolution>
+      <width type="int">64</width>
+      <height type="int">64</height>
+    </font-resolution>
+    <alignment>center-center</alignment>
+    <offsets>
+      <x-m>  0.000 </x-m>
+      <y-m>  0.000 </y-m>
+      <z-m>  0.025 </z-m>
+      <heading-deg>90</heading-deg>
+    </offsets>
+  </text>
+  <animation>
+    <type>material</type>
+    <object-name>textpu27</object-name>
+    <emission>
+      <red>1.0</red>
+      <green>1.0</green>
+      <blue> 1.0</blue>
+    </emission>
+  </animation>
+
+</PropertyList>
