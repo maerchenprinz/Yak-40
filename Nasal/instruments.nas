@@ -20,16 +20,16 @@ var PumpModes = func() {
 }
 # setlistener("yak-40/FuelSystem/level-switch", PumpModes, 0, 0);
 
-var SelPumpModes = func() {
-	var AutoFuel = getprop("yak-40/FuelSystem/sw_auto-fuel-centering");
-	var ManualWeakened = getprop("yak-40/FuelSystem/sw_weakened-mode");
-	var LevelStatus = getprop("yak-40/FuelSystem/level-switch");
-	var Pump463L_mode = getprop("yak-40/FuelSystem/Pump463L_mode");
-	if ( (LevelStatus == 2.0 or ManualWeakened == 1.0) ) {
-		Pump463L_mode = 0.25 ;
-		}
-	else if 
-}
+#var SelPumpModes = func() {
+#	var AutoFuel = getprop("yak-40/FuelSystem/sw_auto-fuel-centering");
+#	var ManualWeakened = getprop("yak-40/FuelSystem/sw_weakened-mode");
+#	var LevelStatus = getprop("yak-40/FuelSystem/level-switch");
+#	var Pump463L_mode = getprop("yak-40/FuelSystem/Pump463L_mode");
+#	if ( (LevelStatus == 2.0 or ManualWeakened == 1.0) ) {
+#		Pump463L_mode = 0.25 ;
+#		}
+#	else if 
+#}
 # setlistener("yak-40/FuelSystem/level-switch", SelPumpModes, 0, 0);
 
 #########################################
